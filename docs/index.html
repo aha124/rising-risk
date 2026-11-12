@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rising Risk: who should the care team call?</title>
+<meta name="description" content="A model that picks which members a care team should call on January 1, tested against the usual rule of calling whoever cost the most last year, with a close look at where its gain comes from. Built on synthetic patients, with the warehouse, evaluation, audit and monitoring shown.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rising Risk: who should the care team call?">
+<meta property="og:description" content="A risk model for care outreach, tested against the rule most teams start with. Synthetic patients, real pipeline.">
+<meta property="og:url" content="https://aha124.github.io/rising-risk/">
+<meta property="og:image" content="https://aha124.github.io/rising-risk/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rising Risk: who should the care team call?">
+<meta name="twitter:description" content="A risk model for care outreach, tested against the rule most teams start with. Synthetic patients, real pipeline.">
+<meta name="twitter:image" content="https://aha124.github.io/rising-risk/og.png">
+<meta name="theme-color" content="#ede7d3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16181c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-serif-4-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the results</a>
+
+<div class="fixture-banner" id="fixture-banner" role="status" hidden>
+  Placeholder data. <span>The numbers and charts on this page are placeholders, not output from the trained model.</span>
+</div>
+
+<div class="page">
+  <header class="masthead">
+    <a class="wordmark" href="./">Rising Risk</a>
+    <nav aria-label="Sections">
+      <a href="#results">Results</a>
+      <a href="#gain">The gain</a>
+      <a href="#why">Try the model</a>
+      <a href="#fairness">Audit</a>
+      <a href="#limits">Limits</a>
+      <a href="#run">Code</a>
+    </nav>
+  </header>
+
+
+  <main id="main">
+    <dl class="docket" aria-label="About this run">
+      <div><dt>Decision</dt><dd>Who to call on January 1</dd></div>
+      <div><dt>Data</dt><dd id="dk-data">Synthetic patients</dd></div>
+      <div><dt>Model version</dt><dd id="dk-version">&nbsp;</dd></div>
+      <div><dt>Generated</dt><dd id="dk-date">&nbsp;</dd></div>
+      <div><dt>Commit</dt><dd id="dk-sha">&nbsp;</dd></div>
+    </dl>
+
+    <section class="hero" id="top" aria-labelledby="h-hero">
+      <div class="hero-head">
+        <h1 id="h-hero">Who should the care team call?</h1>
+        <div>
+          <p class="lede" id="lede">Loading the results.</p>
+          <p class="lede-2" id="lede-2"></p>
+        </div>
+      </div>
+
+      <div class="field" id="field">
+        <fieldset class="field-controls" id="field-controls">
+          <legend>Put members in order by</legend>
+        </fieldset>
+        <div class="field-stage" id="field-stage">
+          <canvas id="field-canvas" role="img" aria-describedby="field-sentence"></canvas>
+          <div class="field-label" id="field-label-band"></div>
+          <div class="field-label" id="field-label-rest"></div>
+        </div>
+        <div class="field-foot">
+          <p class="field-sentence" id="field-sentence" aria-live="polite"></p>
+          <ul class="legend" aria-label="Legend">
+            <li><span class="key dot c-signal"></span>Ended up high cost</li>
+            <li><span class="key dot c-dot"></span>Did not</li>
+          </ul>
+        </div>
+        <details id="field-table-wrap">
+          <summary>The same picture as a table</summary>
+          <div class="table-wrap" id="field-table"></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="decision" aria-labelledby="h-decision">
+      <header><h2 id="h-decision">The decision</h2></header>
+      <div class="body">
+        <p>A care navigation team has a fixed number of nurses and a fixed number of hours. It cannot call every member, so each January it works from a list. Here the list is the <span data-s="k_pct"></span> of adult members the team ranks highest, which comes to <span data-s="n_called_test"></span> calls across the test years.</p>
+        <p>The usual way to build the list is to sort members by what they cost last year and start from the top. It is a good rule. Expensive people tend to stay expensive, the number is easy to explain, and it needs no model. Anything more complicated has to beat it at the same capacity to be worth running.</p>
+        <p>What that rule cannot see is the member who was cheap last year and will not be this year. Finding those members is what rising risk means here. The model looks for them in the rest of the record (age, sex, conditions, medications, labs, visits), predicts who will land in the top <span data-s="k_pct"></span> of next year's cost using only what was recorded before January 1, and is judged on how many of those members it puts on the list. Who the extra members turn out to be matters as much as how many there are, so that question gets <a href="#gain">its own section</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="data" aria-labelledby="h-data">
+      <header>
+        <h2 id="h-data">Where the data comes from</h2>
+        <p id="data-gloss"></p>
+      </header>
+      <div class="body">
+        <p id="data-intro"></p>
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>From raw files to one modeling table</h3>
+            <p class="sub">Each box is a table in the dbt project, with its row count. Select one to see what it holds, and which tables sit upstream and downstream of it.</p>
+          </div></div>
+          <div class="lineage" id="lineage"></div>
+          <div class="node-detail" id="node-detail" aria-live="polite"><p>No table selected.</p></div>
+        </div>
+        <h3>Checks against leakage</h3>
+        <p id="tests-line"></p>
+        <ul class="checks" id="leakage"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="results" aria-labelledby="h-results">
+      <header>
+        <h2 id="h-results">Does it beat the simple rule?</h2>
+        <p id="results-gloss"></p>
+      </header>
+      <div class="body">
+        <p class="finding" id="results-finding"></p>
+        <p id="results-finding-2"></p>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3 id="cmp-title">High-cost members reached</h3>
+            <p class="sub" id="cmp-sub"></p>
+          </div></div>
+          <div class="chart" id="chart-compare"></div>
+        </div>
+
+        <div class="fig">
+          <div class="fig-head">
+            <div>
+              <h3>What each extra call buys</h3>
+              <p class="sub">Members are called in ranked order. The curve shows the share reached as the list grows.</p>
+            </div>
+            <fieldset class="seg" id="gains-toggle">
+              <legend class="vh">Measure</legend>
+              <label><input type="radio" name="gains" value="found" checked>High-cost members found</label>
+              <label><input type="radio" name="gains" value="dollars">Dollars captured</label>
+            </fieldset>
+          </div>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key line c-model"></span>The model</li>
+            <li><span class="key line c-base"></span>Last year's cost</li>
+            <li><span class="key line thin c-ink"></span>Logistic regression</li>
+            <li><span class="key line dash c-base"></span>Random</li>
+          </ul>
+          <div class="chart" id="chart-gains"></div>
+          <details><summary>Values at selected capacities</summary><div class="table-wrap" id="table-gains"></div></details>
+        </div>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>Are the probabilities honest?</h3>
+            <p class="sub">Members are sorted by predicted probability and cut into ten equal groups. A calibrated model sits on the diagonal.</p>
+          </div></div>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key dot c-model"></span>After calibration</li>
+            <li><span class="key ring c-model"></span>Before calibration</li>
+            <li><span class="key line thin c-ink"></span>Perfect calibration</li>
+          </ul>
+          <div class="chart" id="chart-calibration"></div>
+          <p class="fig-note" id="calibration-note"></p>
+          <details><summary>Calibration bins as a table</summary><div class="table-wrap" id="table-calibration"></div></details>
+        </div>
+
+        <details id="rocpr">
+          <summary>ROC and precision-recall curves</summary>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key line c-model"></span>The model</li>
+            <li><span class="key line c-base"></span>Last year's cost</li>
+            <li><span class="key line thin c-ink"></span>Logistic regression</li>
+          </ul>
+          <div class="pair">
+            <div><h3>ROC</h3><div class="chart" id="chart-roc"></div></div>
+            <div><h3>Precision-recall</h3><div class="chart" id="chart-pr"></div></div>
+          </div>
+          <div class="table-wrap" id="table-rocpr"></div>
+        </details>
+
+        <h3>Checks on the result</h3>
+        <p id="checks-intro"></p>
+        <div class="table-wrap" id="table-checks"></div>
+      </div>
+    </section>
+
+    <section class="section" id="gain" aria-labelledby="h-gain">
+      <header>
+        <h2 id="h-gain">Where the gain comes from</h2>
+        <p>A headline number says how many more members the model finds. It does not say who they are.</p>
+      </header>
+      <div class="body">
+        <p class="finding" id="gain-finding"></p>
+        <div id="gain-detail"></div>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>Who each list finds that the other misses</h3>
+            <p class="sub" id="unit-sub"></p>
+          </div></div>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key dot c-signal"></span>High cost, only on the model's list</li>
+            <li><span class="key ring c-signal"></span>High cost, only on the rule's list</li>
+          </ul>
+          <div class="unit-chart" id="chart-units"></div>
+          <details><summary>The same counts as a table</summary><div class="table-wrap" id="table-units"></div></details>
+        </div>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>The same comparison inside each group</h3>
+            <p class="sub">Each group is ranked on its own and its top <span data-s="k_pct"></span> is called. Bars show 95% intervals.</p>
+          </div></div>
+          <div class="pair">
+            <div><div id="stratum-a-head"></div><div class="chart" id="chart-stratum-a"></div></div>
+            <div><div id="stratum-b-head"></div><div class="chart" id="chart-stratum-b"></div></div>
+          </div>
+        </div>
+        <p id="stratum-finding" style="margin-top:1.4em"></p>
+
+        <h3>What I would do with this</h3>
+        <p id="gain-position"></p>
+        <p id="gain-cost"></p>
+
+        <h3>Does the gain survive changing the setup?</h3>
+        <p id="variations-note"></p>
+        <div class="table-wrap" id="table-variations"></div>
+      </div>
+    </section>
+
+    <section class="section" id="planner" aria-labelledby="h-planner">
+      <header>
+        <h2 id="h-planner">Plan the outreach</h2>
+        <p>Capacity is the real constraint, so read the comparison at the capacity a team has.</p>
+      </header>
+      <div class="body">
+        <div class="planner-top">
+          <div>
+            <label for="cap">Share of members the team can call</label>
+            <input type="range" id="cap" min="1" max="50" step="1" value="10">
+            <div class="range-ends" aria-hidden="true"><span id="cap-min"></span><span id="cap-max"></span></div>
+          </div>
+          <p class="planner-read" id="planner-read" aria-live="polite"></p>
+        </div>
+        <div class="bars" id="planner-bars"></div>
+        <p class="fig-note" id="planner-note" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section" id="why" aria-labelledby="h-why">
+      <header>
+        <h2 id="h-why">Why this member?</h2>
+        <p>Race and ethnicity are not inputs. Sex and age are. Every factor shown is something recorded before January 1.</p>
+      </header>
+      <div class="body">
+        <p id="why-intro"></p>
+        <fieldset class="picker" id="picker"><legend class="vh">Choose a member</legend></fieldset>
+        <div class="case">
+          <div>
+            <div id="case-facts"></div>
+            <p style="margin-top:14px"><button class="btn" type="button" id="load-exemplar">Load this member into the scorer</button></p>
+          </div>
+          <div>
+            <ul class="legend" aria-hidden="true">
+              <li><span class="key dot c-model" style="border-radius:0"></span>Raises the score</li>
+              <li><span class="key ring c-model" style="border-radius:0"></span>Lowers the score</li>
+            </ul>
+            <div class="chart" id="chart-waterfall"></div>
+            <p class="fig-note" id="waterfall-note"></p>
+          </div>
+        </div>
+
+        <details id="global">
+          <summary>What the model leans on across all members</summary>
+          <div class="chart" id="chart-importance"></div>
+          <h3>How the top features move the score</h3>
+          <p class="sub" style="font-family:var(--display);font-stretch:88%;font-size:.92rem;color:var(--ink-2)">Average contribution to the score (log-odds) at each value of the feature.</p>
+          <div class="pair" id="dependence" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px 28px;margin-top:12px"></div>
+        </details>
+
+        <div class="fig" id="tryit-fig">
+          <div class="fig-head"><div>
+            <h3>Try the model</h3>
+            <p class="sub" id="tryit-sub">Change a member's record and the trained trees score it in your browser.</p>
+          </div>
+          <button class="btn" type="button" id="tryit-reset" hidden>Reset to a typical member</button>
+          </div>
+          <p class="fig-note" id="tryit-state" aria-live="polite"></p>
+          <div class="tryit" id="tryit"><p class="loading" id="tryit-loading">The model loads when you reach this section.</p></div>
+          <p class="fig-note" id="tryit-defaults"></p>
+          <p class="fig-note" id="tryit-note">The page runs the same trees as the Python model. A test in the repository scores a set of held-out rows both ways and fails if any probability differs beyond floating point noise: <a href="https://github.com/aha124/rising-risk/blob/main/docs/tests/parity.mjs">docs/tests/parity.mjs</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fairness" aria-labelledby="h-fairness">
+      <header>
+        <h2 id="h-fairness">Who it works less well for</h2>
+        <p id="fairness-gloss"></p>
+      </header>
+      <div class="body">
+        <p id="fairness-intro"></p>
+        <div class="fig">
+          <div class="fig-head">
+            <div>
+              <h3 id="fair-title">By group</h3>
+              <p class="sub" id="fair-sub"></p>
+            </div>
+            <fieldset class="seg" id="fair-toggle"><legend class="vh">Measure</legend></fieldset>
+          </div>
+          <ul class="legend" id="fair-legend" aria-hidden="true"></ul>
+          <div class="chart" id="chart-fairness"></div>
+          <p class="fig-note" id="fair-finding"></p>
+          <details><summary>All group measures as a table</summary><div class="table-wrap" id="table-fairness"></div></details>
+        </div>
+
+        <h3>Cost is not the same as need</h3>
+        <p>The model predicts cost. People who have trouble getting care spend less at the same level of illness, so a cost model can rank them lower than their health warrants. Obermeyer and colleagues (Science, 2019) found this in a widely used commercial algorithm. The check below asks whether members with the same score carry the same number of chronic conditions in every group.</p>
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>Chronic conditions at the same score</h3>
+            <p class="sub" id="proxy-sub">Average number of active chronic condition groups by score decile. Each panel highlights one group against the others. A line above the rest would mean that group is sicker at the same score.</p>
+          </div></div>
+          <div class="pair" id="proxy" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px 24px"></div>
+          <details><summary>The same numbers as a table</summary><div class="table-wrap" id="table-proxy"></div></details>
+        </div>
+        <p class="fig-note" id="proxy-finding"></p>
+        <p>A generator only contains the access patterns its authors wrote into it, so neither a gap nor a clean result here says anything about real members. The check is on this page because it has to be rerun on real data before any use, and it is easier to rerun a check that already exists.</p>
+      </div>
+    </section>
+
+    <section class="section" id="monitoring" aria-labelledby="h-monitoring">
+      <header>
+        <h2 id="h-monitoring">After launch</h2>
+        <p id="monitoring-gloss"></p>
+      </header>
+      <div class="body">
+        <p>A model like this is trained once and used all year, while the data feeding it keeps changing. The monitor compares each year's inputs and scores with the training years, using the population stability index (PSI). <span id="lag-note"></span></p>
+
+        <h3 id="shift-title">What the monitor found in this data</h3>
+        <div id="shift-text"></div>
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3>Drift by year, score and inputs</h3>
+            <p class="sub" id="psi-sub"></p>
+          </div></div>
+          <div class="pair" id="psi-panels" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px 28px"></div>
+          <details><summary>Every input that crossed a line, by year</summary><div class="table-wrap" id="table-shifts"></div></details>
+          <details><summary>Latest year, every input</summary><div class="table-wrap" id="table-psi"></div></details>
+        </div>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3 id="yr-title">Accuracy by year</h3>
+            <p class="sub" id="yr-sub"></p>
+          </div></div>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key line c-model"></span>The model</li>
+            <li><span class="key line c-base"></span>Last year's cost</li>
+            <li id="yr-hollow-key"><span class="key ring c-model"></span>Outcome not yet known on the scoring date</li>
+          </ul>
+          <div class="chart" id="chart-years"></div>
+          <details><summary>Yearly values as a table</summary><div class="table-wrap" id="table-years"></div></details>
+        </div>
+
+        <div class="fig">
+          <div class="fig-head"><div>
+            <h3 id="sim-title">A simulated upstream change</h3>
+            <p class="sub">This is a simulation, not something that happened in the data.</p>
+          </div></div>
+          <p id="sim-desc"></p>
+          <ul class="legend" aria-hidden="true">
+            <li><span class="key line thin c-ink"></span>Scores before the change</li>
+            <li><span class="key line c-model"></span>Scores after</li>
+          </ul>
+          <div class="chart" id="chart-sim"></div>
+          <div class="table-wrap" id="table-sim"></div>
+          <p class="fig-note" id="sim-note"></p>
+          <div id="other-sims"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="limits" aria-labelledby="h-limits">
+      <header><h2 id="h-limits">Limits</h2></header>
+      <div class="body">
+        <ul class="plain">
+          <li><b>The patients are synthetic, and that makes the problem easier.</b> Synthea builds each patient from rule-driven disease modules, so cost follows the recorded conditions more predictably than it does in real claims. Nobody here is a real person, and these results should not be expected to carry over to real claims data.</li>
+          <li id="limit-gain"><b>The headline gain is mostly one group.</b> <span id="limit-gain-text"></span></li>
+          <li id="limit-age"><b>It does not work equally well at every age.</b> <span id="limit-age-text"></span></li>
+          <li><b>The target is cost.</b> Cost is a stand-in for need and a flawed one. A team that cares about avoidable admissions or unmanaged disease should predict those instead, and accept that they are harder to measure.</li>
+          <li><b>The model says who will be expensive, not who a call will help.</b> Some high-cost members cannot be helped by outreach and some cheaper ones can. Finding out who benefits takes an experiment that holds some members out of outreach at random. This project does not have one, so nothing here estimates savings.</li>
+          <li><b>The race comparison says nothing about a real population.</b> Race and ethnicity in this data are whatever the generator assigned. The audit shows the method and has to be rerun on real members.</li>
+          <li><b>Nothing here is clinically validated.</b> It shows how the work would be done, and it is not a tool for making decisions about patients.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="run" aria-labelledby="h-run">
+      <header><h2 id="h-run">Run it yourself</h2></header>
+      <div class="body">
+        <p>Everything on this page is rebuilt from a fixed seed by these commands.</p>
+<pre><code>git clone https://github.com/aha124/rising-risk
+cd rising-risk
+make setup       # virtual environment and dependencies
+make data        # generate the synthetic patients (needs Java, about 16 minutes)
+make warehouse   # dbt build and tests, export the modeling table
+make train       # train, evaluate, write the reports and the JSON this page reads
+make site        # serve this page on http://localhost:8080</code></pre>
+        <ul class="links">
+          <li><a href="https://github.com/aha124/rising-risk"><b>Repository</b><span>All code, tests and CI</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/blob/main/README.md"><b>README</b><span>Results, architecture, how to reproduce</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/blob/main/MODEL_CARD.md"><b>Model card</b><span>Intended use, evaluation, caveats</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/tree/main/warehouse"><b>dbt project</b><span>Staging, intermediate and mart models with their tests</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/tree/main/src/riskmodel"><b>Model code</b><span>Training, evaluation, audit, drift</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/tree/main/api"><b>Scoring API</b><span>FastAPI service, Dockerfile, audit log</span></a></li>
+          <li><a href="https://github.com/aha124/rising-risk/blob/main/docs/tests/parity.mjs"><b>Parity test</b><span>Checks the in-browser scorer against Python</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Anthony Arbaiza</p>
+    <p><a href="https://github.com/aha124">github.com/aha124</a></p>
+  </footer>
+</div>
+
+<p class="synthetic-note">Synthetic patients. Not real people.</p>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<noscript><p style="padding:16px">This page draws its numbers and charts from JSON files with JavaScript. The same results are in the repository README.</p></noscript>
+</body>
+</html>
