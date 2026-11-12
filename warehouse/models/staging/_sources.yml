@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: synthea
+    description: >
+      Synthea CSV export. On DuckDB each table is read straight from the file in the raw_path
+      folder (plain .csv or .csv.gz), every column as text. On Postgres the same files are
+      expected as text-column tables in the "raw" schema.
+    schema: raw
+    meta:
+      external_location: "read_csv('{{ var('raw_path') }}/{name}.csv*', header = true, all_varchar = true)"
+    tables:
+      - name: patients
+        description: One row per synthetic patient, living or deceased.
+      - name: encounters
+        description: One row per encounter, with the claim total for that encounter.
+      - name: conditions
+        description: Problem list entries. Diseases, findings and social circumstances are mixed together.
+      - name: medications
+        description: Medication orders with the cost of one fill.
+      - name: procedures
+        description: Procedures performed during encounters.
+      - name: observations
+        description: Vitals, labs and survey answers.
+      - name: immunizations
+        description: Immunizations given during encounters.
+      - name: payer_transitions
+        description: Insurance coverage periods per patient.
+      - name: payers
+        description: Insurance payers.

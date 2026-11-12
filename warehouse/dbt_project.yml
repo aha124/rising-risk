@@ -1,0 +1,70 @@
+name: rising_risk
+version: "1.0.0"
+config-version: 2
+profile: rising_risk
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # Folder with the Synthea CSV files, relative to the directory dbt is run from (the repo root).
+  # Use data/sample for the small committed sample.
+  raw_path: data/raw
+  # January 1 index dates, first and last year.
+  index_year_start: 2015
+  index_year_end: 2025
+  # Share of each index year cohort labelled high cost.
+  label_top_share: 0.10
+  # Chronic condition groups. Each one becomes a has_<group> flag in the mart.
+  chronic_groups:
+    - diabetes
+    - prediabetes
+    - hypertension
+    - heart_failure
+    - coronary_disease
+    - atrial_fibrillation
+    - stroke
+    - copd
+    - asthma
+    - chronic_kidney_disease
+    - cancer
+    - osteoarthritis
+    - obesity
+    - depression
+    - anxiety
+    - dementia
+    - substance_use
+    - chronic_pain
+
+models:
+  rising_risk:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table
+
+seeds:
+  rising_risk:
+    condition_groups:
+      +column_types:
+        code: varchar
+        description: varchar
+        category: varchar
+        chronic_group: varchar
+        episodic: integer
+        n_patients: integer
+    feature_dictionary:
+      +column_types:
+        position: integer
+        name: varchar
+        label: varchar
+        feature_group: varchar
+        description: varchar
+        unit: varchar
+        dtype: varchar

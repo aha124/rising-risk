@@ -1,0 +1,38 @@
+version: 2
+
+seeds:
+  - name: condition_groups
+    description: >
+      Every condition code seen in the generated data, classified by hand. category says what
+      kind of row it is (chronic, acute, social, administrative and so on). chronic_group is
+      filled only for codes that belong to one of the chronic condition groups. episodic = 1
+      marks conditions that Synthea records as short episodes, where the flag is held for 36
+      months after the episode ends. Built by warehouse/build_condition_groups.py from the
+      most frequent descriptions in the data.
+    columns:
+      - name: code
+        data_tests: [unique, not_null]
+      - name: category
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["chronic", "other_disease", "acute", "injury", "pregnancy", "pregnancy_complication", "dental", "symptom", "social", "administrative", "history"]
+      - name: chronic_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: "{{ var('chronic_groups') }}"
+      - name: episodic
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+  - name: feature_dictionary
+    description: Source for mart_feature_dictionary. One row per model feature, in mart column order.
+    columns:
+      - name: name
+        data_tests: [unique, not_null]

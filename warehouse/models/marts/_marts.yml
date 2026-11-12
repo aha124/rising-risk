@@ -1,0 +1,378 @@
+version: 2
+
+models:
+  - name: mart_member_year
+    description: >
+      The modeling table. One row per eligible member per January 1 index date. Keys first,
+      then features (numeric or 0/1, built only from records dated before index_date), then
+      the audit-only columns race and ethnicity, then the outcome columns.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+    columns:
+      - name: member_id
+        description: Synthea patient id.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_patients')
+                field: patient_id
+      - name: index_date
+        description: January 1 of the index year. Features look back from here, the outcome looks forward.
+        data_tests: [not_null]
+      - name: index_year
+        description: Year of the index date.
+        data_tests: [not_null]
+      - name: age
+        description: "Age in whole years on the index date."
+        data_tests:
+          - not_null
+      - name: sex_female
+        description: "1 if the member is recorded as female, 0 if male."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: payer_medicare
+        description: "1 if the most recent coverage period that started before the index date is Medicare."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: payer_medicaid
+        description: "1 if the most recent coverage period that started before the index date is Medicaid."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: payer_dual_eligible
+        description: "1 if the most recent coverage period that started before the index date is Medicare and Medicaid together."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: payer_private
+        description: "1 if the most recent coverage period that started before the index date is a private payer."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: payer_uninsured
+        description: "1 if the most recent coverage period that started before the index date is no insurance."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: cost_prior_12m
+        description: "Total cost of care in months 1 to 12 before the index date (encounter claim totals plus one fill per medication order)."
+        data_tests:
+          - not_null
+      - name: cost_prior_13_24m
+        description: "Total cost of care in months 13 to 24 before the index date."
+        data_tests:
+          - not_null
+      - name: cost_change_12m
+        description: "Cost in months 1 to 12 minus cost in months 13 to 24."
+      - name: medication_cost_prior_12m
+        description: "Cost of medication orders started in the 12 months before the index date, one fill per order."
+      - name: max_encounter_cost_12m
+        description: "Largest claim total for one encounter in the 12 months before the index date. 0 if there were no encounters."
+      - name: inpatient_cost_share_12m
+        description: "Share of last 12 months cost that came from inpatient encounters. Null if there was no cost."
+      - name: inpatient_admits_12m
+        description: "Inpatient encounters that started in the 12 months before the index date."
+      - name: inpatient_days_12m
+        description: "Days in hospital for inpatient stays that started in the 12 months before the index date, counted up to the index date. A stay counts as at least 1 day."
+      - name: emergency_visits_12m
+        description: "Emergency encounters in the 12 months before the index date."
+      - name: urgent_care_visits_12m
+        description: "Urgent care encounters in the 12 months before the index date."
+      - name: outpatient_visits_12m
+        description: "Outpatient and ambulatory encounters in the 12 months before the index date."
+      - name: wellness_visits_12m
+        description: "Wellness encounters in the 12 months before the index date."
+      - name: other_visits_12m
+        description: "Skilled nursing, hospice, home and virtual encounters in the 12 months before the index date."
+      - name: inpatient_admits_13_24m
+        description: "Inpatient encounters that started in months 13 to 24 before the index date."
+      - name: inpatient_days_13_24m
+        description: "Days in hospital for inpatient stays that started in months 13 to 24 before the index date."
+      - name: emergency_visits_13_24m
+        description: "Emergency encounters in months 13 to 24 before the index date."
+      - name: outpatient_visits_13_24m
+        description: "Outpatient and ambulatory encounters in months 13 to 24 before the index date."
+      - name: months_since_last_inpatient
+        description: "Calendar months from the most recent inpatient admission to the index date, looking back 36 months. Null if there was none."
+      - name: procedures_12m
+        description: "Procedures recorded in the 12 months before the index date."
+      - name: has_diabetes
+        description: "1 if a condition in the diabetes group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_prediabetes
+        description: "1 if a condition in the prediabetes group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_hypertension
+        description: "1 if a condition in the hypertension group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_heart_failure
+        description: "1 if a condition in the heart failure group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_coronary_disease
+        description: "1 if a condition in the coronary disease group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_atrial_fibrillation
+        description: "1 if a condition in the atrial fibrillation group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_stroke
+        description: "1 if a condition in the stroke group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_copd
+        description: "1 if a condition in the COPD group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_asthma
+        description: "1 if a condition in the asthma group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_chronic_kidney_disease
+        description: "1 if a condition in the chronic kidney disease group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_cancer
+        description: "1 if a condition in the cancer group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_osteoarthritis
+        description: "1 if a condition in the osteoarthritis group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_obesity
+        description: "1 if a condition in the obesity group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_depression
+        description: "1 if a condition in the depression group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_anxiety
+        description: "1 if a condition in the anxiety group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_dementia
+        description: "1 if a condition in the dementia group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_substance_use
+        description: "1 if a condition in the substance use group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: has_chronic_pain
+        description: "1 if a condition in the chronic pain group was active on the index date (onset before the index date)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: chronic_group_count
+        description: "Number of the 18 chronic condition groups active on the index date."
+        data_tests:
+          - not_null
+      - name: new_chronic_groups_12m
+        description: "Chronic condition groups active on the index date that were not active 12 months earlier."
+      - name: pregnant_at_index
+        description: "1 if a pregnancy that began before the index date had not ended by it. Not one of the chronic groups."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: active_medications
+        description: "Distinct medications started before the index date and not stopped before it."
+        data_tests:
+          - not_null
+      - name: new_medications_12m
+        description: "Distinct medications with an order started in the 12 months before the index date."
+      - name: bmi
+        description: "Latest body mass index in the 24 months before the index date. Null if none."
+      - name: systolic_bp
+        description: "Latest systolic blood pressure in the 24 months before the index date. Null if none."
+      - name: diastolic_bp
+        description: "Latest diastolic blood pressure in the 24 months before the index date. Null if none."
+      - name: hba1c
+        description: "Latest hemoglobin A1c in the 24 months before the index date. Null if none."
+      - name: egfr
+        description: "Latest estimated glomerular filtration rate in the 24 months before the index date. Null if none."
+      - name: total_cholesterol
+        description: "Latest total cholesterol in the 24 months before the index date. Null if none."
+      - name: pain_score
+        description: "Latest self-reported pain severity (0 to 10) in the 24 months before the index date. Null if none."
+      - name: hba1c_measured
+        description: "1 if an HbA1c result exists in the 24 months before the index date."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: egfr_measured
+        description: "1 if an eGFR result exists in the 24 months before the index date."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: cholesterol_measured
+        description: "1 if a total cholesterol result exists in the 24 months before the index date."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: race
+        description: Audit only. Never a model feature.
+        data_tests: [not_null]
+      - name: ethnicity
+        description: Audit only. Never a model feature.
+        data_tests: [not_null]
+      - name: cost_next_12m
+        description: Outcome. Cost of care from index_date up to the next January 1.
+        data_tests: [not_null]
+      - name: label_high_cost
+        description: Outcome. 1 if cost_next_12m is in the top 10% of the index year cohort.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: died_in_outcome_year
+        description: Outcome. 1 if the member died during the index year. Their cost runs up to death.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: pregnancy_in_outcome_year
+        description: >
+          Outcome, audit only, never a model feature. 1 if a pregnancy is in progress at any
+          point in the outcome year, including one that starts during it.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+  - name: mart_feature_dictionary
+    description: One row per model feature with a label, group, description, unit and type.
+    columns:
+      - name: name
+        data_tests: [unique, not_null]
+      - name: label
+        data_tests: [not_null]
+      - name: group
+        quote: true
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["demographics", "prior cost", "utilization", "conditions", "medications", "vitals and labs"]
+      - name: dtype
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["int", "float", "binary"]

@@ -1,0 +1,21 @@
+rising_risk:
+  target: duckdb
+  outputs:
+    # Default. No server needed. Run dbt from the repo root so the relative paths resolve.
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('RR_DUCKDB_PATH', 'warehouse/rising_risk.duckdb') }}"
+      threads: 2
+      settings:
+        memory_limit: 4GB
+        preserve_insertion_order: false
+    # Optional. Needs the raw CSVs loaded into a "raw" schema first (see warehouse/README.md).
+    postgres:
+      type: postgres
+      host: "{{ env_var('RR_PG_HOST', 'localhost') }}"
+      port: "{{ env_var('RR_PG_PORT', '5432') | as_number }}"
+      user: "{{ env_var('RR_PG_USER', 'rising_risk') }}"
+      password: "{{ env_var('RR_PG_PASSWORD', 'rising_risk') }}"
+      dbname: "{{ env_var('RR_PG_DBNAME', 'rising_risk') }}"
+      schema: "{{ env_var('RR_PG_SCHEMA', 'analytics') }}"
+      threads: 4

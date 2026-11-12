@@ -1,0 +1,60 @@
+position,name,label,feature_group,description,unit,dtype
+1,age,Age,demographics,Age in whole years on the index date.,years,int
+2,sex_female,Female,demographics,"1 if the member is recorded as female, 0 if male.",0/1,binary
+3,payer_medicare,Medicare,demographics,1 if the most recent coverage period that started before the index date is Medicare.,0/1,binary
+4,payer_medicaid,Medicaid,demographics,1 if the most recent coverage period that started before the index date is Medicaid.,0/1,binary
+5,payer_dual_eligible,Dual eligible,demographics,1 if the most recent coverage period that started before the index date is Medicare and Medicaid together.,0/1,binary
+6,payer_private,Private insurance,demographics,1 if the most recent coverage period that started before the index date is a private payer.,0/1,binary
+7,payer_uninsured,Uninsured,demographics,1 if the most recent coverage period that started before the index date is no insurance.,0/1,binary
+8,cost_prior_12m,"Cost, last 12 months",prior cost,Total cost of care in months 1 to 12 before the index date (encounter claim totals plus one fill per medication order).,USD,float
+9,cost_prior_13_24m,"Cost, months 13 to 24",prior cost,Total cost of care in months 13 to 24 before the index date.,USD,float
+10,cost_change_12m,"Cost change, year over year",prior cost,Cost in months 1 to 12 minus cost in months 13 to 24.,USD,float
+11,medication_cost_prior_12m,"Medication cost, last 12 months",prior cost,"Cost of medication orders started in the 12 months before the index date, one fill per order.",USD,float
+12,max_encounter_cost_12m,Largest single encounter cost,prior cost,Largest claim total for one encounter in the 12 months before the index date. 0 if there were no encounters.,USD,float
+13,inpatient_cost_share_12m,Inpatient share of cost,prior cost,Share of last 12 months cost that came from inpatient encounters. Null if there was no cost.,share,float
+14,inpatient_admits_12m,"Inpatient admissions, last 12 months",utilization,Inpatient encounters that started in the 12 months before the index date.,count,int
+15,inpatient_days_12m,"Inpatient days, last 12 months",utilization,"Days in hospital for inpatient stays that started in the 12 months before the index date, counted up to the index date. A stay counts as at least 1 day.",days,int
+16,emergency_visits_12m,"Emergency visits, last 12 months",utilization,Emergency encounters in the 12 months before the index date.,count,int
+17,urgent_care_visits_12m,"Urgent care visits, last 12 months",utilization,Urgent care encounters in the 12 months before the index date.,count,int
+18,outpatient_visits_12m,"Outpatient visits, last 12 months",utilization,Outpatient and ambulatory encounters in the 12 months before the index date.,count,int
+19,wellness_visits_12m,"Wellness visits, last 12 months",utilization,Wellness encounters in the 12 months before the index date.,count,int
+20,other_visits_12m,"Other encounters, last 12 months",utilization,"Skilled nursing, hospice, home and virtual encounters in the 12 months before the index date.",count,int
+21,inpatient_admits_13_24m,"Inpatient admissions, months 13 to 24",utilization,Inpatient encounters that started in months 13 to 24 before the index date.,count,int
+22,inpatient_days_13_24m,"Inpatient days, months 13 to 24",utilization,Days in hospital for inpatient stays that started in months 13 to 24 before the index date.,days,int
+23,emergency_visits_13_24m,"Emergency visits, months 13 to 24",utilization,Emergency encounters in months 13 to 24 before the index date.,count,int
+24,outpatient_visits_13_24m,"Outpatient visits, months 13 to 24",utilization,Outpatient and ambulatory encounters in months 13 to 24 before the index date.,count,int
+25,months_since_last_inpatient,Months since last inpatient stay,utilization,"Calendar months from the most recent inpatient admission to the index date, looking back 36 months. Null if there was none.",months,int
+26,procedures_12m,"Procedures, last 12 months",utilization,Procedures recorded in the 12 months before the index date.,count,int
+27,has_diabetes,Diabetes,conditions,1 if a condition in the diabetes group was active on the index date (onset before the index date).,0/1,binary
+28,has_prediabetes,Prediabetes,conditions,1 if a condition in the prediabetes group was active on the index date (onset before the index date).,0/1,binary
+29,has_hypertension,Hypertension,conditions,1 if a condition in the hypertension group was active on the index date (onset before the index date).,0/1,binary
+30,has_heart_failure,Heart failure,conditions,1 if a condition in the heart failure group was active on the index date (onset before the index date).,0/1,binary
+31,has_coronary_disease,Coronary disease,conditions,1 if a condition in the coronary disease group was active on the index date (onset before the index date).,0/1,binary
+32,has_atrial_fibrillation,Atrial fibrillation,conditions,1 if a condition in the atrial fibrillation group was active on the index date (onset before the index date).,0/1,binary
+33,has_stroke,Stroke,conditions,1 if a condition in the stroke group was active on the index date (onset before the index date).,0/1,binary
+34,has_copd,COPD,conditions,1 if a condition in the COPD group was active on the index date (onset before the index date).,0/1,binary
+35,has_asthma,Asthma,conditions,1 if a condition in the asthma group was active on the index date (onset before the index date).,0/1,binary
+36,has_chronic_kidney_disease,Chronic kidney disease,conditions,1 if a condition in the chronic kidney disease group was active on the index date (onset before the index date).,0/1,binary
+37,has_cancer,Cancer,conditions,1 if a condition in the cancer group was active on the index date (onset before the index date).,0/1,binary
+38,has_osteoarthritis,Osteoarthritis,conditions,1 if a condition in the osteoarthritis group was active on the index date (onset before the index date).,0/1,binary
+39,has_obesity,Obesity,conditions,1 if a condition in the obesity group was active on the index date (onset before the index date).,0/1,binary
+40,has_depression,Depression,conditions,1 if a condition in the depression group was active on the index date (onset before the index date).,0/1,binary
+41,has_anxiety,Anxiety,conditions,1 if a condition in the anxiety group was active on the index date (onset before the index date).,0/1,binary
+42,has_dementia,Dementia,conditions,1 if a condition in the dementia group was active on the index date (onset before the index date).,0/1,binary
+43,has_substance_use,Substance use,conditions,1 if a condition in the substance use group was active on the index date (onset before the index date).,0/1,binary
+44,has_chronic_pain,Chronic pain,conditions,1 if a condition in the chronic pain group was active on the index date (onset before the index date).,0/1,binary
+45,chronic_group_count,Chronic condition groups,conditions,Number of the 18 chronic condition groups active on the index date.,count,int
+46,new_chronic_groups_12m,New chronic condition groups,conditions,Chronic condition groups active on the index date that were not active 12 months earlier.,count,int
+47,pregnant_at_index,Pregnant on index date,conditions,1 if a pregnancy that began before the index date had not ended by it. Not one of the chronic groups.,0/1,binary
+48,active_medications,Active medications,medications,Distinct medications started before the index date and not stopped before it.,count,int
+49,new_medications_12m,"Medications started, last 12 months",medications,Distinct medications with an order started in the 12 months before the index date.,count,int
+50,bmi,Body mass index,vitals and labs,Latest body mass index in the 24 months before the index date. Null if none.,kg/m2,float
+51,systolic_bp,Systolic blood pressure,vitals and labs,Latest systolic blood pressure in the 24 months before the index date. Null if none.,mmHg,float
+52,diastolic_bp,Diastolic blood pressure,vitals and labs,Latest diastolic blood pressure in the 24 months before the index date. Null if none.,mmHg,float
+53,hba1c,HbA1c,vitals and labs,Latest hemoglobin A1c in the 24 months before the index date. Null if none.,%,float
+54,egfr,eGFR,vitals and labs,Latest estimated glomerular filtration rate in the 24 months before the index date. Null if none.,mL/min/1.73m2,float
+55,total_cholesterol,Total cholesterol,vitals and labs,Latest total cholesterol in the 24 months before the index date. Null if none.,mg/dL,float
+56,pain_score,Pain score,vitals and labs,Latest self-reported pain severity (0 to 10) in the 24 months before the index date. Null if none.,score,float
+57,hba1c_measured,HbA1c measured,vitals and labs,1 if an HbA1c result exists in the 24 months before the index date.,0/1,binary
+58,egfr_measured,eGFR measured,vitals and labs,1 if an eGFR result exists in the 24 months before the index date.,0/1,binary
+59,cholesterol_measured,Cholesterol measured,vitals and labs,1 if a total cholesterol result exists in the 24 months before the index date.,0/1,binary

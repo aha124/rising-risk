@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: stg_patients
+    description: One row per synthetic patient. Typed columns, no business logic.
+    columns:
+      - name: patient_id
+        data_tests: [unique, not_null]
+      - name: birth_date
+        data_tests: [not_null]
+      - name: gender
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["M", "F"]
+
+  - name: stg_encounters
+    description: One row per encounter with its claim total.
+    columns:
+      - name: encounter_id
+        data_tests: [unique, not_null]
+      - name: patient_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_patients')
+                field: patient_id
+      - name: start_date
+        data_tests: [not_null]
+      - name: total_claim_cost
+        data_tests: [not_null]
+      - name: encounter_class
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["wellness", "ambulatory", "outpatient", "urgentcare", "emergency", "inpatient", "snf", "hospice", "home", "virtual"]
+
+  - name: stg_conditions
+    description: Problem list entries, diseases and non-disease findings together.
+    columns:
+      - name: patient_id
+        data_tests: [not_null]
+      - name: onset_date
+        data_tests: [not_null]
+      - name: code
+        data_tests: [not_null]
+
+  - name: stg_medications
+    description: Medication orders. base_cost is the cost of one fill.
+    columns:
+      - name: medication_id
+        data_tests: [unique, not_null]
+      - name: patient_id
+        data_tests: [not_null]
+      - name: start_date
+        data_tests: [not_null]
+      - name: base_cost
+        data_tests: [not_null]
+
+  - name: stg_procedures
+    description: Procedures performed during encounters.
+    columns:
+      - name: patient_id
+        data_tests: [not_null]
+      - name: start_date
+        data_tests: [not_null]
+
+  - name: stg_immunizations
+    description: Immunizations. Not used for cost because the encounter total already includes them.
+    columns:
+      - name: patient_id
+        data_tests: [not_null]
+
+  - name: stg_observations
+    description: Vitals, labs and survey answers, value kept as text.
+    columns:
+      - name: patient_id
+        data_tests: [not_null]
+      - name: observation_date
+        data_tests: [not_null]
+
+  - name: stg_payer_transitions
+    description: Insurance coverage periods per patient.
+    columns:
+      - name: patient_id
+        data_tests: [not_null]
+      - name: payer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_payers')
+                field: payer_id
+
+  - name: stg_payers
+    description: Insurance payers.
+    columns:
+      - name: payer_id
+        data_tests: [unique, not_null]

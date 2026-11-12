@@ -1,0 +1,120 @@
+version: 2
+
+models:
+  - name: int_member_index
+    description: >
+      One row per eligible member per January 1 index date. Eligible means alive on the index
+      date, 18 or older, and at least 12 months of observable history before it.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+    columns:
+      - name: member_id
+        data_tests: [not_null]
+      - name: index_date
+        data_tests: [not_null]
+      - name: died_in_outcome_year
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+
+  - name: int_cost_events
+    description: >
+      One row per cost event with a date and an amount. Encounter claim totals plus one fill
+      per medication order. Procedure and immunization line items are not added because the
+      encounter total already contains them.
+    columns:
+      - name: cost_event_id
+        data_tests: [unique, not_null]
+      - name: member_id
+        data_tests: [not_null]
+      - name: event_date
+        data_tests: [not_null]
+      - name: amount
+        data_tests: [not_null]
+      - name: cost_source
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["encounter", "medication"]
+
+  - name: int_cost_windows
+    description: Prior cost features from cost events dated before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_utilization_windows
+    description: Encounter counts in months 1 to 12 and 13 to 24 before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_procedure_windows
+    description: Procedure count in the 12 months before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_condition_flags
+    description: Chronic condition group flags on the index date, from conditions with onset before it.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_medication_windows
+    description: Active and newly started medications, from orders that start before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_observation_latest
+    description: Latest vital sign and lab values in the 24 months before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_payer_at_index
+    description: Payer category from the most recent coverage period that started before the index date.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+
+  - name: int_outcome
+    description: >
+      Cost of care from the index date up to the next January 1, and the top-decile label
+      computed within each index year over eligible members.
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [member_id, index_date]
+    columns:
+      - name: cost_next_12m
+        data_tests: [not_null]
+      - name: label_high_cost
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: pregnancy_in_outcome_year
+        description: >
+          Outcome, audit only, never a model feature. 1 if a pregnancy is in progress at any
+          point in the outcome year, including one that starts during it.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false

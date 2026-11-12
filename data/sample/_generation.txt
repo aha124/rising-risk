@@ -1,0 +1,12 @@
+Records: total=166, alive=150, dead=16
+population_requested=150
+seed=7
+clinician_seed=7
+reference_date=20251231
+end_date=20251231
+years_of_history=15
+state=Pennsylvania
+wall_seconds=28
+synthea_jar_sha256=20098ec70c24c715ea874b19140983634711cc4986196105b5b0a9ca72a4b644
+synthea_version=bd8a52b
+synthea_build_timestamp=2026-10-21T23:14:58.027+0000

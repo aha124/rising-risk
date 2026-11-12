@@ -1,0 +1,470 @@
+{
+  "fixture": false,
+  "source": {
+    "generator": "Synthea",
+    "version": "bd8a52b 2026-10-21",
+    "seed": 42,
+    "n_patients": 13837,
+    "state": "Pennsylvania",
+    "date_start": "2011-01-02",
+    "date_end": "2025-12-31"
+  },
+  "nodes": [
+    {
+      "id": "raw_conditions",
+      "layer": "source",
+      "label": "conditions.csv",
+      "rows": 660466,
+      "description": "Problem list entries. Diseases, findings and social circumstances are mixed together."
+    },
+    {
+      "id": "raw_encounters",
+      "layer": "source",
+      "label": "encounters.csv",
+      "rows": 1088880,
+      "description": "One row per encounter, with the claim total for that encounter."
+    },
+    {
+      "id": "raw_immunizations",
+      "layer": "source",
+      "label": "immunizations.csv",
+      "rows": 286942,
+      "description": "Immunizations given during encounters."
+    },
+    {
+      "id": "raw_medications",
+      "layer": "source",
+      "label": "medications.csv",
+      "rows": 906757,
+      "description": "Medication orders with the cost of one fill."
+    },
+    {
+      "id": "raw_observations",
+      "layer": "source",
+      "label": "observations.csv",
+      "rows": 14635952,
+      "description": "Vitals, labs and survey answers."
+    },
+    {
+      "id": "raw_patients",
+      "layer": "source",
+      "label": "patients.csv",
+      "rows": 13837,
+      "description": "One row per synthetic patient, living or deceased."
+    },
+    {
+      "id": "raw_payer_transitions",
+      "layer": "source",
+      "label": "payer_transitions.csv",
+      "rows": 603834,
+      "description": "Insurance coverage periods per patient."
+    },
+    {
+      "id": "raw_payers",
+      "layer": "source",
+      "label": "payers.csv",
+      "rows": 10,
+      "description": "Insurance payers."
+    },
+    {
+      "id": "raw_procedures",
+      "layer": "source",
+      "label": "procedures.csv",
+      "rows": 3148313,
+      "description": "Procedures performed during encounters."
+    },
+    {
+      "id": "condition_groups",
+      "layer": "source",
+      "label": "condition_groups (seed)",
+      "rows": 308,
+      "description": "Every condition code seen in the generated data, classified by hand. category says what kind of row it is (chronic, acute, social, administrative and so on). chronic_group is filled only for codes that belong to one of the chronic condition groups. episodic = 1 marks conditions that Synthea records as short episodes, where the flag is held for 36 months after the episode ends. Built by warehouse/build_condition_groups.py from the most frequent descriptions in the data."
+    },
+    {
+      "id": "feature_dictionary",
+      "layer": "source",
+      "label": "feature_dictionary (seed)",
+      "rows": 59,
+      "description": "Source for mart_feature_dictionary. One row per model feature, in mart column order."
+    },
+    {
+      "id": "stg_conditions",
+      "layer": "staging",
+      "label": "stg_conditions",
+      "rows": 660466,
+      "description": "Problem list entries, diseases and non-disease findings together."
+    },
+    {
+      "id": "stg_encounters",
+      "layer": "staging",
+      "label": "stg_encounters",
+      "rows": 1088880,
+      "description": "One row per encounter with its claim total."
+    },
+    {
+      "id": "stg_immunizations",
+      "layer": "staging",
+      "label": "stg_immunizations",
+      "rows": 286942,
+      "description": "Immunizations. Not used for cost because the encounter total already includes them."
+    },
+    {
+      "id": "stg_medications",
+      "layer": "staging",
+      "label": "stg_medications",
+      "rows": 906757,
+      "description": "Medication orders. base_cost is the cost of one fill."
+    },
+    {
+      "id": "stg_observations",
+      "layer": "staging",
+      "label": "stg_observations",
+      "rows": 14635952,
+      "description": "Vitals, labs and survey answers, value kept as text."
+    },
+    {
+      "id": "stg_patients",
+      "layer": "staging",
+      "label": "stg_patients",
+      "rows": 13837,
+      "description": "One row per synthetic patient. Typed columns, no business logic."
+    },
+    {
+      "id": "stg_payer_transitions",
+      "layer": "staging",
+      "label": "stg_payer_transitions",
+      "rows": 603834,
+      "description": "Insurance coverage periods per patient."
+    },
+    {
+      "id": "stg_payers",
+      "layer": "staging",
+      "label": "stg_payers",
+      "rows": 10,
+      "description": "Insurance payers."
+    },
+    {
+      "id": "stg_procedures",
+      "layer": "staging",
+      "label": "stg_procedures",
+      "rows": 3148313,
+      "description": "Procedures performed during encounters."
+    },
+    {
+      "id": "int_condition_flags",
+      "layer": "intermediate",
+      "label": "int_condition_flags",
+      "rows": 97570,
+      "description": "Chronic condition group flags on the index date, from conditions with onset before it."
+    },
+    {
+      "id": "int_cost_events",
+      "layer": "intermediate",
+      "label": "int_cost_events",
+      "rows": 1995637,
+      "description": "One row per cost event with a date and an amount. Encounter claim totals plus one fill per medication order. Procedure and immunization line items are not added because the encounter total already contains them."
+    },
+    {
+      "id": "int_cost_windows",
+      "layer": "intermediate",
+      "label": "int_cost_windows",
+      "rows": 97570,
+      "description": "Prior cost features from cost events dated before the index date."
+    },
+    {
+      "id": "int_medication_windows",
+      "layer": "intermediate",
+      "label": "int_medication_windows",
+      "rows": 97570,
+      "description": "Active and newly started medications, from orders that start before the index date."
+    },
+    {
+      "id": "int_member_index",
+      "layer": "intermediate",
+      "label": "int_member_index",
+      "rows": 97570,
+      "description": "One row per eligible member per January 1 index date. Eligible means alive on the index date, 18 or older, and at least 12 months of observable history before it."
+    },
+    {
+      "id": "int_observation_latest",
+      "layer": "intermediate",
+      "label": "int_observation_latest",
+      "rows": 97570,
+      "description": "Latest vital sign and lab values in the 24 months before the index date."
+    },
+    {
+      "id": "int_outcome",
+      "layer": "intermediate",
+      "label": "int_outcome",
+      "rows": 97570,
+      "description": "Cost of care from the index date up to the next January 1, and the top-decile label computed within each index year over eligible members."
+    },
+    {
+      "id": "int_payer_at_index",
+      "layer": "intermediate",
+      "label": "int_payer_at_index",
+      "rows": 97570,
+      "description": "Payer category from the most recent coverage period that started before the index date."
+    },
+    {
+      "id": "int_procedure_windows",
+      "layer": "intermediate",
+      "label": "int_procedure_windows",
+      "rows": 97570,
+      "description": "Procedure count in the 12 months before the index date."
+    },
+    {
+      "id": "int_utilization_windows",
+      "layer": "intermediate",
+      "label": "int_utilization_windows",
+      "rows": 97570,
+      "description": "Encounter counts in months 1 to 12 and 13 to 24 before the index date."
+    },
+    {
+      "id": "mart_feature_dictionary",
+      "layer": "mart",
+      "label": "mart_feature_dictionary",
+      "rows": 59,
+      "description": "One row per model feature with a label, group, description, unit and type."
+    },
+    {
+      "id": "mart_member_year",
+      "layer": "mart",
+      "label": "mart_member_year",
+      "rows": 97570,
+      "description": "The modeling table. One row per eligible member per January 1 index date. Keys first, then features (numeric or 0/1, built only from records dated before index_date), then the audit-only columns race and ethnicity, then the outcome columns."
+    }
+  ],
+  "edges": [
+    [
+      "condition_groups",
+      "int_condition_flags"
+    ],
+    [
+      "condition_groups",
+      "int_outcome"
+    ],
+    [
+      "feature_dictionary",
+      "mart_feature_dictionary"
+    ],
+    [
+      "int_condition_flags",
+      "mart_member_year"
+    ],
+    [
+      "int_cost_events",
+      "int_cost_windows"
+    ],
+    [
+      "int_cost_events",
+      "int_outcome"
+    ],
+    [
+      "int_cost_windows",
+      "mart_member_year"
+    ],
+    [
+      "int_medication_windows",
+      "mart_member_year"
+    ],
+    [
+      "int_member_index",
+      "int_condition_flags"
+    ],
+    [
+      "int_member_index",
+      "int_cost_windows"
+    ],
+    [
+      "int_member_index",
+      "int_medication_windows"
+    ],
+    [
+      "int_member_index",
+      "int_observation_latest"
+    ],
+    [
+      "int_member_index",
+      "int_outcome"
+    ],
+    [
+      "int_member_index",
+      "int_payer_at_index"
+    ],
+    [
+      "int_member_index",
+      "int_procedure_windows"
+    ],
+    [
+      "int_member_index",
+      "int_utilization_windows"
+    ],
+    [
+      "int_member_index",
+      "mart_member_year"
+    ],
+    [
+      "int_observation_latest",
+      "mart_member_year"
+    ],
+    [
+      "int_outcome",
+      "mart_member_year"
+    ],
+    [
+      "int_payer_at_index",
+      "mart_member_year"
+    ],
+    [
+      "int_procedure_windows",
+      "mart_member_year"
+    ],
+    [
+      "int_utilization_windows",
+      "mart_member_year"
+    ],
+    [
+      "raw_conditions",
+      "stg_conditions"
+    ],
+    [
+      "raw_encounters",
+      "stg_encounters"
+    ],
+    [
+      "raw_immunizations",
+      "stg_immunizations"
+    ],
+    [
+      "raw_medications",
+      "stg_medications"
+    ],
+    [
+      "raw_observations",
+      "stg_observations"
+    ],
+    [
+      "raw_patients",
+      "stg_patients"
+    ],
+    [
+      "raw_payer_transitions",
+      "stg_payer_transitions"
+    ],
+    [
+      "raw_payers",
+      "stg_payers"
+    ],
+    [
+      "raw_procedures",
+      "stg_procedures"
+    ],
+    [
+      "stg_conditions",
+      "int_condition_flags"
+    ],
+    [
+      "stg_conditions",
+      "int_outcome"
+    ],
+    [
+      "stg_encounters",
+      "int_cost_events"
+    ],
+    [
+      "stg_encounters",
+      "int_utilization_windows"
+    ],
+    [
+      "stg_medications",
+      "int_cost_events"
+    ],
+    [
+      "stg_medications",
+      "int_medication_windows"
+    ],
+    [
+      "stg_observations",
+      "int_member_index"
+    ],
+    [
+      "stg_observations",
+      "int_observation_latest"
+    ],
+    [
+      "stg_patients",
+      "int_member_index"
+    ],
+    [
+      "stg_patients",
+      "mart_member_year"
+    ],
+    [
+      "stg_payer_transitions",
+      "int_payer_at_index"
+    ],
+    [
+      "stg_payers",
+      "int_payer_at_index"
+    ],
+    [
+      "stg_procedures",
+      "int_procedure_windows"
+    ]
+  ],
+  "tests": {
+    "total": 156,
+    "passed": 156,
+    "failed": 0,
+    "warned": 0,
+    "by_type": {
+      "generic": 142,
+      "singular": 14
+    }
+  },
+  "leakage_checks": [
+    {
+      "name": "Features only use records dated before the index date",
+      "result": "pass",
+      "detail": "7 feature models report the latest record they read for each of 97,570 member-years. 0 are on or after the index date. The closest is 1 day before it.",
+      "test": "assert_no_feature_event_on_or_after_index"
+    },
+    {
+      "name": "Outcome cost only uses records inside the outcome year",
+      "result": "pass",
+      "detail": "0 of 97,570 member-years have an outcome record outside [index date, next January 1). Earliest is 0 days after the index date, latest is 1 day before the next January 1.",
+      "test": "assert_outcome_events_inside_outcome_year"
+    },
+    {
+      "name": "Last year's cost feature equals the previous year's outcome",
+      "result": "pass",
+      "detail": "87,620 consecutive member-year pairs compared, 0 differ by more than 1 cent. A gap or overlap at January 1 would show up here.",
+      "test": "assert_prior_cost_equals_previous_outcome"
+    },
+    {
+      "name": "Cost events reconcile to the raw files",
+      "result": "pass",
+      "detail": "Cost events total $3,331,880,798. Raw encounter claim totals plus one fill per medication order total $3,331,880,798. Difference 0.0000% (limit 0.5%). Procedures and immunizations are billed inside the encounter totals and are not added again.",
+      "test": "assert_cost_events_reconcile_to_source"
+    },
+    {
+      "name": "Cost events match the generator's own patient ledger",
+      "result": "pass",
+      "detail": "For 2,082 living patients whose whole history is in the export, cost events total $63,796,700 and Synthea's lifetime ledger totals $63,800,943. Difference 0.0066% (limit 0.5%).",
+      "test": "assert_cost_events_match_patient_ledger"
+    },
+    {
+      "name": "Label prevalence is between 9% and 11% in every year",
+      "result": "pass",
+      "detail": "Prevalence ranges from 10.00% to 10.01% across 11 index years.",
+      "test": "assert_label_prevalence_9_to_11_pct"
+    },
+    {
+      "name": "Every member-year in the mart is eligible",
+      "result": "pass",
+      "detail": "All 97,570 member-years are alive on the index date, 18 or older, and have at least 12 months of history. The rule is restated in the test from the patient table.",
+      "test": "assert_mart_rows_are_eligible"
+    }
+  ]
+}
