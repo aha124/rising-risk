@@ -1,0 +1,39 @@
+# docker compose up api                    the scoring API on http://localhost:8000
+# docker compose --profile postgres up     also a Postgres for the dbt postgres target
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    image: rising-risk-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - audit:/data/audit
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+
+  # Optional. warehouse/profiles.yml reads the same RR_PG_* variables. See the Postgres
+  # section of warehouse/README.md for what else that target needs.
+  postgres:
+    profiles: ["postgres"]
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${RR_PG_USER:-rising_risk}
+      POSTGRES_PASSWORD: ${RR_PG_PASSWORD:-rising_risk}
+      POSTGRES_DB: ${RR_PG_DBNAME:-rising_risk}
+    ports:
+      - "${RR_PG_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${RR_PG_USER:-rising_risk} -d ${RR_PG_DBNAME:-rising_risk}"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  audit:
+  pgdata:

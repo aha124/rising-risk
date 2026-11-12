@@ -1,0 +1,13 @@
+# The API image needs pyproject.toml, constraints.txt, src/, api/ and the saved model.
+*
+!pyproject.toml
+!constraints.txt
+!LICENSE
+!src/
+!api/
+!artifacts/
+artifacts/reports/*
+!artifacts/reports/metrics.json
+**/__pycache__/
+**/*.pyc
+**/*.egg-info/
