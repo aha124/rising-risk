@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "riskmodel"
+version = "0.1.0"
+description = "Rising-risk model on synthetic patients: dbt warehouse, calibrated LightGBM, API, drift monitoring."
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Anthony Arbaiza" }]
+# The base install is what scoring and the API need. Training and the warehouse are extras,
+# so the serving image stays small.
+dependencies = [
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "scikit-learn",
+  "lightgbm",
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic>=2",
+]
+
+[project.optional-dependencies]
+train = ["optuna", "mlflow-skinny"]
+warehouse = ["dbt-core", "dbt-duckdb", "duckdb"]
+dev = ["pytest", "httpx", "ruff"]
+all = ["riskmodel[train,warehouse,dev]"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = [
+  "warehouse/target",
+  "data",
+  "build",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = [
+  # Starlette's test client still runs on httpx and says so on import.
+  "ignore:Using `httpx` with `starlette.testclient`",
+]

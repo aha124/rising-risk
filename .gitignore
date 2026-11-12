@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.DS_Store
+node_modules/
+
+# generated data and local state
+data/raw/
+mlruns/
+build/
+logs/
+audit/
+
+# dbt
+warehouse/target/
+warehouse/dbt_packages/
+warehouse/logs/
+warehouse/.user.yml
+warehouse/*.duckdb
+warehouse/*.duckdb.wal
