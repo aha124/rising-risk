@@ -1,0 +1,899 @@
+{
+  "excluded_from_model": [
+    "race",
+    "ethnicity"
+  ],
+  "model_inputs_in_this_table": [
+    "sex_female",
+    "age"
+  ],
+  "small_group_rule": "Groups with fewer than 300 test rows or fewer than 30 high-cost members are marked small. Their numbers are shown for completeness and are too noisy to read.",
+  "selection_note": "Selection is the pooled top 10% of test rows by raw score. obs_over_expected is observed high-cost members over the sum of calibrated probabilities, so 1.0 is perfectly calibrated for the group.",
+  "n_bootstrap": 1000,
+  "groups": [
+    {
+      "attribute": "sex",
+      "level": "Female",
+      "n": 9453,
+      "n_pos": 1347,
+      "prevalence": 0.14249444620755317,
+      "auroc": 0.838828497537546,
+      "obs_over_expected": 1.0263799503779958,
+      "selection_rate_at_10": 0.14778377234740295,
+      "recall_at_10": 0.5434298440979956,
+      "precision_at_10": 0.5239799570508232,
+      "prior_cost_selection_rate_at_10": 0.14461017666349307,
+      "prior_cost_recall_at_10": 0.46547884187082406,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5434298440979956,
+        "lo": 0.5172318990797856,
+        "hi": 0.5691345524765984
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0263799503779958,
+        "lo": 0.9850853484564018,
+        "hi": 1.0703291432369635
+      }
+    },
+    {
+      "attribute": "sex",
+      "level": "Male",
+      "n": 9160,
+      "n_pos": 514,
+      "prevalence": 0.05611353711790393,
+      "auroc": 0.9237307281386052,
+      "obs_over_expected": 1.0336738917812527,
+      "selection_rate_at_10": 0.050655021834061134,
+      "recall_at_10": 0.6128404669260701,
+      "precision_at_10": 0.6788793103448276,
+      "prior_cost_selection_rate_at_10": 0.05393013100436681,
+      "prior_cost_recall_at_10": 0.5428015564202334,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.6128404669260701,
+        "lo": 0.5653842756183746,
+        "hi": 0.6553309427913858
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0336738917812527,
+        "lo": 0.9737340664726802,
+        "hi": 1.0988154499029545
+      }
+    },
+    {
+      "attribute": "age band",
+      "level": "18 to 34",
+      "n": 5169,
+      "n_pos": 729,
+      "prevalence": 0.14103308183401045,
+      "auroc": 0.8737442689603183,
+      "obs_over_expected": 1.0398873464816283,
+      "selection_rate_at_10": 0.1799187463726059,
+      "recall_at_10": 0.5912208504801097,
+      "precision_at_10": 0.46344086021505376,
+      "prior_cost_selection_rate_at_10": 0.1383246275875411,
+      "prior_cost_recall_at_10": 0.4609053497942387,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5912208504801097,
+        "lo": 0.5546408250355619,
+        "hi": 0.622741925176651
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0398873464816283,
+        "lo": 0.980460747690674,
+        "hi": 1.0959249228417403
+      }
+    },
+    {
+      "attribute": "age band",
+      "level": "35 to 49",
+      "n": 4537,
+      "n_pos": 271,
+      "prevalence": 0.05973109984571302,
+      "auroc": 0.852995365396692,
+      "obs_over_expected": 1.001458443231826,
+      "selection_rate_at_10": 0.038130923517743005,
+      "recall_at_10": 0.39114391143911437,
+      "precision_at_10": 0.6127167630057804,
+      "prior_cost_selection_rate_at_10": 0.06876790830945559,
+      "prior_cost_recall_at_10": 0.4317343173431734,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.39114391143911437,
+        "lo": 0.33461177474402726,
+        "hi": 0.4456606953491895
+      },
+      "obs_over_expected_ci": {
+        "v": 1.001458443231826,
+        "lo": 0.9128685311212422,
+        "hi": 1.0997895903605923
+      }
+    },
+    {
+      "attribute": "age band",
+      "level": "50 to 64",
+      "n": 5066,
+      "n_pos": 362,
+      "prevalence": 0.07145677062771418,
+      "auroc": 0.8449427077460818,
+      "obs_over_expected": 1.0512221382678117,
+      "selection_rate_at_10": 0.0568495854717726,
+      "recall_at_10": 0.4889502762430939,
+      "precision_at_10": 0.6145833333333334,
+      "prior_cost_selection_rate_at_10": 0.06415317804974338,
+      "prior_cost_recall_at_10": 0.4088397790055249,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.4889502762430939,
+        "lo": 0.42965027333550915,
+        "hi": 0.5522970647656652
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0512221382678117,
+        "lo": 0.966024587320674,
+        "hi": 1.1309617713360214
+      }
+    },
+    {
+      "attribute": "age band",
+      "level": "65 to 79",
+      "n": 2834,
+      "n_pos": 333,
+      "prevalence": 0.11750176429075512,
+      "auroc": 0.8361328141416104,
+      "obs_over_expected": 1.0049029413236295,
+      "selection_rate_at_10": 0.10338743824982358,
+      "recall_at_10": 0.5825825825825826,
+      "precision_at_10": 0.6621160409556314,
+      "prior_cost_selection_rate_at_10": 0.12526464361326747,
+      "prior_cost_recall_at_10": 0.5405405405405406,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5825825825825826,
+        "lo": 0.5245889067685809,
+        "hi": 0.6401386965752792
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0049029413236295,
+        "lo": 0.928294435423689,
+        "hi": 1.0792387349160064
+      }
+    },
+    {
+      "attribute": "age band",
+      "level": "80 and over",
+      "n": 1007,
+      "n_pos": 166,
+      "prevalence": 0.16484607745779542,
+      "auroc": 0.9570792086300016,
+      "obs_over_expected": 1.0230760398988614,
+      "selection_rate_at_10": 0.17576961271102284,
+      "recall_at_10": 0.8373493975903614,
+      "precision_at_10": 0.7853107344632768,
+      "prior_cost_selection_rate_at_10": 0.1529294935451837,
+      "prior_cost_recall_at_10": 0.7530120481927711,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.8373493975903614,
+        "lo": 0.7769657215404148,
+        "hi": 0.8924776745033716
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0230760398988614,
+        "lo": 0.9454554159689855,
+        "hi": 1.1086865125442273
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "white",
+      "n": 15334,
+      "n_pos": 1535,
+      "prevalence": 0.10010434328942219,
+      "auroc": 0.8907701851595251,
+      "obs_over_expected": 1.0410919255787705,
+      "selection_rate_at_10": 0.09788704838920047,
+      "recall_at_10": 0.5589576547231271,
+      "precision_at_10": 0.5716189207195204,
+      "prior_cost_selection_rate_at_10": 0.0980826920568671,
+      "prior_cost_recall_at_10": 0.4827361563517915,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5589576547231271,
+        "lo": 0.5329505986655698,
+        "hi": 0.5830568224022699
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0410919255787705,
+        "lo": 1.0013070162757356,
+        "hi": 1.078195163198544
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "black",
+      "n": 2131,
+      "n_pos": 229,
+      "prevalence": 0.10746128578132333,
+      "auroc": 0.8819697950674767,
+      "obs_over_expected": 0.9862064444276424,
+      "selection_rate_at_10": 0.12200844673862037,
+      "recall_at_10": 0.5895196506550219,
+      "precision_at_10": 0.5192307692307693,
+      "prior_cost_selection_rate_at_10": 0.11919286719849835,
+      "prior_cost_recall_at_10": 0.5240174672489083,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5895196506550219,
+        "lo": 0.520618556701031,
+        "hi": 0.6541496678917024
+      },
+      "obs_over_expected_ci": {
+        "v": 0.9862064444276424,
+        "lo": 0.8967363104666077,
+        "hi": 1.081590386297881
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "asian",
+      "n": 668,
+      "n_pos": 60,
+      "prevalence": 0.08982035928143713,
+      "auroc": 0.8858278508771931,
+      "obs_over_expected": 1.0505133018451551,
+      "selection_rate_at_10": 0.08233532934131736,
+      "recall_at_10": 0.5333333333333333,
+      "precision_at_10": 0.5818181818181818,
+      "prior_cost_selection_rate_at_10": 0.10179640718562874,
+      "prior_cost_recall_at_10": 0.4166666666666667,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5333333333333333,
+        "lo": 0.3921090387374462,
+        "hi": 0.6731854838709677
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0505133018451551,
+        "lo": 0.8521368661071669,
+        "hi": 1.2798541125494904
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "other",
+      "n": 212,
+      "n_pos": 11,
+      "prevalence": 0.05188679245283019,
+      "auroc": 0.9109000452284035,
+      "obs_over_expected": 0.5511960142005654,
+      "selection_rate_at_10": 0.08962264150943396,
+      "recall_at_10": 0.5454545454545454,
+      "precision_at_10": 0.3157894736842105,
+      "prior_cost_selection_rate_at_10": 0.07547169811320754,
+      "prior_cost_recall_at_10": 0.5454545454545454,
+      "small": true,
+      "recall_at_10_ci": {
+        "v": 0.5454545454545454,
+        "lo": 0.0,
+        "hi": 0.8571428571428571
+      },
+      "obs_over_expected_ci": {
+        "v": 0.5511960142005654,
+        "lo": 0.2584166772077979,
+        "hi": 0.8140517449057189
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "hawaiian",
+      "n": 191,
+      "n_pos": 20,
+      "prevalence": 0.10471204188481675,
+      "auroc": 0.914327485380117,
+      "obs_over_expected": 1.0554941345564712,
+      "selection_rate_at_10": 0.1099476439790576,
+      "recall_at_10": 0.65,
+      "precision_at_10": 0.6190476190476191,
+      "prior_cost_selection_rate_at_10": 0.07329842931937172,
+      "prior_cost_recall_at_10": 0.55,
+      "small": true,
+      "recall_at_10_ci": {
+        "v": 0.65,
+        "lo": 0.3808035714285714,
+        "hi": 0.8636363636363636
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0554941345564712,
+        "lo": 0.6661544395185561,
+        "hi": 1.4041913197272944
+      }
+    },
+    {
+      "attribute": "race",
+      "level": "native",
+      "n": 77,
+      "n_pos": 6,
+      "prevalence": 0.07792207792207792,
+      "auroc": 0.7652582159624414,
+      "obs_over_expected": 0.857321216583502,
+      "selection_rate_at_10": 0.06493506493506493,
+      "recall_at_10": 0.5,
+      "precision_at_10": 0.6,
+      "prior_cost_selection_rate_at_10": 0.06493506493506493,
+      "prior_cost_recall_at_10": 0.5,
+      "small": true,
+      "recall_at_10_ci": {
+        "v": 0.5,
+        "lo": 0.0,
+        "hi": 1.0
+      },
+      "obs_over_expected_ci": {
+        "v": 0.857321216583502,
+        "lo": 0.3280624380227609,
+        "hi": 1.6397052208283633
+      }
+    },
+    {
+      "attribute": "ethnicity",
+      "level": "nonhispanic",
+      "n": 17342,
+      "n_pos": 1738,
+      "prevalence": 0.10021912120862646,
+      "auroc": 0.8917011298628397,
+      "obs_over_expected": 1.0331691409324844,
+      "selection_rate_at_10": 0.0993541690693115,
+      "recall_at_10": 0.5621403912543153,
+      "precision_at_10": 0.567034242600116,
+      "prior_cost_selection_rate_at_10": 0.10016145773267213,
+      "prior_cost_recall_at_10": 0.4896432681242808,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5621403912543153,
+        "lo": 0.5358536040495737,
+        "hi": 0.5843798181236683
+      },
+      "obs_over_expected_ci": {
+        "v": 1.0331691409324844,
+        "lo": 0.9977854026738169,
+        "hi": 1.0692262367031902
+      }
+    },
+    {
+      "attribute": "ethnicity",
+      "level": "hispanic",
+      "n": 1271,
+      "n_pos": 123,
+      "prevalence": 0.0967741935483871,
+      "auroc": 0.8597631795133283,
+      "obs_over_expected": 0.9652192416983736,
+      "selection_rate_at_10": 0.10857592446892211,
+      "recall_at_10": 0.5691056910569106,
+      "precision_at_10": 0.5072463768115942,
+      "prior_cost_selection_rate_at_10": 0.0975609756097561,
+      "prior_cost_recall_at_10": 0.44715447154471544,
+      "small": false,
+      "recall_at_10_ci": {
+        "v": 0.5691056910569106,
+        "lo": 0.4741265880217786,
+        "hi": 0.6565492040949168
+      },
+      "obs_over_expected_ci": {
+        "v": 0.9652192416983736,
+        "lo": 0.839506983204947,
+        "hi": 1.092113056592162
+      }
+    }
+  ],
+  "proxy_audit": {
+    "attribute": "race",
+    "reference_level": "white",
+    "rows": [
+      {
+        "score_decile": 1,
+        "level": "white",
+        "mean_chronic_conditions": 0.6616194865042792,
+        "mean_age": 28.138248847926267,
+        "n": 1519
+      },
+      {
+        "score_decile": 1,
+        "level": "black",
+        "mean_chronic_conditions": 0.7475728155339806,
+        "mean_age": 27.305825242718445,
+        "n": 206
+      },
+      {
+        "score_decile": 1,
+        "level": "asian",
+        "mean_chronic_conditions": 0.6705882352941176,
+        "mean_age": 28.41176470588235,
+        "n": 85
+      },
+      {
+        "score_decile": 1,
+        "level": "other",
+        "mean_chronic_conditions": 1.2,
+        "mean_age": 28.9,
+        "n": 20
+      },
+      {
+        "score_decile": 1,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 0.7083333333333334,
+        "mean_age": 28.333333333333332,
+        "n": 24
+      },
+      {
+        "score_decile": 1,
+        "level": "native",
+        "mean_chronic_conditions": 0.2857142857142857,
+        "mean_age": 29.857142857142858,
+        "n": 7
+      },
+      {
+        "score_decile": 2,
+        "level": "white",
+        "mean_chronic_conditions": 1.580172987358616,
+        "mean_age": 35.09514304723886,
+        "n": 1503
+      },
+      {
+        "score_decile": 2,
+        "level": "black",
+        "mean_chronic_conditions": 1.76036866359447,
+        "mean_age": 35.1705069124424,
+        "n": 217
+      },
+      {
+        "score_decile": 2,
+        "level": "asian",
+        "mean_chronic_conditions": 1.6235294117647059,
+        "mean_age": 37.129411764705885,
+        "n": 85
+      },
+      {
+        "score_decile": 2,
+        "level": "other",
+        "mean_chronic_conditions": 1.8333333333333333,
+        "mean_age": 43.8,
+        "n": 30
+      },
+      {
+        "score_decile": 2,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 1.380952380952381,
+        "mean_age": 29.80952380952381,
+        "n": 21
+      },
+      {
+        "score_decile": 2,
+        "level": "native",
+        "mean_chronic_conditions": 1.8,
+        "mean_age": 35.8,
+        "n": 5
+      },
+      {
+        "score_decile": 3,
+        "level": "white",
+        "mean_chronic_conditions": 2.622812702527544,
+        "mean_age": 54.167206740116654,
+        "n": 1543
+      },
+      {
+        "score_decile": 3,
+        "level": "black",
+        "mean_chronic_conditions": 2.6195121951219513,
+        "mean_age": 56.89756097560976,
+        "n": 205
+      },
+      {
+        "score_decile": 3,
+        "level": "asian",
+        "mean_chronic_conditions": 2.1515151515151514,
+        "mean_age": 56.0,
+        "n": 66
+      },
+      {
+        "score_decile": 3,
+        "level": "other",
+        "mean_chronic_conditions": 2.4285714285714284,
+        "mean_age": 55.42857142857143,
+        "n": 14
+      },
+      {
+        "score_decile": 3,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 3.227272727272727,
+        "mean_age": 48.77272727272727,
+        "n": 22
+      },
+      {
+        "score_decile": 3,
+        "level": "native",
+        "mean_chronic_conditions": 3.1818181818181817,
+        "mean_age": 58.63636363636363,
+        "n": 11
+      },
+      {
+        "score_decile": 4,
+        "level": "white",
+        "mean_chronic_conditions": 2.934796642995481,
+        "mean_age": 60.074241446094256,
+        "n": 1549
+      },
+      {
+        "score_decile": 4,
+        "level": "black",
+        "mean_chronic_conditions": 2.9902439024390244,
+        "mean_age": 59.8780487804878,
+        "n": 205
+      },
+      {
+        "score_decile": 4,
+        "level": "asian",
+        "mean_chronic_conditions": 3.288135593220339,
+        "mean_age": 60.88135593220339,
+        "n": 59
+      },
+      {
+        "score_decile": 4,
+        "level": "other",
+        "mean_chronic_conditions": 2.739130434782609,
+        "mean_age": 60.04347826086956,
+        "n": 23
+      },
+      {
+        "score_decile": 4,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 2.9,
+        "mean_age": 56.0,
+        "n": 20
+      },
+      {
+        "score_decile": 4,
+        "level": "native",
+        "mean_chronic_conditions": 2.5,
+        "mean_age": 70.5,
+        "n": 6
+      },
+      {
+        "score_decile": 5,
+        "level": "white",
+        "mean_chronic_conditions": 2.972081218274112,
+        "mean_age": 60.84073604060914,
+        "n": 1576
+      },
+      {
+        "score_decile": 5,
+        "level": "black",
+        "mean_chronic_conditions": 3.1881720430107525,
+        "mean_age": 60.69892473118279,
+        "n": 186
+      },
+      {
+        "score_decile": 5,
+        "level": "asian",
+        "mean_chronic_conditions": 2.8823529411764706,
+        "mean_age": 62.31372549019608,
+        "n": 51
+      },
+      {
+        "score_decile": 5,
+        "level": "other",
+        "mean_chronic_conditions": 3.0,
+        "mean_age": 62.0,
+        "n": 17
+      },
+      {
+        "score_decile": 5,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 3.736842105263158,
+        "mean_age": 57.36842105263158,
+        "n": 19
+      },
+      {
+        "score_decile": 5,
+        "level": "native",
+        "mean_chronic_conditions": 2.8333333333333335,
+        "mean_age": 61.583333333333336,
+        "n": 12
+      },
+      {
+        "score_decile": 6,
+        "level": "white",
+        "mean_chronic_conditions": 3.110191082802548,
+        "mean_age": 59.59426751592357,
+        "n": 1570
+      },
+      {
+        "score_decile": 6,
+        "level": "black",
+        "mean_chronic_conditions": 3.345744680851064,
+        "mean_age": 59.808510638297875,
+        "n": 188
+      },
+      {
+        "score_decile": 6,
+        "level": "asian",
+        "mean_chronic_conditions": 2.903225806451613,
+        "mean_age": 59.45161290322581,
+        "n": 62
+      },
+      {
+        "score_decile": 6,
+        "level": "other",
+        "mean_chronic_conditions": 2.9523809523809526,
+        "mean_age": 57.80952380952381,
+        "n": 21
+      },
+      {
+        "score_decile": 6,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 3.3333333333333335,
+        "mean_age": 57.4,
+        "n": 15
+      },
+      {
+        "score_decile": 6,
+        "level": "native",
+        "mean_chronic_conditions": 2.6,
+        "mean_age": 57.6,
+        "n": 5
+      },
+      {
+        "score_decile": 7,
+        "level": "white",
+        "mean_chronic_conditions": 3.1354166666666665,
+        "mean_age": 56.052734375,
+        "n": 1536
+      },
+      {
+        "score_decile": 7,
+        "level": "black",
+        "mean_chronic_conditions": 3.640909090909091,
+        "mean_age": 55.84090909090909,
+        "n": 220
+      },
+      {
+        "score_decile": 7,
+        "level": "asian",
+        "mean_chronic_conditions": 3.0847457627118646,
+        "mean_age": 57.30508474576271,
+        "n": 59
+      },
+      {
+        "score_decile": 7,
+        "level": "other",
+        "mean_chronic_conditions": 2.8,
+        "mean_age": 55.3,
+        "n": 20
+      },
+      {
+        "score_decile": 7,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 3.0,
+        "mean_age": 51.35294117647059,
+        "n": 17
+      },
+      {
+        "score_decile": 7,
+        "level": "native",
+        "mean_chronic_conditions": 3.6,
+        "mean_age": 57.3,
+        "n": 10
+      },
+      {
+        "score_decile": 8,
+        "level": "white",
+        "mean_chronic_conditions": 2.93979057591623,
+        "mean_age": 50.223821989528794,
+        "n": 1528
+      },
+      {
+        "score_decile": 8,
+        "level": "black",
+        "mean_chronic_conditions": 3.1148325358851676,
+        "mean_age": 48.77511961722488,
+        "n": 209
+      },
+      {
+        "score_decile": 8,
+        "level": "asian",
+        "mean_chronic_conditions": 3.269230769230769,
+        "mean_age": 48.6025641025641,
+        "n": 78
+      },
+      {
+        "score_decile": 8,
+        "level": "other",
+        "mean_chronic_conditions": 3.9615384615384617,
+        "mean_age": 55.19230769230769,
+        "n": 26
+      },
+      {
+        "score_decile": 8,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 2.0714285714285716,
+        "mean_age": 38.5,
+        "n": 14
+      },
+      {
+        "score_decile": 8,
+        "level": "native",
+        "mean_chronic_conditions": 3.0,
+        "mean_age": 48.5,
+        "n": 6
+      },
+      {
+        "score_decile": 9,
+        "level": "white",
+        "mean_chronic_conditions": 1.8793903247183565,
+        "mean_age": 34.61630218687873,
+        "n": 1509
+      },
+      {
+        "score_decile": 9,
+        "level": "black",
+        "mean_chronic_conditions": 1.6623931623931625,
+        "mean_age": 32.61965811965812,
+        "n": 234
+      },
+      {
+        "score_decile": 9,
+        "level": "asian",
+        "mean_chronic_conditions": 2.161764705882353,
+        "mean_age": 37.044117647058826,
+        "n": 68
+      },
+      {
+        "score_decile": 9,
+        "level": "other",
+        "mean_chronic_conditions": 2.3181818181818183,
+        "mean_age": 37.86363636363637,
+        "n": 22
+      },
+      {
+        "score_decile": 9,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 1.7222222222222223,
+        "mean_age": 35.0,
+        "n": 18
+      },
+      {
+        "score_decile": 9,
+        "level": "native",
+        "mean_chronic_conditions": 2.7,
+        "mean_age": 45.0,
+        "n": 10
+      },
+      {
+        "score_decile": 10,
+        "level": "white",
+        "mean_chronic_conditions": 3.2704863424383745,
+        "mean_age": 47.062624916722186,
+        "n": 1501
+      },
+      {
+        "score_decile": 10,
+        "level": "black",
+        "mean_chronic_conditions": 3.5402298850574714,
+        "mean_age": 46.559386973180075,
+        "n": 261
+      },
+      {
+        "score_decile": 10,
+        "level": "asian",
+        "mean_chronic_conditions": 3.2545454545454544,
+        "mean_age": 45.74545454545454,
+        "n": 55
+      },
+      {
+        "score_decile": 10,
+        "level": "other",
+        "mean_chronic_conditions": 3.6842105263157894,
+        "mean_age": 47.421052631578945,
+        "n": 19
+      },
+      {
+        "score_decile": 10,
+        "level": "hawaiian",
+        "mean_chronic_conditions": 3.2857142857142856,
+        "mean_age": 42.095238095238095,
+        "n": 21
+      },
+      {
+        "score_decile": 10,
+        "level": "native",
+        "mean_chronic_conditions": 4.4,
+        "mean_age": 56.8,
+        "n": 5
+      }
+    ],
+    "comparisons": [
+      {
+        "level": "black",
+        "reference": "white",
+        "n": 2131,
+        "small": false,
+        "chronic_gap_all_deciles": {
+          "v": 0.14987974337472787,
+          "lo": 0.04245967296339461,
+          "hi": 0.2564071951956721
+        },
+        "chronic_gap_top_decile": {
+          "v": 0.26974354261909683,
+          "lo": -0.169994859072053,
+          "hi": 0.7294332035376248
+        }
+      },
+      {
+        "level": "asian",
+        "reference": "white",
+        "n": 668,
+        "small": false,
+        "chronic_gap_all_deciles": {
+          "v": 0.02666537572246533,
+          "lo": -0.14452914456244229,
+          "hi": 0.2153319238853188
+        },
+        "chronic_gap_top_decile": {
+          "v": -0.01594088789292014,
+          "lo": -0.8679929950995594,
+          "hi": 0.7966615299638198
+        }
+      },
+      {
+        "level": "other",
+        "reference": "white",
+        "n": 212,
+        "small": true,
+        "chronic_gap_all_deciles": {
+          "v": 0.21544627650034234,
+          "lo": -0.08875164207532066,
+          "hi": 0.514660723175137
+        },
+        "chronic_gap_top_decile": {
+          "v": 0.41372418387741483,
+          "lo": -1.058362895805925,
+          "hi": 1.8881818367453018
+        }
+      },
+      {
+        "level": "hawaiian",
+        "reference": "white",
+        "n": 191,
+        "small": true,
+        "chronic_gap_all_deciles": {
+          "v": 0.054706217027788495,
+          "lo": -0.2743027840356756,
+          "hi": 0.3691430621869505
+        },
+        "chronic_gap_top_decile": {
+          "v": 0.015227943275911038,
+          "lo": -1.7035697025455085,
+          "hi": 1.685739773915782
+        }
+      },
+      {
+        "level": "native",
+        "reference": "white",
+        "n": 77,
+        "small": true,
+        "chronic_gap_all_deciles": {
+          "v": 0.21627147996181215,
+          "lo": -0.2847001919610636,
+          "hi": 0.7313119239851888
+        },
+        "chronic_gap_top_decile": {
+          "v": 1.1295136575616258,
+          "lo": -3.2973429184847847,
+          "hi": 2.7683444732099534
+        }
+      }
+    ],
+    "finding": "At the same risk score, Black members carry more chronic condition groups than White members (+0.15, interval +0.04 to +0.26, against a test-set average of 2.5), the direction Obermeyer et al. reported, though the gap is small. Asian members (+0.03, interval -0.14 to +0.22) show no clear gap, and 3 smaller groups are too small to compare. Synthetic data cannot settle this for a real population."
+  }
+}

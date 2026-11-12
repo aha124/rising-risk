@@ -1,0 +1,84 @@
+{
+  "n_trees": 137,
+  "n_leaves": 3425,
+  "bytes": 269077,
+  "max_bytes": 2500000,
+  "largest_gap_vs_lightgbm": 0.0,
+  "interactive": [
+    {
+      "feature": "age",
+      "importance_rank": 2
+    },
+    {
+      "feature": "sex_female",
+      "importance_rank": 1
+    },
+    {
+      "feature": "cost_prior_12m",
+      "importance_rank": 3
+    },
+    {
+      "feature": "medication_cost_prior_12m",
+      "importance_rank": 8
+    },
+    {
+      "feature": "outpatient_visits_12m",
+      "importance_rank": 10
+    },
+    {
+      "feature": "procedures_12m",
+      "importance_rank": 4
+    },
+    {
+      "feature": "has_diabetes",
+      "importance_rank": 25
+    },
+    {
+      "feature": "has_chronic_kidney_disease",
+      "importance_rank": 9
+    },
+    {
+      "feature": "pregnant_at_index",
+      "importance_rank": 6
+    },
+    {
+      "feature": "active_medications",
+      "importance_rank": 24
+    }
+  ],
+  "derived": [
+    {
+      "feature": "cost_change_12m",
+      "op": "difference",
+      "of": [
+        "cost_prior_12m",
+        "cost_prior_13_24m"
+      ]
+    },
+    {
+      "feature": "chronic_group_count",
+      "op": "sum",
+      "of": [
+        "has_diabetes",
+        "has_prediabetes",
+        "has_hypertension",
+        "has_heart_failure",
+        "has_coronary_disease",
+        "has_atrial_fibrillation",
+        "has_stroke",
+        "has_copd",
+        "has_asthma",
+        "has_chronic_kidney_disease",
+        "has_cancer",
+        "has_osteoarthritis",
+        "has_obesity",
+        "has_depression",
+        "has_anxiety",
+        "has_dementia",
+        "has_substance_use",
+        "has_chronic_pain"
+      ]
+    }
+  ],
+  "rows_with_nulls": 197
+}

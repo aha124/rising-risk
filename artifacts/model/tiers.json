@@ -1,0 +1,14 @@
+{
+  "high": 0.36231884057971014,
+  "rising": 0.1004566210045662,
+  "rule": "calibrated probability at or above `high` is the high tier, at or above `rising` is the rising tier, below that is routine",
+  "frozen_from": "index year 2023, non-holdout members",
+  "target_share": {
+    "high": 0.05,
+    "rising": 0.15
+  },
+  "share_in_calibration_year": {
+    "high": 0.05644288034650785,
+    "rising": 0.19450460205739037
+  }
+}

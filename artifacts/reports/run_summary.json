@@ -1,0 +1,17 @@
+{
+  "stage_seconds": {
+    "train": 48.5,
+    "evaluate": 19.6,
+    "explain": 9.6,
+    "fairness": 22.7,
+    "capacity": 0.8,
+    "drift": 5.1,
+    "export": 2.0
+  },
+  "total_seconds": 108.5,
+  "fast_mode": false,
+  "n_bootstrap": 1000,
+  "n_trials": 30,
+  "git_sha": "51060ee",
+  "data_sha256": "bd6e56e9c5b7f433050ce94450aab9e74f80aaa0a9352ec6b45230925eda2896"
+}

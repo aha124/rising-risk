@@ -1,0 +1,2153 @@
+{
+  "reference_years": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "reference_note": "Feature reference: every member-year in the training years. Score reference: holdout members in the training years, because scores on rows the model trained on run high.",
+  "score_note": "Score drift is measured on the uncalibrated probability. The calibrated probability has ties, which makes quantile bins unstable.",
+  "thresholds": {
+    "watch": 0.1,
+    "alert": 0.25
+  },
+  "label_lag_note": "Labels for an index year are complete only 12 months later, so a live monitor sees inputs drift about a year before it can see accuracy drop. In this table the latest year is marked as not mature: its outcomes are in the data because the data is retrospective, but on the scoring date they would not exist yet.",
+  "labels_mature_as_of": "2025-01-01",
+  "by_year": [
+    {
+      "year": 2015,
+      "split": "train",
+      "in_reference": true,
+      "n": 8351,
+      "score_psi": 0.002537779070758365,
+      "score_ks": 0.019030748124585162,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.012483356710351433
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.14199113523746867
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.2345805311103027
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0028779501283979886
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.017027507254198947
+        }
+      ],
+      "n_watch": 2,
+      "n_alert": 0
+    },
+    {
+      "year": 2016,
+      "split": "train",
+      "in_reference": true,
+      "n": 8466,
+      "score_psi": 0.0035215365291654237,
+      "score_ks": 0.01525142148583808,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.14176989713862173
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.007788764920601829
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.009878413797373328
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0011448177453307678
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.021602147009675058
+        }
+      ],
+      "n_watch": 1,
+      "n_alert": 0
+    },
+    {
+      "year": 2017,
+      "split": "train",
+      "in_reference": true,
+      "n": 8579,
+      "score_psi": 0.0008230861659014535,
+      "score_ks": 0.007788163773044365,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.006528083887718708
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.006609728748615638
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.012082507270997123
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0013695831416385698
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.002268563936612527
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2018,
+      "split": "train",
+      "in_reference": true,
+      "n": 8670,
+      "score_psi": 0.0012342069881806945,
+      "score_ks": 0.010705020372519053,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.005580334527706265
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.006345342938886844
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.009784232715953608
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0013627731264952698
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.0006763227839536055
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2019,
+      "split": "train",
+      "in_reference": true,
+      "n": 8789,
+      "score_psi": 0.001837096225098453,
+      "score_ks": 0.011506171070347238,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.005012048562497854
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.003338264263263925
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.009546669771168482
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0008667385151868272
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.001272875733336922
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2020,
+      "split": "train",
+      "in_reference": true,
+      "n": 8894,
+      "score_psi": 0.0025354928274563477,
+      "score_ks": 0.013634034098906123,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.0031728725956128305
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.006452569782828937
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.007434036742948764
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0007234399804384791
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.001452996972122353
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2021,
+      "split": "train",
+      "in_reference": true,
+      "n": 8967,
+      "score_psi": 0.0034082264545250247,
+      "score_ks": 0.016678262942914912,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.005951680625309999
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.00620329040919341
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.01327791650559203
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0020161376256336407
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.0012280665372821201
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2022,
+      "split": "tune",
+      "in_reference": false,
+      "n": 9065,
+      "score_psi": 0.00956175135971329,
+      "score_ks": 0.029483837201896734,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.006239524817696754
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.8351192181398841
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.011362102397936271
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.14066370332462172
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.004534587930373668
+        }
+      ],
+      "n_watch": 3,
+      "n_alert": 1
+    },
+    {
+      "year": 2023,
+      "split": "calibrate",
+      "in_reference": false,
+      "n": 9176,
+      "score_psi": 0.0603409142472005,
+      "score_ks": 0.060837073724493484,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.8522769140673645
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.0073788098738021436
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.008124822950615347
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0014263142163142217
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.1394838887077018
+        }
+      ],
+      "n_watch": 1,
+      "n_alert": 1
+    },
+    {
+      "year": 2024,
+      "split": "test",
+      "in_reference": false,
+      "n": 9252,
+      "score_psi": 0.005427449547065232,
+      "score_ks": 0.025802392177299127,
+      "labels_mature": true,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.006778340599414616
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.005865111800454521
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.010418051744308581
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.002866113186374414
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.0015092672112741899
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    },
+    {
+      "year": 2025,
+      "split": "test",
+      "in_reference": false,
+      "n": 9361,
+      "score_psi": 0.005671037073516836,
+      "score_ks": 0.027338775627988532,
+      "labels_mature": false,
+      "top_features": [
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "psi": 0.005907328953069104
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "psi": 0.004194019563086252
+        },
+        {
+          "feature": "new_chronic_groups_12m",
+          "label": "New chronic condition groups",
+          "psi": 0.006933191883850725
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "psi": 0.0030502467057149964
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "psi": 0.0037749655006365994
+        }
+      ],
+      "n_watch": 0,
+      "n_alert": 0
+    }
+  ],
+  "chart_features": [
+    "outpatient_visits_13_24m",
+    "outpatient_visits_12m",
+    "new_chronic_groups_12m",
+    "max_encounter_cost_12m",
+    "cost_prior_13_24m"
+  ],
+  "real_shifts": [
+    {
+      "year": 2023,
+      "feature": "outpatient_visits_13_24m",
+      "label": "Outpatient visits, months 13 to 24",
+      "psi": 0.8522769140673645,
+      "status": "alert",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    },
+    {
+      "year": 2022,
+      "feature": "outpatient_visits_12m",
+      "label": "Outpatient visits, last 12 months",
+      "psi": 0.8351192181398841,
+      "status": "alert",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    },
+    {
+      "year": 2015,
+      "feature": "new_chronic_groups_12m",
+      "label": "New chronic condition groups",
+      "psi": 0.2345805311103027,
+      "status": "watch",
+      "in_reference": true,
+      "likely_cause": "the generator's chronic pain and opioid modules switch on in calendar 2014, with a one-off wave of diagnoses and ambulatory visits"
+    },
+    {
+      "year": 2015,
+      "feature": "outpatient_visits_12m",
+      "label": "Outpatient visits, last 12 months",
+      "psi": 0.14199113523746867,
+      "status": "watch",
+      "in_reference": true,
+      "likely_cause": "the generator's chronic pain and opioid modules switch on in calendar 2014, with a one-off wave of diagnoses and ambulatory visits"
+    },
+    {
+      "year": 2016,
+      "feature": "outpatient_visits_13_24m",
+      "label": "Outpatient visits, months 13 to 24",
+      "psi": 0.14176989713862173,
+      "status": "watch",
+      "in_reference": true,
+      "likely_cause": "the generator's chronic pain and opioid modules switch on in calendar 2014, with a one-off wave of diagnoses and ambulatory visits"
+    },
+    {
+      "year": 2022,
+      "feature": "max_encounter_cost_12m",
+      "label": "Largest single encounter cost",
+      "psi": 0.14066370332462172,
+      "status": "watch",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    },
+    {
+      "year": 2023,
+      "feature": "cost_prior_13_24m",
+      "label": "Cost, months 13 to 24",
+      "psi": 0.1394838887077018,
+      "status": "watch",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    },
+    {
+      "year": 2022,
+      "feature": "cost_prior_12m",
+      "label": "Cost, last 12 months",
+      "psi": 0.12450683129551247,
+      "status": "watch",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    },
+    {
+      "year": 2022,
+      "feature": "inpatient_cost_share_12m",
+      "label": "Inpatient share of cost",
+      "psi": 0.11651901264168558,
+      "status": "watch",
+      "in_reference": false,
+      "likely_cause": "about 15,000 vaccination encounters in calendar 2021"
+    }
+  ],
+  "feature_psi_latest": [
+    {
+      "feature": "age",
+      "label": "Age",
+      "psi": 0.033355127131401624,
+      "status": "ok"
+    },
+    {
+      "feature": "active_medications",
+      "label": "Active medications",
+      "psi": 0.016451027365931136,
+      "status": "ok"
+    },
+    {
+      "feature": "has_coronary_disease",
+      "label": "Coronary disease",
+      "psi": 0.01158084227761596,
+      "status": "ok"
+    },
+    {
+      "feature": "payer_medicare",
+      "label": "Medicare",
+      "psi": 0.009944412189150214,
+      "status": "ok"
+    },
+    {
+      "feature": "new_chronic_groups_12m",
+      "label": "New chronic condition groups",
+      "psi": 0.006933191883850725,
+      "status": "ok"
+    },
+    {
+      "feature": "chronic_group_count",
+      "label": "Chronic condition groups",
+      "psi": 0.006737840311548565,
+      "status": "ok"
+    },
+    {
+      "feature": "payer_private",
+      "label": "Private insurance",
+      "psi": 0.005942335216934019,
+      "status": "ok"
+    },
+    {
+      "feature": "outpatient_visits_13_24m",
+      "label": "Outpatient visits, months 13 to 24",
+      "psi": 0.005907328953069104,
+      "status": "ok"
+    },
+    {
+      "feature": "egfr",
+      "label": "eGFR",
+      "psi": 0.005737216146405848,
+      "status": "ok"
+    },
+    {
+      "feature": "total_cholesterol",
+      "label": "Total cholesterol",
+      "psi": 0.0046054604626391575,
+      "status": "ok"
+    },
+    {
+      "feature": "outpatient_visits_12m",
+      "label": "Outpatient visits, last 12 months",
+      "psi": 0.004194019563086252,
+      "status": "ok"
+    },
+    {
+      "feature": "egfr_measured",
+      "label": "eGFR measured",
+      "psi": 0.0041851475580331554,
+      "status": "ok"
+    },
+    {
+      "feature": "cost_prior_13_24m",
+      "label": "Cost, months 13 to 24",
+      "psi": 0.0037749655006365994,
+      "status": "ok"
+    },
+    {
+      "feature": "hba1c",
+      "label": "HbA1c",
+      "psi": 0.003326753262641192,
+      "status": "ok"
+    },
+    {
+      "feature": "diastolic_bp",
+      "label": "Diastolic blood pressure",
+      "psi": 0.003182772391889311,
+      "status": "ok"
+    },
+    {
+      "feature": "max_encounter_cost_12m",
+      "label": "Largest single encounter cost",
+      "psi": 0.0030502467057149964,
+      "status": "ok"
+    },
+    {
+      "feature": "bmi",
+      "label": "Body mass index",
+      "psi": 0.0027881926579407293,
+      "status": "ok"
+    },
+    {
+      "feature": "wellness_visits_12m",
+      "label": "Wellness visits, last 12 months",
+      "psi": 0.0026433729341086352,
+      "status": "ok"
+    },
+    {
+      "feature": "has_diabetes",
+      "label": "Diabetes",
+      "psi": 0.0024101245136927373,
+      "status": "ok"
+    },
+    {
+      "feature": "medication_cost_prior_12m",
+      "label": "Medication cost, last 12 months",
+      "psi": 0.0023593384499489586,
+      "status": "ok"
+    },
+    {
+      "feature": "new_medications_12m",
+      "label": "Medications started, last 12 months",
+      "psi": 0.002257421141910807,
+      "status": "ok"
+    },
+    {
+      "feature": "has_osteoarthritis",
+      "label": "Osteoarthritis",
+      "psi": 0.0019160459771085298,
+      "status": "ok"
+    },
+    {
+      "feature": "cost_change_12m",
+      "label": "Cost change, year over year",
+      "psi": 0.0018657414832509917,
+      "status": "ok"
+    },
+    {
+      "feature": "systolic_bp",
+      "label": "Systolic blood pressure",
+      "psi": 0.0017731702222136421,
+      "status": "ok"
+    },
+    {
+      "feature": "procedures_12m",
+      "label": "Procedures, last 12 months",
+      "psi": 0.0017526876816634897,
+      "status": "ok"
+    },
+    {
+      "feature": "payer_dual_eligible",
+      "label": "Dual eligible",
+      "psi": 0.0016022581280000113,
+      "status": "ok"
+    },
+    {
+      "feature": "cost_prior_12m",
+      "label": "Cost, last 12 months",
+      "psi": 0.001566914328624085,
+      "status": "ok"
+    },
+    {
+      "feature": "has_hypertension",
+      "label": "Hypertension",
+      "psi": 0.0015209341403430703,
+      "status": "ok"
+    },
+    {
+      "feature": "has_dementia",
+      "label": "Dementia",
+      "psi": 0.0014318639845516837,
+      "status": "ok"
+    },
+    {
+      "feature": "has_chronic_kidney_disease",
+      "label": "Chronic kidney disease",
+      "psi": 0.0014227605623688643,
+      "status": "ok"
+    },
+    {
+      "feature": "hba1c_measured",
+      "label": "HbA1c measured",
+      "psi": 0.0010649727961296322,
+      "status": "ok"
+    },
+    {
+      "feature": "pain_score",
+      "label": "Pain score",
+      "psi": 0.001017594936742608,
+      "status": "ok"
+    },
+    {
+      "feature": "months_since_last_inpatient",
+      "label": "Months since last inpatient stay",
+      "psi": 0.000998050832714792,
+      "status": "ok"
+    },
+    {
+      "feature": "has_cancer",
+      "label": "Cancer",
+      "psi": 0.0009558461471956024,
+      "status": "ok"
+    },
+    {
+      "feature": "cholesterol_measured",
+      "label": "Cholesterol measured",
+      "psi": 0.0007733053580180593,
+      "status": "ok"
+    },
+    {
+      "feature": "has_obesity",
+      "label": "Obesity",
+      "psi": 0.0007271975261205605,
+      "status": "ok"
+    },
+    {
+      "feature": "has_prediabetes",
+      "label": "Prediabetes",
+      "psi": 0.00043435773041375055,
+      "status": "ok"
+    },
+    {
+      "feature": "inpatient_cost_share_12m",
+      "label": "Inpatient share of cost",
+      "psi": 0.0004021349568381104,
+      "status": "ok"
+    },
+    {
+      "feature": "payer_uninsured",
+      "label": "Uninsured",
+      "psi": 0.00040008873077763653,
+      "status": "ok"
+    },
+    {
+      "feature": "payer_medicaid",
+      "label": "Medicaid",
+      "psi": 0.0003995277953714864,
+      "status": "ok"
+    },
+    {
+      "feature": "has_stroke",
+      "label": "Stroke",
+      "psi": 0.00035490621556676506,
+      "status": "ok"
+    },
+    {
+      "feature": "has_atrial_fibrillation",
+      "label": "Atrial fibrillation",
+      "psi": 0.0002525716932161885,
+      "status": "ok"
+    },
+    {
+      "feature": "emergency_visits_13_24m",
+      "label": "Emergency visits, months 13 to 24",
+      "psi": 0.00013321499924754196,
+      "status": "ok"
+    },
+    {
+      "feature": "has_heart_failure",
+      "label": "Heart failure",
+      "psi": 0.0001327796091732304,
+      "status": "ok"
+    },
+    {
+      "feature": "has_chronic_pain",
+      "label": "Chronic pain",
+      "psi": 0.00010630523448786382,
+      "status": "ok"
+    },
+    {
+      "feature": "has_asthma",
+      "label": "Asthma",
+      "psi": 9.722079286412189e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "has_copd",
+      "label": "COPD",
+      "psi": 7.465756934914376e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "sex_female",
+      "label": "Female",
+      "psi": 3.142189030504108e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "pregnant_at_index",
+      "label": "Pregnant on index date",
+      "psi": 2.1802725491751366e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "has_substance_use",
+      "label": "Substance use",
+      "psi": 2.1293190627941052e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "has_depression",
+      "label": "Depression",
+      "psi": 1.5115099037579942e-05,
+      "status": "ok"
+    },
+    {
+      "feature": "emergency_visits_12m",
+      "label": "Emergency visits, last 12 months",
+      "psi": 6.819320198170105e-07,
+      "status": "ok"
+    },
+    {
+      "feature": "has_anxiety",
+      "label": "Anxiety",
+      "psi": 2.4319978614695252e-11,
+      "status": "ok"
+    },
+    {
+      "feature": "inpatient_admits_12m",
+      "label": "Inpatient admissions, last 12 months",
+      "psi": 0.0,
+      "status": "ok"
+    },
+    {
+      "feature": "inpatient_days_12m",
+      "label": "Inpatient days, last 12 months",
+      "psi": 0.0,
+      "status": "ok"
+    },
+    {
+      "feature": "urgent_care_visits_12m",
+      "label": "Urgent care visits, last 12 months",
+      "psi": 0.0,
+      "status": "ok"
+    },
+    {
+      "feature": "other_visits_12m",
+      "label": "Other encounters, last 12 months",
+      "psi": 0.0,
+      "status": "ok"
+    },
+    {
+      "feature": "inpatient_admits_13_24m",
+      "label": "Inpatient admissions, months 13 to 24",
+      "psi": 0.0,
+      "status": "ok"
+    },
+    {
+      "feature": "inpatient_days_13_24m",
+      "label": "Inpatient days, months 13 to 24",
+      "psi": 0.0,
+      "status": "ok"
+    }
+  ],
+  "feature_psi_by_year": {
+    "2015": {
+      "new_chronic_groups_12m": 0.2345805311103027,
+      "outpatient_visits_12m": 0.14199113523746867,
+      "cost_change_12m": 0.023321285478098377,
+      "procedures_12m": 0.02029255454469266,
+      "cost_prior_12m": 0.02023500842355112,
+      "medication_cost_prior_12m": 0.018417910869881232,
+      "cost_prior_13_24m": 0.017027507254198947,
+      "outpatient_visits_13_24m": 0.012483356710351433,
+      "age": 0.0073980002666777485,
+      "active_medications": 0.003897540462745823,
+      "max_encounter_cost_12m": 0.0028779501283979886,
+      "payer_medicare": 0.0027227105187857125,
+      "has_coronary_disease": 0.0022899774588331936,
+      "chronic_group_count": 0.00202346266820782,
+      "months_since_last_inpatient": 0.0020053143019113295,
+      "egfr": 0.001994526063526934,
+      "wellness_visits_12m": 0.0015782264676402406,
+      "payer_private": 0.001576550405780779,
+      "egfr_measured": 0.0015134973202679545,
+      "total_cholesterol": 0.0013932696797146794,
+      "bmi": 0.0010767327348140472,
+      "hba1c": 0.0010624644473924295,
+      "diastolic_bp": 0.0008956790518779694,
+      "pain_score": 0.0006754018979157029,
+      "systolic_bp": 0.0005925590495440802,
+      "has_obesity": 0.0005655888214207135,
+      "has_hypertension": 0.0005595387842070761,
+      "has_diabetes": 0.0005396835082618676,
+      "cholesterol_measured": 0.0005269225195963449,
+      "new_medications_12m": 0.0004996306516193181,
+      "hba1c_measured": 0.0004885617762302541,
+      "has_osteoarthritis": 0.0003823986982799515,
+      "payer_dual_eligible": 0.0003540360688355582,
+      "has_anxiety": 0.00034840009400944125,
+      "has_heart_failure": 0.0003276400049727977,
+      "has_prediabetes": 0.00029233321692184413,
+      "has_chronic_kidney_disease": 0.00028935625643075006,
+      "has_atrial_fibrillation": 0.00022991908361775693,
+      "inpatient_cost_share_12m": 0.00019813240969923545,
+      "has_substance_use": 0.00017647588995815943,
+      "has_cancer": 0.00016488534417889437,
+      "has_dementia": 0.0001448446005276794,
+      "pregnant_at_index": 0.0001175140252134404,
+      "emergency_visits_13_24m": 9.184293006612632e-05,
+      "has_stroke": 7.546070689449875e-05,
+      "payer_medicaid": 6.831058575202726e-05,
+      "payer_uninsured": 5.6307955232861196e-05,
+      "emergency_visits_12m": 2.7809927621028358e-05,
+      "has_asthma": 2.1220792079476976e-05,
+      "has_copd": 1.8124569377496484e-05,
+      "sex_female": 1.6332673046174056e-05,
+      "has_chronic_pain": 4.639976678213931e-06,
+      "has_depression": 4.1384538094903455e-07,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2016": {
+      "outpatient_visits_13_24m": 0.14176989713862173,
+      "cost_prior_13_24m": 0.021602147009675058,
+      "cost_change_12m": 0.015212226717043772,
+      "new_chronic_groups_12m": 0.009878413797373328,
+      "outpatient_visits_12m": 0.007788764920601829,
+      "age": 0.0037099562667973285,
+      "cost_prior_12m": 0.002194503439118179,
+      "procedures_12m": 0.0020267333374985414,
+      "active_medications": 0.0016384029584093833,
+      "total_cholesterol": 0.0015909865456325673,
+      "hba1c": 0.0012637543602266675,
+      "has_coronary_disease": 0.0011710420756710852,
+      "months_since_last_inpatient": 0.0011679090393420216,
+      "max_encounter_cost_12m": 0.0011448177453307678,
+      "egfr": 0.001111795090568398,
+      "payer_medicare": 0.0010980154348757723,
+      "cholesterol_measured": 0.0010273002788034826,
+      "chronic_group_count": 0.0009521751296278355,
+      "medication_cost_prior_12m": 0.0009492278373009734,
+      "systolic_bp": 0.0008730053131429816,
+      "payer_private": 0.0007995351902278691,
+      "diastolic_bp": 0.0006760503749711757,
+      "new_medications_12m": 0.000634599478704522,
+      "egfr_measured": 0.0005839261923256524,
+      "bmi": 0.0005228376652021933,
+      "has_hypertension": 0.00031863012192625043,
+      "pain_score": 0.00026395872674035844,
+      "hba1c_measured": 0.00025542330117558893,
+      "payer_dual_eligible": 0.00025473337647443056,
+      "has_diabetes": 0.00022335398886131515,
+      "has_osteoarthritis": 0.00021323355957081182,
+      "inpatient_cost_share_12m": 0.00018741955160709515,
+      "has_dementia": 0.00018240020313365607,
+      "has_prediabetes": 0.00016524169300453974,
+      "has_obesity": 0.00016252539723984262,
+      "has_chronic_kidney_disease": 0.00016000838317703698,
+      "has_cancer": 0.00014871827412011934,
+      "has_substance_use": 0.00010141755899376476,
+      "emergency_visits_12m": 6.239565003290199e-05,
+      "has_atrial_fibrillation": 4.944276852791234e-05,
+      "wellness_visits_12m": 4.780847848775134e-05,
+      "has_anxiety": 4.228428056976588e-05,
+      "payer_medicaid": 3.4999089080331336e-05,
+      "has_asthma": 1.712712200288952e-05,
+      "has_chronic_pain": 7.2634881259997725e-06,
+      "has_copd": 4.6054316406988416e-06,
+      "emergency_visits_13_24m": 4.276545457083276e-06,
+      "sex_female": 3.336244964971754e-06,
+      "pregnant_at_index": 2.3249432970980155e-06,
+      "payer_uninsured": 1.8870886933860421e-06,
+      "has_stroke": 1.688921214547486e-06,
+      "has_depression": 1.1428974199972589e-06,
+      "has_heart_failure": 8.314220478025142e-07,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2017": {
+      "new_chronic_groups_12m": 0.012082507270997123,
+      "outpatient_visits_12m": 0.006609728748615638,
+      "outpatient_visits_13_24m": 0.006528083887718708,
+      "cost_prior_13_24m": 0.002268563936612527,
+      "total_cholesterol": 0.0019437045213034918,
+      "procedures_12m": 0.001699569305337822,
+      "months_since_last_inpatient": 0.0015657252843442478,
+      "age": 0.001512021835160277,
+      "medication_cost_prior_12m": 0.0014385377654099047,
+      "max_encounter_cost_12m": 0.0013695831416385698,
+      "egfr": 0.0012863201786946382,
+      "cost_prior_12m": 0.0008188156932652713,
+      "new_medications_12m": 0.0006782171070211867,
+      "cost_change_12m": 0.0006682427399447131,
+      "active_medications": 0.0006409415931009706,
+      "systolic_bp": 0.0004433573831496782,
+      "pain_score": 0.00033333991524115623,
+      "hba1c": 0.00032776420955849363,
+      "bmi": 0.00031420072193599215,
+      "chronic_group_count": 0.00030576749184013424,
+      "has_coronary_disease": 0.00026316432442607127,
+      "has_stroke": 0.00024601014331399946,
+      "has_anxiety": 0.00021528040696619874,
+      "inpatient_cost_share_12m": 0.00020021962449902456,
+      "cholesterol_measured": 0.0001582574993306621,
+      "payer_medicare": 0.00014122542560904888,
+      "wellness_visits_12m": 0.00012326997329789588,
+      "emergency_visits_13_24m": 0.0001121096866995918,
+      "diastolic_bp": 9.470054588466441e-05,
+      "egfr_measured": 8.609036259815407e-05,
+      "payer_dual_eligible": 6.999335492029879e-05,
+      "payer_private": 6.895711573541441e-05,
+      "has_osteoarthritis": 5.952489467022089e-05,
+      "emergency_visits_12m": 5.250655192657396e-05,
+      "has_substance_use": 5.22097785692177e-05,
+      "has_dementia": 3.880394397431849e-05,
+      "has_diabetes": 3.820972286751646e-05,
+      "pregnant_at_index": 3.770713443017402e-05,
+      "has_obesity": 3.01878083654073e-05,
+      "has_hypertension": 2.8605034606670558e-05,
+      "has_cancer": 2.6488989611842692e-05,
+      "payer_medicaid": 2.195929486461888e-05,
+      "has_heart_failure": 1.8513515826540113e-05,
+      "has_atrial_fibrillation": 1.3895827448212092e-05,
+      "has_prediabetes": 1.2935375861303402e-05,
+      "hba1c_measured": 7.829677423600846e-06,
+      "payer_uninsured": 6.895798661071186e-06,
+      "has_asthma": 6.310896985269313e-06,
+      "has_chronic_kidney_disease": 2.4341199282843553e-06,
+      "has_depression": 2.252622987283002e-06,
+      "has_chronic_pain": 2.006515256509091e-06,
+      "has_copd": 5.308151270721571e-07,
+      "sex_female": 3.130176517159103e-07,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2018": {
+      "new_chronic_groups_12m": 0.009784232715953608,
+      "outpatient_visits_12m": 0.006345342938886844,
+      "outpatient_visits_13_24m": 0.005580334527706265,
+      "cost_prior_12m": 0.0016054755971844838,
+      "total_cholesterol": 0.0013795802102233206,
+      "max_encounter_cost_12m": 0.0013627731264952698,
+      "medication_cost_prior_12m": 0.0013581964853411211,
+      "months_since_last_inpatient": 0.0012433904498190486,
+      "procedures_12m": 0.0010636500615102385,
+      "systolic_bp": 0.0008070358165955548,
+      "bmi": 0.0007261788190622585,
+      "cost_prior_13_24m": 0.0006763227839536055,
+      "diastolic_bp": 0.0005819323867496947,
+      "cholesterol_measured": 0.0005175269137758216,
+      "hba1c": 0.00030471760810260205,
+      "new_medications_12m": 0.0002919489314565487,
+      "pain_score": 0.00028258975858512774,
+      "egfr": 0.00024232678969073786,
+      "age": 0.00018696096895577888,
+      "cost_change_12m": 0.00013791272267603944,
+      "has_stroke": 0.00012814267922403005,
+      "emergency_visits_12m": 0.00011454599981251717,
+      "payer_dual_eligible": 0.00010566296869873755,
+      "chronic_group_count": 0.00010390763248809569,
+      "active_medications": 0.00010298921091747936,
+      "inpatient_cost_share_12m": 5.143753763714049e-05,
+      "has_cancer": 3.710781958888623e-05,
+      "payer_medicaid": 3.50601152076662e-05,
+      "emergency_visits_13_24m": 2.828385607865721e-05,
+      "pregnant_at_index": 1.944787272483879e-05,
+      "has_prediabetes": 1.816331072463383e-05,
+      "has_anxiety": 1.1468835223535486e-05,
+      "has_dementia": 1.0217014019842508e-05,
+      "has_substance_use": 8.71488578725649e-06,
+      "has_chronic_pain": 7.342882155101197e-06,
+      "has_hypertension": 7.147499543942893e-06,
+      "has_obesity": 7.098436424850611e-06,
+      "has_atrial_fibrillation": 5.7541088658960355e-06,
+      "wellness_visits_12m": 5.6163360075999956e-06,
+      "sex_female": 4.710264849178338e-06,
+      "has_heart_failure": 2.960577908772992e-06,
+      "has_diabetes": 1.7218019684537798e-06,
+      "has_coronary_disease": 1.6355384618671639e-06,
+      "payer_medicare": 8.92404251881957e-07,
+      "egfr_measured": 8.852086992009755e-07,
+      "hba1c_measured": 7.42628227155774e-07,
+      "has_copd": 7.094007584356299e-07,
+      "has_depression": 6.553579535744823e-07,
+      "payer_uninsured": 5.95506881300039e-07,
+      "has_asthma": 1.429659458079234e-07,
+      "has_chronic_kidney_disease": 9.484345799993248e-08,
+      "has_osteoarthritis": 6.705450739680817e-08,
+      "payer_private": 6.372905116604697e-08,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2019": {
+      "new_chronic_groups_12m": 0.009546669771168482,
+      "outpatient_visits_13_24m": 0.005012048562497854,
+      "outpatient_visits_12m": 0.003338264263263925,
+      "total_cholesterol": 0.001788703815406107,
+      "cost_prior_13_24m": 0.001272875733336922,
+      "systolic_bp": 0.0012046790107598166,
+      "procedures_12m": 0.0012008276575605872,
+      "diastolic_bp": 0.0010554098222182965,
+      "age": 0.0010291581871529057,
+      "cost_change_12m": 0.001027356426198265,
+      "cost_prior_12m": 0.0010192419253958885,
+      "egfr": 0.00099830562290088,
+      "pain_score": 0.000950826646510883,
+      "max_encounter_cost_12m": 0.0008667385151868272,
+      "months_since_last_inpatient": 0.0008656387567905986,
+      "hba1c": 0.0008131227759384384,
+      "active_medications": 0.0005839352342405437,
+      "medication_cost_prior_12m": 0.000564200371281502,
+      "bmi": 0.000539382726267171,
+      "chronic_group_count": 0.0004978460040455905,
+      "payer_medicare": 0.00045132515041304143,
+      "payer_private": 0.0002926186726474804,
+      "has_coronary_disease": 0.000274735831641855,
+      "new_medications_12m": 0.0002659117060788298,
+      "wellness_visits_12m": 0.000221892020015936,
+      "hba1c_measured": 0.00014832420301682012,
+      "has_hypertension": 0.00010362167588361054,
+      "emergency_visits_13_24m": 9.521115199123799e-05,
+      "inpatient_cost_share_12m": 8.902135483634654e-05,
+      "egfr_measured": 7.870410240372338e-05,
+      "has_cancer": 6.96743450114995e-05,
+      "has_prediabetes": 6.939817229682053e-05,
+      "has_obesity": 6.521449733158954e-05,
+      "has_diabetes": 4.854348394964284e-05,
+      "has_substance_use": 4.0829412922921745e-05,
+      "has_osteoarthritis": 3.99438222939451e-05,
+      "has_anxiety": 3.635968398435012e-05,
+      "has_atrial_fibrillation": 2.7842350982458577e-05,
+      "has_chronic_kidney_disease": 2.775331120776978e-05,
+      "payer_uninsured": 2.0770035067529117e-05,
+      "payer_dual_eligible": 1.6009975298617463e-05,
+      "emergency_visits_12m": 4.266140869374201e-06,
+      "has_copd": 3.367229565915463e-06,
+      "has_dementia": 2.7053986791376e-06,
+      "has_asthma": 2.374638103929112e-06,
+      "has_chronic_pain": 2.057113495703926e-06,
+      "has_heart_failure": 1.0966307821276871e-06,
+      "sex_female": 1.0826575523384892e-06,
+      "has_depression": 1.0757782372755628e-06,
+      "cholesterol_measured": 8.36736908044736e-07,
+      "pregnant_at_index": 6.679121767450701e-07,
+      "payer_medicaid": 7.946223990482869e-08,
+      "has_stroke": 8.00520075718523e-09,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2020": {
+      "new_chronic_groups_12m": 0.007434036742948764,
+      "outpatient_visits_12m": 0.006452569782828937,
+      "age": 0.0033491162836567765,
+      "outpatient_visits_13_24m": 0.0031728725956128305,
+      "cost_change_12m": 0.0024724733424833696,
+      "active_medications": 0.0016309297056630147,
+      "cost_prior_13_24m": 0.001452996972122353,
+      "medication_cost_prior_12m": 0.0014358987335902846,
+      "cost_prior_12m": 0.0013675147495558091,
+      "egfr": 0.0012492679869705577,
+      "procedures_12m": 0.001200543645256886,
+      "has_coronary_disease": 0.0011245237235113048,
+      "systolic_bp": 0.001037528560226417,
+      "payer_medicare": 0.0009424167702124362,
+      "diastolic_bp": 0.0009079360480990283,
+      "chronic_group_count": 0.0009018190534624907,
+      "total_cholesterol": 0.0008379303988928922,
+      "max_encounter_cost_12m": 0.0007234399804384791,
+      "months_since_last_inpatient": 0.0006063950876694749,
+      "payer_private": 0.0005904151019253401,
+      "hba1c": 0.0005627187631177602,
+      "bmi": 0.00037280271237226294,
+      "egfr_measured": 0.0003221491529420981,
+      "new_medications_12m": 0.0003084216494648179,
+      "has_dementia": 0.00024061815056608164,
+      "hba1c_measured": 0.0002251819111667285,
+      "has_diabetes": 0.00022510685199994437,
+      "has_hypertension": 0.00018271626806697647,
+      "has_obesity": 0.0001729005243553381,
+      "has_osteoarthritis": 0.00013603268073988519,
+      "has_chronic_kidney_disease": 0.00011977498073611227,
+      "has_prediabetes": 0.00010724163073189426,
+      "cholesterol_measured": 9.846724340470471e-05,
+      "wellness_visits_12m": 7.090596143683546e-05,
+      "has_atrial_fibrillation": 6.676332696763162e-05,
+      "pregnant_at_index": 6.561429231474381e-05,
+      "pain_score": 6.507753794625774e-05,
+      "has_anxiety": 6.360323842349718e-05,
+      "payer_dual_eligible": 5.831068666952887e-05,
+      "payer_uninsured": 5.465906736796973e-05,
+      "has_cancer": 4.75990131864168e-05,
+      "has_chronic_pain": 2.3379338314106335e-05,
+      "emergency_visits_13_24m": 2.2931616886565845e-05,
+      "has_asthma": 1.833262560429397e-05,
+      "has_heart_failure": 1.634885038077852e-05,
+      "inpatient_cost_share_12m": 1.3499818380392923e-05,
+      "has_stroke": 9.947433444326693e-06,
+      "sex_female": 5.745157977312547e-06,
+      "emergency_visits_12m": 3.5076190546157023e-06,
+      "has_substance_use": 1.920401145685629e-06,
+      "has_depression": 1.8041284335251112e-06,
+      "has_copd": 6.915416641480408e-07,
+      "payer_medicaid": 5.810808227317413e-07,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2021": {
+      "new_chronic_groups_12m": 0.01327791650559203,
+      "age": 0.00621946653826228,
+      "outpatient_visits_12m": 0.00620329040919341,
+      "outpatient_visits_13_24m": 0.005951680625309999,
+      "months_since_last_inpatient": 0.004234289448941847,
+      "egfr": 0.003812943713199727,
+      "cost_prior_12m": 0.002848127385418378,
+      "active_medications": 0.0027056842633092003,
+      "cost_change_12m": 0.002047007204420801,
+      "max_encounter_cost_12m": 0.0020161376256336407,
+      "has_coronary_disease": 0.0016925111406862875,
+      "total_cholesterol": 0.0016115371902791823,
+      "egfr_measured": 0.0015369551960849194,
+      "diastolic_bp": 0.0014450569564421994,
+      "payer_medicare": 0.0013571664298643034,
+      "new_medications_12m": 0.0013029343070558865,
+      "chronic_group_count": 0.001288866967923962,
+      "systolic_bp": 0.0012846700727393188,
+      "cost_prior_13_24m": 0.0012280665372821201,
+      "inpatient_cost_share_12m": 0.0011922208772348832,
+      "medication_cost_prior_12m": 0.0011052238455476046,
+      "cholesterol_measured": 0.0010832024932736907,
+      "payer_private": 0.0009271141313563325,
+      "wellness_visits_12m": 0.0008892621852410852,
+      "procedures_12m": 0.0008831428366686181,
+      "hba1c": 0.000750934048455276,
+      "has_osteoarthritis": 0.0004413331230918001,
+      "bmi": 0.00037592863107202226,
+      "has_diabetes": 0.00032327603527450874,
+      "payer_dual_eligible": 0.0003190362982863736,
+      "has_hypertension": 0.00031032854274041334,
+      "has_dementia": 0.0002993809261037568,
+      "has_obesity": 0.000255913366306472,
+      "pain_score": 0.0001776076625589159,
+      "has_chronic_kidney_disease": 0.0001541168937143025,
+      "payer_medicaid": 0.00013685712525586264,
+      "hba1c_measured": 0.00011350436592797393,
+      "has_stroke": 8.585148778446961e-05,
+      "has_prediabetes": 7.937233164071956e-05,
+      "has_atrial_fibrillation": 5.557221448620408e-05,
+      "has_heart_failure": 5.238729178863374e-05,
+      "pregnant_at_index": 4.8647486253129704e-05,
+      "has_cancer": 4.568009290217235e-05,
+      "emergency_visits_12m": 3.5324638864268083e-05,
+      "has_anxiety": 2.8578804431646996e-05,
+      "has_asthma": 2.614338296119204e-05,
+      "has_substance_use": 2.1626824778104e-05,
+      "has_copd": 1.1711993558683216e-05,
+      "has_chronic_pain": 5.442844079235302e-06,
+      "has_depression": 3.923398774137582e-06,
+      "payer_uninsured": 2.669509063169723e-06,
+      "emergency_visits_13_24m": 8.110729197666311e-07,
+      "sex_female": 2.947337519294543e-07,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2022": {
+      "outpatient_visits_12m": 0.8351192181398841,
+      "max_encounter_cost_12m": 0.14066370332462172,
+      "cost_prior_12m": 0.12450683129551247,
+      "inpatient_cost_share_12m": 0.11651901264168558,
+      "new_chronic_groups_12m": 0.011362102397936271,
+      "age": 0.010726092006677719,
+      "months_since_last_inpatient": 0.010012567062723923,
+      "egfr": 0.009283158303233166,
+      "cost_change_12m": 0.0085432865227925,
+      "outpatient_visits_13_24m": 0.006239524817696754,
+      "active_medications": 0.004542046730350799,
+      "cost_prior_13_24m": 0.004534587930373668,
+      "egfr_measured": 0.0039812032772033965,
+      "has_coronary_disease": 0.003179790411142971,
+      "diastolic_bp": 0.0031370096064902396,
+      "procedures_12m": 0.0027508671391597624,
+      "payer_medicare": 0.002490002418317616,
+      "medication_cost_prior_12m": 0.002479799522587209,
+      "chronic_group_count": 0.0022637307889818866,
+      "systolic_bp": 0.0021263030187958568,
+      "hba1c": 0.0020484443474437343,
+      "pain_score": 0.0016513085542906578,
+      "payer_private": 0.001591322490626067,
+      "new_medications_12m": 0.0014291706723001095,
+      "bmi": 0.001215705937072889,
+      "total_cholesterol": 0.0010814555109789226,
+      "wellness_visits_12m": 0.0009208518405739225,
+      "has_diabetes": 0.0007572588689523814,
+      "has_osteoarthritis": 0.0006883488079284255,
+      "has_chronic_kidney_disease": 0.0004993165436011973,
+      "has_hypertension": 0.00046226023087914754,
+      "hba1c_measured": 0.00043268445009940915,
+      "payer_dual_eligible": 0.0003693953935245453,
+      "has_cancer": 0.00035348528536185536,
+      "has_obesity": 0.0003079947699965159,
+      "has_dementia": 0.0002550984046552909,
+      "cholesterol_measured": 0.0001666832857879771,
+      "has_prediabetes": 0.00014499292300003316,
+      "pregnant_at_index": 0.00011716812767479871,
+      "payer_medicaid": 0.00011514889032193966,
+      "has_substance_use": 7.685793816415186e-05,
+      "has_asthma": 5.466115785981194e-05,
+      "has_chronic_pain": 4.875460194228476e-05,
+      "has_atrial_fibrillation": 4.2339929747228e-05,
+      "emergency_visits_12m": 4.1938416489313216e-05,
+      "emergency_visits_13_24m": 2.5996216765537767e-05,
+      "has_depression": 1.8188939179850273e-05,
+      "payer_uninsured": 1.5747394822260877e-05,
+      "has_anxiety": 1.206349325300275e-05,
+      "has_heart_failure": 8.435131390132811e-06,
+      "sex_female": 6.878874841976577e-06,
+      "has_copd": 6.457683980166061e-06,
+      "has_stroke": 6.3398901930103325e-06,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2023": {
+      "outpatient_visits_13_24m": 0.8522769140673645,
+      "cost_prior_13_24m": 0.1394838887077018,
+      "cost_change_12m": 0.02842542875805499,
+      "age": 0.017365030332179652,
+      "months_since_last_inpatient": 0.009684390217106877,
+      "new_chronic_groups_12m": 0.008124822950615347,
+      "outpatient_visits_12m": 0.0073788098738021436,
+      "active_medications": 0.007266281838844045,
+      "has_coronary_disease": 0.005239633601738581,
+      "egfr": 0.004843698844739849,
+      "payer_medicare": 0.004813919000048189,
+      "chronic_group_count": 0.003098542718036582,
+      "egfr_measured": 0.0027861370644562725,
+      "diastolic_bp": 0.0025794789376462654,
+      "total_cholesterol": 0.002477581879412347,
+      "payer_private": 0.0024002226687081813,
+      "hba1c": 0.0017509224671751107,
+      "systolic_bp": 0.001471321634397588,
+      "bmi": 0.0014467839861996342,
+      "max_encounter_cost_12m": 0.0014263142163142217,
+      "medication_cost_prior_12m": 0.0014244818751719924,
+      "procedures_12m": 0.0012732360051559068,
+      "wellness_visits_12m": 0.0011019412358033007,
+      "has_osteoarthritis": 0.0010186434853389542,
+      "has_diabetes": 0.0009991107341512616,
+      "cost_prior_12m": 0.0007613662241912778,
+      "has_chronic_kidney_disease": 0.0007463140349517095,
+      "has_hypertension": 0.0005855200806753586,
+      "has_obesity": 0.0005772635362304271,
+      "payer_dual_eligible": 0.0005698293793191808,
+      "has_dementia": 0.0005500423934592869,
+      "has_cancer": 0.0005442178218987994,
+      "cholesterol_measured": 0.0004785377236830561,
+      "new_medications_12m": 0.0004205107735813587,
+      "hba1c_measured": 0.0003906250627253631,
+      "payer_medicaid": 0.00038148785584745976,
+      "emergency_visits_12m": 0.00034816809978453924,
+      "pain_score": 0.0002389809010791462,
+      "has_heart_failure": 0.00016397545250780465,
+      "has_prediabetes": 0.00012974521041470363,
+      "payer_uninsured": 0.00010646514564925784,
+      "emergency_visits_13_24m": 0.00010628603741869826,
+      "has_atrial_fibrillation": 8.50815915551725e-05,
+      "has_anxiety": 7.761723382301753e-05,
+      "has_stroke": 7.098658576113254e-05,
+      "has_asthma": 6.846934293938061e-05,
+      "has_chronic_pain": 4.5592573920125115e-05,
+      "has_substance_use": 3.899608832935712e-05,
+      "has_depression": 2.6992603568287433e-05,
+      "has_copd": 1.9608099269876888e-05,
+      "sex_female": 4.532512184161411e-06,
+      "inpatient_cost_share_12m": 2.8315519373372544e-06,
+      "pregnant_at_index": 1.5987680381389792e-06,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2024": {
+      "age": 0.024674907418760023,
+      "active_medications": 0.011657548831174598,
+      "new_chronic_groups_12m": 0.010418051744308581,
+      "has_coronary_disease": 0.00789894418188584,
+      "payer_medicare": 0.0073840262137535445,
+      "outpatient_visits_13_24m": 0.006778340599414616,
+      "outpatient_visits_12m": 0.005865111800454521,
+      "chronic_group_count": 0.004675407956350983,
+      "total_cholesterol": 0.0042749732758479535,
+      "payer_private": 0.004200331660406308,
+      "diastolic_bp": 0.003943361859494903,
+      "months_since_last_inpatient": 0.0034190300094643898,
+      "egfr": 0.0033340929423336654,
+      "max_encounter_cost_12m": 0.002866113186374414,
+      "medication_cost_prior_12m": 0.0024818748505582486,
+      "egfr_measured": 0.0024577275464068757,
+      "new_medications_12m": 0.0023144097778266767,
+      "cost_prior_12m": 0.0022312317259439774,
+      "hba1c": 0.0022130239156579043,
+      "payer_dual_eligible": 0.0017835444126117863,
+      "procedures_12m": 0.001693096893220386,
+      "cholesterol_measured": 0.0016715127858816553,
+      "bmi": 0.001629659081566295,
+      "has_osteoarthritis": 0.0016097806093124346,
+      "systolic_bp": 0.001584492484369237,
+      "cost_prior_13_24m": 0.0015092672112741899,
+      "has_diabetes": 0.0014968613959624132,
+      "wellness_visits_12m": 0.0013063386943520296,
+      "cost_change_12m": 0.0012708926983581999,
+      "has_chronic_kidney_disease": 0.0011369134120947488,
+      "inpatient_cost_share_12m": 0.0009467823265716813,
+      "has_dementia": 0.000911699225427532,
+      "has_hypertension": 0.0008042805447918972,
+      "has_obesity": 0.0007160376109192084,
+      "payer_uninsured": 0.0006956151364410716,
+      "has_cancer": 0.0006159312263383412,
+      "emergency_visits_13_24m": 0.0004351591484416792,
+      "hba1c_measured": 0.0003814523665149074,
+      "pain_score": 0.00035030358418025115,
+      "has_anxiety": 0.0003488908073646065,
+      "payer_medicaid": 0.00029574457085186905,
+      "has_prediabetes": 0.0002691207036498259,
+      "has_heart_failure": 0.00024385228662767984,
+      "emergency_visits_12m": 0.0002284598837096931,
+      "has_atrial_fibrillation": 0.00014825707811986767,
+      "has_stroke": 0.00012269897841055805,
+      "has_asthma": 0.00010995872073879279,
+      "has_chronic_pain": 8.326107473734544e-05,
+      "pregnant_at_index": 4.5649086647003364e-05,
+      "has_copd": 2.8933075116800105e-05,
+      "sex_female": 1.2482641798967014e-05,
+      "has_depression": 2.511929033673758e-06,
+      "has_substance_use": 6.427787731988065e-09,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    },
+    "2025": {
+      "age": 0.033355127131401624,
+      "active_medications": 0.016451027365931136,
+      "has_coronary_disease": 0.01158084227761596,
+      "payer_medicare": 0.009944412189150214,
+      "new_chronic_groups_12m": 0.006933191883850725,
+      "chronic_group_count": 0.006737840311548565,
+      "payer_private": 0.005942335216934019,
+      "outpatient_visits_13_24m": 0.005907328953069104,
+      "egfr": 0.005737216146405848,
+      "total_cholesterol": 0.0046054604626391575,
+      "outpatient_visits_12m": 0.004194019563086252,
+      "egfr_measured": 0.0041851475580331554,
+      "cost_prior_13_24m": 0.0037749655006365994,
+      "hba1c": 0.003326753262641192,
+      "diastolic_bp": 0.003182772391889311,
+      "max_encounter_cost_12m": 0.0030502467057149964,
+      "bmi": 0.0027881926579407293,
+      "wellness_visits_12m": 0.0026433729341086352,
+      "has_diabetes": 0.0024101245136927373,
+      "medication_cost_prior_12m": 0.0023593384499489586,
+      "new_medications_12m": 0.002257421141910807,
+      "has_osteoarthritis": 0.0019160459771085298,
+      "cost_change_12m": 0.0018657414832509917,
+      "systolic_bp": 0.0017731702222136421,
+      "procedures_12m": 0.0017526876816634897,
+      "payer_dual_eligible": 0.0016022581280000113,
+      "cost_prior_12m": 0.001566914328624085,
+      "has_hypertension": 0.0015209341403430703,
+      "has_dementia": 0.0014318639845516837,
+      "has_chronic_kidney_disease": 0.0014227605623688643,
+      "hba1c_measured": 0.0010649727961296322,
+      "pain_score": 0.001017594936742608,
+      "months_since_last_inpatient": 0.000998050832714792,
+      "has_cancer": 0.0009558461471956024,
+      "cholesterol_measured": 0.0007733053580180593,
+      "has_obesity": 0.0007271975261205605,
+      "has_prediabetes": 0.00043435773041375055,
+      "inpatient_cost_share_12m": 0.0004021349568381104,
+      "payer_uninsured": 0.00040008873077763653,
+      "payer_medicaid": 0.0003995277953714864,
+      "has_stroke": 0.00035490621556676506,
+      "has_atrial_fibrillation": 0.0002525716932161885,
+      "emergency_visits_13_24m": 0.00013321499924754196,
+      "has_heart_failure": 0.0001327796091732304,
+      "has_chronic_pain": 0.00010630523448786382,
+      "has_asthma": 9.722079286412189e-05,
+      "has_copd": 7.465756934914376e-05,
+      "sex_female": 3.142189030504108e-05,
+      "pregnant_at_index": 2.1802725491751366e-05,
+      "has_substance_use": 2.1293190627941052e-05,
+      "has_depression": 1.5115099037579942e-05,
+      "emergency_visits_12m": 6.819320198170105e-07,
+      "has_anxiety": 2.4319978614695252e-11,
+      "inpatient_admits_12m": 0.0,
+      "inpatient_days_12m": 0.0,
+      "urgent_care_visits_12m": 0.0,
+      "other_visits_12m": 0.0,
+      "inpatient_admits_13_24m": 0.0,
+      "inpatient_days_13_24m": 0.0
+    }
+  },
+  "performance_by_year": [
+    {
+      "year": 2015,
+      "split": "train",
+      "n": 8351,
+      "prevalence": 0.09998802538618129,
+      "lgbm": {
+        "auroc": 0.900242516563467,
+        "auprc": 0.6705266275268993,
+        "recall_at_10": 0.5916167664670658
+      },
+      "logreg": {
+        "auroc": 0.8373878639740211,
+        "auprc": 0.5127645960135127,
+        "recall_at_10": 0.49101796407185627
+      },
+      "prior_cost": {
+        "auroc": 0.7644274250859643,
+        "auprc": 0.33102076541165887,
+        "recall_at_10": 0.4562874251497006
+      },
+      "holdout_members": {
+        "n": 1622,
+        "lgbm": {
+          "auroc": 0.8604503849571254,
+          "auprc": 0.5788109383238452,
+          "recall_at_10": 0.5031055900621118
+        },
+        "logreg": {
+          "auroc": 0.8242461344862916,
+          "auprc": 0.4900179714014048,
+          "recall_at_10": 0.4968944099378882
+        },
+        "prior_cost": {
+          "auroc": 0.7545138401758347,
+          "auprc": 0.3368399726870998,
+          "recall_at_10": 0.4472049689440994
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2016,
+      "split": "train",
+      "n": 8466,
+      "prevalence": 0.10004724781478856,
+      "lgbm": {
+        "auroc": 0.9157306200105899,
+        "auprc": 0.6940223053381933,
+        "recall_at_10": 0.6080283353010626
+      },
+      "logreg": {
+        "auroc": 0.8381145873897249,
+        "auprc": 0.5343171202967767,
+        "recall_at_10": 0.5182998819362455
+      },
+      "prior_cost": {
+        "auroc": 0.7550745797533135,
+        "auprc": 0.36813695752329395,
+        "recall_at_10": 0.4734356552538371
+      },
+      "holdout_members": {
+        "n": 1641,
+        "lgbm": {
+          "auroc": 0.8971303173531398,
+          "auprc": 0.6320867407738044,
+          "recall_at_10": 0.5375
+        },
+        "logreg": {
+          "auroc": 0.8447965901417961,
+          "auprc": 0.5176070838562177,
+          "recall_at_10": 0.49375
+        },
+        "prior_cost": {
+          "auroc": 0.7592251856853477,
+          "auprc": 0.35442812566354875,
+          "recall_at_10": 0.45
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2017,
+      "split": "train",
+      "n": 8579,
+      "prevalence": 0.10001165637020631,
+      "lgbm": {
+        "auroc": 0.9104570255975515,
+        "auprc": 0.6968990051546475,
+        "recall_at_10": 0.6037296037296037
+      },
+      "logreg": {
+        "auroc": 0.840147160183425,
+        "auprc": 0.5451645105537092,
+        "recall_at_10": 0.5128205128205128
+      },
+      "prior_cost": {
+        "auroc": 0.7728183723197323,
+        "auprc": 0.38685854245849666,
+        "recall_at_10": 0.4976689976689977
+      },
+      "holdout_members": {
+        "n": 1656,
+        "lgbm": {
+          "auroc": 0.8893416986609233,
+          "auprc": 0.6668147081363869,
+          "recall_at_10": 0.5414364640883977
+        },
+        "logreg": {
+          "auroc": 0.8472815806723476,
+          "auprc": 0.567448285088734,
+          "recall_at_10": 0.4861878453038674
+        },
+        "prior_cost": {
+          "auroc": 0.7639123513437588,
+          "auprc": 0.41629264752042666,
+          "recall_at_10": 0.5193370165745856
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2018,
+      "split": "train",
+      "n": 8670,
+      "prevalence": 0.1,
+      "lgbm": {
+        "auroc": 0.9125305367867119,
+        "auprc": 0.6887955981183713,
+        "recall_at_10": 0.6101499423298731
+      },
+      "logreg": {
+        "auroc": 0.8355780559956755,
+        "auprc": 0.5228532170969649,
+        "recall_at_10": 0.497116493656286
+      },
+      "prior_cost": {
+        "auroc": 0.7622642697534042,
+        "auprc": 0.3758735011761847,
+        "recall_at_10": 0.4844290657439446
+      },
+      "holdout_members": {
+        "n": 1671,
+        "lgbm": {
+          "auroc": 0.8856690696652617,
+          "auprc": 0.6092091454955603,
+          "recall_at_10": 0.5398773006134969
+        },
+        "logreg": {
+          "auroc": 0.8264877707441701,
+          "auprc": 0.463266595379199,
+          "recall_at_10": 0.4662576687116564
+        },
+        "prior_cost": {
+          "auroc": 0.7431734227270508,
+          "auprc": 0.34508424922066333,
+          "recall_at_10": 0.4723926380368098
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2019,
+      "split": "train",
+      "n": 8789,
+      "prevalence": 0.100011377858687,
+      "lgbm": {
+        "auroc": 0.9121822724075888,
+        "auprc": 0.7032459248698447,
+        "recall_at_10": 0.6222980659840728
+      },
+      "logreg": {
+        "auroc": 0.8323351872386878,
+        "auprc": 0.5251039190829373,
+        "recall_at_10": 0.5142207053469852
+      },
+      "prior_cost": {
+        "auroc": 0.7669483480969784,
+        "auprc": 0.3542542265827276,
+        "recall_at_10": 0.4778156996587031
+      },
+      "holdout_members": {
+        "n": 1698,
+        "lgbm": {
+          "auroc": 0.8868230625583566,
+          "auprc": 0.6698326793055471,
+          "recall_at_10": 0.5833333333333334
+        },
+        "logreg": {
+          "auroc": 0.8213390911920324,
+          "auprc": 0.5370783146912018,
+          "recall_at_10": 0.5
+        },
+        "prior_cost": {
+          "auroc": 0.7732045596016184,
+          "auprc": 0.3998594595934105,
+          "recall_at_10": 0.4880952380952381
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2020,
+      "split": "train",
+      "n": 8894,
+      "prevalence": 0.09995502586013043,
+      "lgbm": {
+        "auroc": 0.9118914710926593,
+        "auprc": 0.6977592786144183,
+        "recall_at_10": 0.6209223847019123
+      },
+      "logreg": {
+        "auroc": 0.8386863806296543,
+        "auprc": 0.5574104119880556,
+        "recall_at_10": 0.5106861642294713
+      },
+      "prior_cost": {
+        "auroc": 0.7627691213801273,
+        "auprc": 0.3678736199690288,
+        "recall_at_10": 0.49606299212598426
+      },
+      "holdout_members": {
+        "n": 1714,
+        "lgbm": {
+          "auroc": 0.8715915603414472,
+          "auprc": 0.6117020625100688,
+          "recall_at_10": 0.5348837209302325
+        },
+        "logreg": {
+          "auroc": 0.8379973154767291,
+          "auprc": 0.5206867731124465,
+          "recall_at_10": 0.5116279069767442
+        },
+        "prior_cost": {
+          "auroc": 0.7597068892709559,
+          "auprc": 0.4030841058016003,
+          "recall_at_10": 0.48255813953488375
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2021,
+      "split": "train",
+      "n": 8967,
+      "prevalence": 0.10003345600535296,
+      "lgbm": {
+        "auroc": 0.9038958168423176,
+        "auprc": 0.6754650277394242,
+        "recall_at_10": 0.5942028985507246
+      },
+      "logreg": {
+        "auroc": 0.8229125309616663,
+        "auprc": 0.5286306235160013,
+        "recall_at_10": 0.48272017837235226
+      },
+      "prior_cost": {
+        "auroc": 0.7548740880727304,
+        "auprc": 0.346465815490488,
+        "recall_at_10": 0.463768115942029
+      },
+      "holdout_members": {
+        "n": 1733,
+        "lgbm": {
+          "auroc": 0.8847914626373797,
+          "auprc": 0.6128964408546128,
+          "recall_at_10": 0.5365853658536586
+        },
+        "logreg": {
+          "auroc": 0.8359215905734583,
+          "auprc": 0.49875349073583725,
+          "recall_at_10": 0.4695121951219512
+        },
+        "prior_cost": {
+          "auroc": 0.7596262960717561,
+          "auprc": 0.3258213652864232,
+          "recall_at_10": 0.4329268292682927
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2022,
+      "split": "tune",
+      "n": 9065,
+      "prevalence": 0.10005515719801435,
+      "lgbm": {
+        "auroc": 0.8804834534482018,
+        "auprc": 0.6318059971486326,
+        "recall_at_10": 0.5468577728776185
+      },
+      "logreg": {
+        "auroc": 0.8297183546673161,
+        "auprc": 0.5249903905295653,
+        "recall_at_10": 0.4895259095920617
+      },
+      "prior_cost": {
+        "auroc": 0.7733140783743773,
+        "auprc": 0.34949792377512146,
+        "recall_at_10": 0.46085997794928335
+      },
+      "holdout_members": {
+        "n": 1763,
+        "lgbm": {
+          "auroc": 0.8567109996369757,
+          "auprc": 0.5830101894246165,
+          "recall_at_10": 0.46632124352331605
+        },
+        "logreg": {
+          "auroc": 0.8106118609946866,
+          "auprc": 0.47631609220145354,
+          "recall_at_10": 0.42487046632124353
+        },
+        "prior_cost": {
+          "auroc": 0.7566334444407775,
+          "auprc": 0.3451951200229222,
+          "recall_at_10": 0.40414507772020725
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2023,
+      "split": "calibrate",
+      "n": 9176,
+      "prevalence": 0.10004359197907585,
+      "lgbm": {
+        "auroc": 0.8881334321086148,
+        "auprc": 0.6462447105206427,
+        "recall_at_10": 0.5664488017429193
+      },
+      "logreg": {
+        "auroc": 0.8437156865383326,
+        "auprc": 0.5591035009219695,
+        "recall_at_10": 0.5163398692810458
+      },
+      "prior_cost": {
+        "auroc": 0.783270767740373,
+        "auprc": 0.37467995651736646,
+        "recall_at_10": 0.5021786492374728
+      },
+      "holdout_members": {
+        "n": 1788,
+        "lgbm": {
+          "auroc": 0.8856212633265376,
+          "auprc": 0.6232616890382573,
+          "recall_at_10": 0.5359116022099447
+        },
+        "logreg": {
+          "auroc": 0.8401021772837758,
+          "auprc": 0.5145665330142478,
+          "recall_at_10": 0.5027624309392266
+        },
+        "prior_cost": {
+          "auroc": 0.7719645061144784,
+          "auprc": 0.3372337113914288,
+          "recall_at_10": 0.4696132596685083
+        }
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2024,
+      "split": "test",
+      "n": 9252,
+      "prevalence": 0.09997838305231302,
+      "lgbm": {
+        "auroc": 0.8907233713838734,
+        "auprc": 0.6318799251798822,
+        "recall_at_10": 0.5664864864864865
+      },
+      "logreg": {
+        "auroc": 0.8407999376823684,
+        "auprc": 0.5336682832446552,
+        "recall_at_10": 0.5135135135135135
+      },
+      "prior_cost": {
+        "auroc": 0.7700039273090792,
+        "auprc": 0.3612946144127059,
+        "recall_at_10": 0.4918918918918919
+      },
+      "labels_mature": true
+    },
+    {
+      "year": 2025,
+      "split": "test",
+      "n": 9361,
+      "prevalence": 0.09998931738062172,
+      "lgbm": {
+        "auroc": 0.888176722716782,
+        "auprc": 0.6386395988294485,
+        "recall_at_10": 0.5587606837606838
+      },
+      "logreg": {
+        "auroc": 0.8444057673286159,
+        "auprc": 0.5407009978834524,
+        "recall_at_10": 0.5
+      },
+      "prior_cost": {
+        "auroc": 0.7694298612696239,
+        "auprc": 0.36620769970520206,
+        "recall_at_10": 0.4807692307692308
+      },
+      "labels_mature": false
+    }
+  ],
+  "simulations": [
+    {
+      "title": "Simulated: the eGFR lab feed stops",
+      "description": "Every eGFR result for index year 2025 is set to missing and its 'measured' flag to 0, as if the lab interface went down. Nothing else changes.",
+      "changed_feature": "egfr",
+      "changed_features": [
+        "egfr",
+        "egfr_measured"
+      ],
+      "feature_psi_before": 0.005737216146405848,
+      "feature_psi_after": 1.2696424313450148,
+      "score_psi_before": 0.005671037073516836,
+      "score_psi_after": 0.006984186566796024,
+      "score_ks_before_vs_after": 0.027454331802157894,
+      "alerts_fired": [
+        "egfr",
+        "egfr_measured"
+      ],
+      "watch_fired": [],
+      "mean_probability_before": 0.09821124705131522,
+      "mean_probability_after": 0.09287266237393815,
+      "share_high_tier_before": 0.058113449417797246,
+      "share_high_tier_after": 0.05458818502296763,
+      "recall_at_10_before": 0.5587606837606838,
+      "recall_at_10_after": 0.5566239316239316,
+      "score_hist_before": [
+        0.6207670120713599,
+        0.12958017305843392,
+        0.08471317166969342,
+        0.03033863903429121,
+        0.04454652280739237,
+        0.00010682619378271552,
+        0.03172737955346651,
+        0.009828009828009828,
+        0.0,
+        0.0,
+        0.0066232240145283625,
+        0.0,
+        0.003632090588612328,
+        0.0,
+        0.0,
+        0.0,
+        0.00309795961969875,
+        0.0027774810383506036,
+        0.015810276679841896,
+        0.01645123384253819
+      ],
+      "score_hist_after": [
+        0.63572267920094,
+        0.12498664672577717,
+        0.0825766477940391,
+        0.02937720329024677,
+        0.044226044226044224,
+        0.00010682619378271552,
+        0.028308941352419615,
+        0.009614357440444397,
+        0.0,
+        0.0,
+        0.006516397820745647,
+        0.0,
+        0.0029911334259160346,
+        0.0,
+        0.0,
+        0.0,
+        0.0037389167823950434,
+        0.0029911334259160346,
+        0.020403803012498663,
+        0.008439269308834527
+      ],
+      "bin_edges": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ]
+    },
+    {
+      "title": "Simulated: last year's cost arrives 15% too high",
+      "description": "The dollar inputs for the last 12 months of index year 2025 are multiplied by 1.15, as if a claims feed switched from paid to billed amounts. Nothing else changes.",
+      "changed_feature": "cost_prior_12m",
+      "changed_features": [
+        "cost_prior_12m",
+        "cost_change_12m",
+        "medication_cost_prior_12m",
+        "max_encounter_cost_12m"
+      ],
+      "feature_psi_before": 0.001566914328624085,
+      "feature_psi_after": 0.03326957990726525,
+      "score_psi_before": 0.005671037073516836,
+      "score_psi_after": 0.005558298539717283,
+      "score_ks_before_vs_after": 0.009400705052878933,
+      "alerts_fired": [
+        "medication_cost_prior_12m"
+      ],
+      "watch_fired": [
+        "max_encounter_cost_12m"
+      ],
+      "mean_probability_before": 0.09821124705131522,
+      "mean_probability_after": 0.09888947147580121,
+      "share_high_tier_before": 0.058113449417797246,
+      "share_high_tier_after": 0.059822668518320694,
+      "recall_at_10_before": 0.5587606837606838,
+      "recall_at_10_after": 0.563034188034188,
+      "score_hist_before": [
+        0.6207670120713599,
+        0.12958017305843392,
+        0.08471317166969342,
+        0.03033863903429121,
+        0.04454652280739237,
+        0.00010682619378271552,
+        0.03172737955346651,
+        0.009828009828009828,
+        0.0,
+        0.0,
+        0.0066232240145283625,
+        0.0,
+        0.003632090588612328,
+        0.0,
+        0.0,
+        0.0,
+        0.00309795961969875,
+        0.0027774810383506036,
+        0.015810276679841896,
+        0.01645123384253819
+      ],
+      "score_hist_after": [
+        0.615105223800876,
+        0.13267813267813267,
+        0.08770430509560945,
+        0.028736246127550474,
+        0.04390556564469608,
+        0.0,
+        0.03204785813481466,
+        0.010682619378271552,
+        0.0,
+        0.0,
+        0.008652921696399958,
+        0.0,
+        0.0029911334259160346,
+        0.0,
+        0.0,
+        0.0,
+        0.0033116120072641812,
+        0.0016023929067407329,
+        0.015917102873624613,
+        0.01666488623010362
+      ],
+      "bin_edges": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2938 @@
+{
+  "note": "Contributions are TreeSHAP values in log-odds from LightGBM pred_contrib, computed on the test years. base_value plus all contributions equals the raw score.",
+  "base_value": -3.0362645900328613,
+  "features": [
+    {
+      "name": "sex_female",
+      "label": "Female",
+      "group": "demographics",
+      "description": "1 if the member is recorded as female, 0 if male.",
+      "unit": "0/1",
+      "importance": 0.5976310499271109,
+      "rank": 1
+    },
+    {
+      "name": "age",
+      "label": "Age",
+      "group": "demographics",
+      "description": "Age in whole years on the index date.",
+      "unit": "years",
+      "importance": 0.26420485223056644,
+      "rank": 2
+    },
+    {
+      "name": "cost_prior_12m",
+      "label": "Cost, last 12 months",
+      "group": "prior cost",
+      "description": "Total cost of care in months 1 to 12 before the index date (encounter claim totals plus one fill per medication order).",
+      "unit": "USD",
+      "importance": 0.26017534205230514,
+      "rank": 3
+    },
+    {
+      "name": "procedures_12m",
+      "label": "Procedures, last 12 months",
+      "group": "utilization",
+      "description": "Procedures recorded in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.11663954769065736,
+      "rank": 4
+    },
+    {
+      "name": "cost_prior_13_24m",
+      "label": "Cost, months 13 to 24",
+      "group": "prior cost",
+      "description": "Total cost of care in months 13 to 24 before the index date.",
+      "unit": "USD",
+      "importance": 0.10326495885537584,
+      "rank": 5
+    },
+    {
+      "name": "pregnant_at_index",
+      "label": "Pregnant on index date",
+      "group": "conditions",
+      "description": "1 if a pregnancy that began before the index date had not ended by it. Not one of the chronic groups.",
+      "unit": "0/1",
+      "importance": 0.09080899900166757,
+      "rank": 6
+    },
+    {
+      "name": "egfr",
+      "label": "eGFR",
+      "group": "vitals and labs",
+      "description": "Latest estimated glomerular filtration rate in the 24 months before the index date. Null if none.",
+      "unit": "mL/min/1.73m2",
+      "importance": 0.08500745822453452,
+      "rank": 7
+    },
+    {
+      "name": "medication_cost_prior_12m",
+      "label": "Medication cost, last 12 months",
+      "group": "prior cost",
+      "description": "Cost of medication orders started in the 12 months before the index date, one fill per order.",
+      "unit": "USD",
+      "importance": 0.06807032648590844,
+      "rank": 8
+    },
+    {
+      "name": "has_chronic_kidney_disease",
+      "label": "Chronic kidney disease",
+      "group": "conditions",
+      "description": "1 if a condition in the chronic kidney disease group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.04802159404247276,
+      "rank": 9
+    },
+    {
+      "name": "outpatient_visits_12m",
+      "label": "Outpatient visits, last 12 months",
+      "group": "utilization",
+      "description": "Outpatient and ambulatory encounters in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.04457215221616199,
+      "rank": 10
+    },
+    {
+      "name": "outpatient_visits_13_24m",
+      "label": "Outpatient visits, months 13 to 24",
+      "group": "utilization",
+      "description": "Outpatient and ambulatory encounters in months 13 to 24 before the index date.",
+      "unit": "count",
+      "importance": 0.043134984468902314,
+      "rank": 11
+    },
+    {
+      "name": "hba1c",
+      "label": "HbA1c",
+      "group": "vitals and labs",
+      "description": "Latest hemoglobin A1c in the 24 months before the index date. Null if none.",
+      "unit": "%",
+      "importance": 0.03670038754259339,
+      "rank": 12
+    },
+    {
+      "name": "bmi",
+      "label": "Body mass index",
+      "group": "vitals and labs",
+      "description": "Latest body mass index in the 24 months before the index date. Null if none.",
+      "unit": "kg/m2",
+      "importance": 0.03668896297610191,
+      "rank": 13
+    },
+    {
+      "name": "chronic_group_count",
+      "label": "Chronic condition groups",
+      "group": "conditions",
+      "description": "Number of the 18 chronic condition groups active on the index date.",
+      "unit": "count",
+      "importance": 0.03553330128738752,
+      "rank": 14
+    },
+    {
+      "name": "months_since_last_inpatient",
+      "label": "Months since last inpatient stay",
+      "group": "utilization",
+      "description": "Calendar months from the most recent inpatient admission to the index date, looking back 36 months. Null if there was none.",
+      "unit": "months",
+      "importance": 0.03326887198423083,
+      "rank": 15
+    },
+    {
+      "name": "total_cholesterol",
+      "label": "Total cholesterol",
+      "group": "vitals and labs",
+      "description": "Latest total cholesterol in the 24 months before the index date. Null if none.",
+      "unit": "mg/dL",
+      "importance": 0.03259182384998784,
+      "rank": 16
+    },
+    {
+      "name": "systolic_bp",
+      "label": "Systolic blood pressure",
+      "group": "vitals and labs",
+      "description": "Latest systolic blood pressure in the 24 months before the index date. Null if none.",
+      "unit": "mmHg",
+      "importance": 0.03253458080573304,
+      "rank": 17
+    },
+    {
+      "name": "cost_change_12m",
+      "label": "Cost change, year over year",
+      "group": "prior cost",
+      "description": "Cost in months 1 to 12 minus cost in months 13 to 24.",
+      "unit": "USD",
+      "importance": 0.0312703911491461,
+      "rank": 18
+    },
+    {
+      "name": "has_copd",
+      "label": "COPD",
+      "group": "conditions",
+      "description": "1 if a condition in the COPD group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.030607800326964103,
+      "rank": 19
+    },
+    {
+      "name": "diastolic_bp",
+      "label": "Diastolic blood pressure",
+      "group": "vitals and labs",
+      "description": "Latest diastolic blood pressure in the 24 months before the index date. Null if none.",
+      "unit": "mmHg",
+      "importance": 0.03009995109169094,
+      "rank": 20
+    },
+    {
+      "name": "max_encounter_cost_12m",
+      "label": "Largest single encounter cost",
+      "group": "prior cost",
+      "description": "Largest claim total for one encounter in the 12 months before the index date. 0 if there were no encounters.",
+      "unit": "USD",
+      "importance": 0.028501700178358177,
+      "rank": 21
+    },
+    {
+      "name": "pain_score",
+      "label": "Pain score",
+      "group": "vitals and labs",
+      "description": "Latest self-reported pain severity (0 to 10) in the 24 months before the index date. Null if none.",
+      "unit": "score",
+      "importance": 0.026221639275539894,
+      "rank": 22
+    },
+    {
+      "name": "inpatient_cost_share_12m",
+      "label": "Inpatient share of cost",
+      "group": "prior cost",
+      "description": "Share of last 12 months cost that came from inpatient encounters. Null if there was no cost.",
+      "unit": "share",
+      "importance": 0.02037096667898727,
+      "rank": 23
+    },
+    {
+      "name": "active_medications",
+      "label": "Active medications",
+      "group": "medications",
+      "description": "Distinct medications started before the index date and not stopped before it.",
+      "unit": "count",
+      "importance": 0.01881562220309094,
+      "rank": 24
+    },
+    {
+      "name": "has_diabetes",
+      "label": "Diabetes",
+      "group": "conditions",
+      "description": "1 if a condition in the diabetes group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.017245978886940613,
+      "rank": 25
+    },
+    {
+      "name": "has_obesity",
+      "label": "Obesity",
+      "group": "conditions",
+      "description": "1 if a condition in the obesity group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.015434712786039998,
+      "rank": 26
+    },
+    {
+      "name": "has_coronary_disease",
+      "label": "Coronary disease",
+      "group": "conditions",
+      "description": "1 if a condition in the coronary disease group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.014312362589886937,
+      "rank": 27
+    },
+    {
+      "name": "new_medications_12m",
+      "label": "Medications started, last 12 months",
+      "group": "medications",
+      "description": "Distinct medications with an order started in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.012603317895087458,
+      "rank": 28
+    },
+    {
+      "name": "emergency_visits_12m",
+      "label": "Emergency visits, last 12 months",
+      "group": "utilization",
+      "description": "Emergency encounters in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.01260075800941379,
+      "rank": 29
+    },
+    {
+      "name": "urgent_care_visits_12m",
+      "label": "Urgent care visits, last 12 months",
+      "group": "utilization",
+      "description": "Urgent care encounters in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.012595823290624562,
+      "rank": 30
+    },
+    {
+      "name": "has_heart_failure",
+      "label": "Heart failure",
+      "group": "conditions",
+      "description": "1 if a condition in the heart failure group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.010232719820922498,
+      "rank": 31
+    },
+    {
+      "name": "hba1c_measured",
+      "label": "HbA1c measured",
+      "group": "vitals and labs",
+      "description": "1 if an HbA1c result exists in the 24 months before the index date.",
+      "unit": "0/1",
+      "importance": 0.008535433526450002,
+      "rank": 32
+    },
+    {
+      "name": "wellness_visits_12m",
+      "label": "Wellness visits, last 12 months",
+      "group": "utilization",
+      "description": "Wellness encounters in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.007572239179297597,
+      "rank": 33
+    },
+    {
+      "name": "emergency_visits_13_24m",
+      "label": "Emergency visits, months 13 to 24",
+      "group": "utilization",
+      "description": "Emergency encounters in months 13 to 24 before the index date.",
+      "unit": "count",
+      "importance": 0.00696145273207892,
+      "rank": 34
+    },
+    {
+      "name": "has_cancer",
+      "label": "Cancer",
+      "group": "conditions",
+      "description": "1 if a condition in the cancer group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.006817330218376289,
+      "rank": 35
+    },
+    {
+      "name": "new_chronic_groups_12m",
+      "label": "New chronic condition groups",
+      "group": "conditions",
+      "description": "Chronic condition groups active on the index date that were not active 12 months earlier.",
+      "unit": "count",
+      "importance": 0.006752645672353479,
+      "rank": 36
+    },
+    {
+      "name": "egfr_measured",
+      "label": "eGFR measured",
+      "group": "vitals and labs",
+      "description": "1 if an eGFR result exists in the 24 months before the index date.",
+      "unit": "0/1",
+      "importance": 0.004918509543446289,
+      "rank": 37
+    },
+    {
+      "name": "payer_private",
+      "label": "Private insurance",
+      "group": "demographics",
+      "description": "1 if the most recent coverage period that started before the index date is a private payer.",
+      "unit": "0/1",
+      "importance": 0.004893702133808329,
+      "rank": 38
+    },
+    {
+      "name": "has_chronic_pain",
+      "label": "Chronic pain",
+      "group": "conditions",
+      "description": "1 if a condition in the chronic pain group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.004869076218783134,
+      "rank": 39
+    },
+    {
+      "name": "inpatient_days_13_24m",
+      "label": "Inpatient days, months 13 to 24",
+      "group": "utilization",
+      "description": "Days in hospital for inpatient stays that started in months 13 to 24 before the index date.",
+      "unit": "days",
+      "importance": 0.003142671359813244,
+      "rank": 40
+    },
+    {
+      "name": "has_asthma",
+      "label": "Asthma",
+      "group": "conditions",
+      "description": "1 if a condition in the asthma group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.003055738501646089,
+      "rank": 41
+    },
+    {
+      "name": "inpatient_admits_12m",
+      "label": "Inpatient admissions, last 12 months",
+      "group": "utilization",
+      "description": "Inpatient encounters that started in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.0030544203707445748,
+      "rank": 42
+    },
+    {
+      "name": "has_prediabetes",
+      "label": "Prediabetes",
+      "group": "conditions",
+      "description": "1 if a condition in the prediabetes group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0030435453818317836,
+      "rank": 43
+    },
+    {
+      "name": "inpatient_days_12m",
+      "label": "Inpatient days, last 12 months",
+      "group": "utilization",
+      "description": "Days in hospital for inpatient stays that started in the 12 months before the index date, counted up to the index date. A stay counts as at least 1 day.",
+      "unit": "days",
+      "importance": 0.0028602097823383172,
+      "rank": 44
+    },
+    {
+      "name": "other_visits_12m",
+      "label": "Other encounters, last 12 months",
+      "group": "utilization",
+      "description": "Skilled nursing, hospice, home and virtual encounters in the 12 months before the index date.",
+      "unit": "count",
+      "importance": 0.002644262363556135,
+      "rank": 45
+    },
+    {
+      "name": "has_substance_use",
+      "label": "Substance use",
+      "group": "conditions",
+      "description": "1 if a condition in the substance use group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0024173967437516103,
+      "rank": 46
+    },
+    {
+      "name": "payer_medicaid",
+      "label": "Medicaid",
+      "group": "demographics",
+      "description": "1 if the most recent coverage period that started before the index date is Medicaid.",
+      "unit": "0/1",
+      "importance": 0.0022420705765650137,
+      "rank": 47
+    },
+    {
+      "name": "inpatient_admits_13_24m",
+      "label": "Inpatient admissions, months 13 to 24",
+      "group": "utilization",
+      "description": "Inpatient encounters that started in months 13 to 24 before the index date.",
+      "unit": "count",
+      "importance": 0.0019890374177437575,
+      "rank": 48
+    },
+    {
+      "name": "cholesterol_measured",
+      "label": "Cholesterol measured",
+      "group": "vitals and labs",
+      "description": "1 if a total cholesterol result exists in the 24 months before the index date.",
+      "unit": "0/1",
+      "importance": 0.001559838729376038,
+      "rank": 49
+    },
+    {
+      "name": "has_anxiety",
+      "label": "Anxiety",
+      "group": "conditions",
+      "description": "1 if a condition in the anxiety group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0014523031506504342,
+      "rank": 50
+    },
+    {
+      "name": "payer_dual_eligible",
+      "label": "Dual eligible",
+      "group": "demographics",
+      "description": "1 if the most recent coverage period that started before the index date is Medicare and Medicaid together.",
+      "unit": "0/1",
+      "importance": 0.0012241340967434294,
+      "rank": 51
+    },
+    {
+      "name": "payer_medicare",
+      "label": "Medicare",
+      "group": "demographics",
+      "description": "1 if the most recent coverage period that started before the index date is Medicare.",
+      "unit": "0/1",
+      "importance": 0.0009646305175322783,
+      "rank": 52
+    },
+    {
+      "name": "has_hypertension",
+      "label": "Hypertension",
+      "group": "conditions",
+      "description": "1 if a condition in the hypertension group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0005420104824228415,
+      "rank": 53
+    },
+    {
+      "name": "has_dementia",
+      "label": "Dementia",
+      "group": "conditions",
+      "description": "1 if a condition in the dementia group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0005008015925609087,
+      "rank": 54
+    },
+    {
+      "name": "payer_uninsured",
+      "label": "Uninsured",
+      "group": "demographics",
+      "description": "1 if the most recent coverage period that started before the index date is no insurance.",
+      "unit": "0/1",
+      "importance": 0.0004448559737992346,
+      "rank": 55
+    },
+    {
+      "name": "has_osteoarthritis",
+      "label": "Osteoarthritis",
+      "group": "conditions",
+      "description": "1 if a condition in the osteoarthritis group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.00030740672974471385,
+      "rank": 56
+    },
+    {
+      "name": "has_depression",
+      "label": "Depression",
+      "group": "conditions",
+      "description": "1 if a condition in the depression group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.00022917407086721746,
+      "rank": 57
+    },
+    {
+      "name": "has_atrial_fibrillation",
+      "label": "Atrial fibrillation",
+      "group": "conditions",
+      "description": "1 if a condition in the atrial fibrillation group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0,
+      "rank": 58
+    },
+    {
+      "name": "has_stroke",
+      "label": "Stroke",
+      "group": "conditions",
+      "description": "1 if a condition in the stroke group was active on the index date (onset before the index date).",
+      "unit": "0/1",
+      "importance": 0.0,
+      "rank": 59
+    }
+  ],
+  "dependence": [
+    {
+      "feature": "sex_female",
+      "label": "Female",
+      "unit": "0/1",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.6195127103215162,
+          "n": 9160
+        },
+        {
+          "x": 1.0,
+          "mean_contrib": 0.5764276214691801,
+          "n": 9453
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "age",
+      "label": "Age",
+      "unit": "years",
+      "points": [
+        {
+          "x": 20.0,
+          "mean_contrib": 0.09187591004317704,
+          "n": 1290
+        },
+        {
+          "x": 24.0,
+          "mean_contrib": 0.20370672557533703,
+          "n": 1572
+        },
+        {
+          "x": 29.0,
+          "mean_contrib": 0.29227138187823354,
+          "n": 1730
+        },
+        {
+          "x": 35.0,
+          "mean_contrib": -0.02030481032757545,
+          "n": 1424
+        },
+        {
+          "x": 40.0,
+          "mean_contrib": -0.20469680792343406,
+          "n": 1478
+        },
+        {
+          "x": 45.0,
+          "mean_contrib": -0.12005017098642586,
+          "n": 1504
+        },
+        {
+          "x": 50.0,
+          "mean_contrib": -0.18082345170643424,
+          "n": 1783
+        },
+        {
+          "x": 55.0,
+          "mean_contrib": -0.16541446092086734,
+          "n": 1427
+        },
+        {
+          "x": 59.0,
+          "mean_contrib": -0.07881235247860874,
+          "n": 1651
+        },
+        {
+          "x": 64.0,
+          "mean_contrib": 0.19305539339539476,
+          "n": 1477
+        },
+        {
+          "x": 70.0,
+          "mean_contrib": 0.1830108528572579,
+          "n": 1607
+        },
+        {
+          "x": 81.0,
+          "mean_contrib": -0.1347550086270371,
+          "n": 1670
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "cost_prior_12m",
+      "label": "Cost, last 12 months",
+      "unit": "USD",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.14790559265294076,
+          "n": 3102
+        },
+        {
+          "x": 1203.98,
+          "mean_contrib": -0.20287464165105656,
+          "n": 1551
+        },
+        {
+          "x": 1846.47,
+          "mean_contrib": -0.20278623086467107,
+          "n": 1551
+        },
+        {
+          "x": 4072.88,
+          "mean_contrib": -0.1981702300388269,
+          "n": 1551
+        },
+        {
+          "x": 4888.22,
+          "mean_contrib": -0.18956199768890247,
+          "n": 1551
+        },
+        {
+          "x": 5866.28,
+          "mean_contrib": -0.17708019667358949,
+          "n": 1551
+        },
+        {
+          "x": 7605.28,
+          "mean_contrib": -0.1675132791294771,
+          "n": 1551
+        },
+        {
+          "x": 10911.78,
+          "mean_contrib": -0.14439175657663614,
+          "n": 1551
+        },
+        {
+          "x": 17029.87,
+          "mean_contrib": -0.06892063622846376,
+          "n": 1551
+        },
+        {
+          "x": 29142.21,
+          "mean_contrib": 0.28311402650043505,
+          "n": 1551
+        },
+        {
+          "x": 90464.975,
+          "mean_contrib": 1.1742009533602153,
+          "n": 1552
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "procedures_12m",
+      "label": "Procedures, last 12 months",
+      "unit": "count",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.059403055184441736,
+          "n": 3091
+        },
+        {
+          "x": 4.0,
+          "mean_contrib": -0.07937351006241472,
+          "n": 792
+        },
+        {
+          "x": 6.0,
+          "mean_contrib": -0.08325469093794367,
+          "n": 2099
+        },
+        {
+          "x": 7.0,
+          "mean_contrib": -0.08278824947506677,
+          "n": 1679
+        },
+        {
+          "x": 10.0,
+          "mean_contrib": -0.07778766143519257,
+          "n": 1182
+        },
+        {
+          "x": 13.0,
+          "mean_contrib": -0.07561302395376934,
+          "n": 1511
+        },
+        {
+          "x": 14.0,
+          "mean_contrib": -0.07074530482904577,
+          "n": 1823
+        },
+        {
+          "x": 17.0,
+          "mean_contrib": -0.06908215581188598,
+          "n": 1745
+        },
+        {
+          "x": 21.0,
+          "mean_contrib": -0.03908844186721146,
+          "n": 1556
+        },
+        {
+          "x": 31.0,
+          "mean_contrib": 0.1539003003796748,
+          "n": 1579
+        },
+        {
+          "x": 70.0,
+          "mean_contrib": 0.4993374105868185,
+          "n": 1556
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "cost_prior_13_24m",
+      "label": "Cost, months 13 to 24",
+      "unit": "USD",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.17502999234148856,
+          "n": 3074
+        },
+        {
+          "x": 1178.51,
+          "mean_contrib": -0.061935507252438314,
+          "n": 1579
+        },
+        {
+          "x": 1801.55,
+          "mean_contrib": -0.034899730047610295,
+          "n": 1551
+        },
+        {
+          "x": 4010.54,
+          "mean_contrib": -0.015999726475815705,
+          "n": 1550
+        },
+        {
+          "x": 4870.77,
+          "mean_contrib": -0.02535724417502313,
+          "n": 1552
+        },
+        {
+          "x": 5795.3,
+          "mean_contrib": -0.021452595932823993,
+          "n": 1551
+        },
+        {
+          "x": 7425.63,
+          "mean_contrib": -0.031143046325375876,
+          "n": 1551
+        },
+        {
+          "x": 10722.79,
+          "mean_contrib": -0.01700402051378707,
+          "n": 1551
+        },
+        {
+          "x": 16584.81,
+          "mean_contrib": 0.07318897352163065,
+          "n": 1551
+        },
+        {
+          "x": 28555.09,
+          "mean_contrib": 0.19751687684333272,
+          "n": 1551
+        },
+        {
+          "x": 91804.215,
+          "mean_contrib": 0.2969195897866183,
+          "n": 1552
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "pregnant_at_index",
+      "label": "Pregnant on index date",
+      "unit": "0/1",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.05303777502270469,
+          "n": 18230
+        },
+        {
+          "x": 1.0,
+          "mean_contrib": 1.8886403648932657,
+          "n": 383
+        }
+      ],
+      "missing": null
+    },
+    {
+      "feature": "egfr",
+      "label": "eGFR",
+      "unit": "mL/min/1.73m2",
+      "points": [
+        {
+          "x": 10.3,
+          "mean_contrib": 0.260773075296745,
+          "n": 386
+        },
+        {
+          "x": 35.5,
+          "mean_contrib": 0.5220118308120444,
+          "n": 387
+        },
+        {
+          "x": 62.1,
+          "mean_contrib": 0.21493718759523622,
+          "n": 381
+        },
+        {
+          "x": 68.2,
+          "mean_contrib": 0.11998774494408805,
+          "n": 390
+        },
+        {
+          "x": 72.0,
+          "mean_contrib": 0.08061052898127288,
+          "n": 382
+        },
+        {
+          "x": 76.4,
+          "mean_contrib": 0.08197642979765445,
+          "n": 381
+        },
+        {
+          "x": 80.4,
+          "mean_contrib": 0.10498899378559154,
+          "n": 396
+        },
+        {
+          "x": 84.3,
+          "mean_contrib": 0.09528679180462324,
+          "n": 381
+        },
+        {
+          "x": 87.8,
+          "mean_contrib": 0.1120942351286245,
+          "n": 389
+        },
+        {
+          "x": 99.6,
+          "mean_contrib": 0.12177832120451512,
+          "n": 387
+        },
+        {
+          "x": 123.3,
+          "mean_contrib": 0.12856825276612552,
+          "n": 391
+        },
+        {
+          "x": 146.2,
+          "mean_contrib": 0.21346821733064725,
+          "n": 387
+        }
+      ],
+      "missing": {
+        "mean_contrib": -0.05580647372123043,
+        "n": 13975
+      }
+    },
+    {
+      "feature": "medication_cost_prior_12m",
+      "label": "Medication cost, last 12 months",
+      "unit": "USD",
+      "points": [
+        {
+          "x": 0.0,
+          "mean_contrib": -0.008621102167582015,
+          "n": 6192
+        },
+        {
+          "x": 14.33,
+          "mean_contrib": -0.030134108384831954,
+          "n": 1563
+        },
+        {
+          "x": 176.7,
+          "mean_contrib": -0.04949866755098276,
+          "n": 507
+        },
+        {
+          "x": 250.33,
+          "mean_contrib": -0.04516530500120129,
+          "n": 2594
+        },
+        {
+          "x": 348.36,
+          "mean_contrib": -0.05021198181380847,
+          "n": 1527
+        },
+        {
+          "x": 502.42,
+          "mean_contrib": -0.050288880399466204,
+          "n": 1576
+        },
+        {
+          "x": 751.62,
+          "mean_contrib": -0.04785117917491491,
+          "n": 1551
+        },
+        {
+          "x": 1251.74,
+          "mean_contrib": -0.043277937041202405,
+          "n": 1551
+        },
+        {
+          "x": 3829.795,
+          "mean_contrib": 0.370338737472357,
+          "n": 1552
+        }
+      ],
+      "missing": null
+    }
+  ],
+  "exemplars": [
+    {
+      "id": "19f34a84-2024",
+      "kind": "flagged_right",
+      "title": "Member A, 26-year-old woman, cost, last 12 months: $27,634",
+      "index_year": 2024,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "26"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$27,634"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$791"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "1"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "6"
+        },
+        {
+          "label": "Active medications",
+          "value": "0"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.30128205128205127,
+      "raw": -1.052587054082524,
+      "percentile": 92.18825552033525,
+      "tier": "rising",
+      "y": 1,
+      "cost_next": 155216.32,
+      "rank_prior_pct": 0.13028528447859022,
+      "in_model_top_10": true,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 1.0454768522633648
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "26",
+          "contrib": 0.7135616175334114
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$27,634",
+          "contrib": 0.15323452379251828
+        },
+        {
+          "feature": "has_obesity",
+          "label": "Obesity",
+          "value_display": "no",
+          "contrib": 0.057992217515197404
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "value_display": "$791",
+          "contrib": -0.05650819191275734
+        },
+        {
+          "feature": "pregnant_at_index",
+          "label": "Pregnant on index date",
+          "value_display": "no",
+          "contrib": -0.055874365432699774
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$0",
+          "contrib": 0.055000320434460966
+        },
+        {
+          "feature": "bmi",
+          "label": "Body mass index",
+          "value_display": "23",
+          "contrib": 0.049968440975951045
+        }
+      ],
+      "other_contrib": 0.02082612078089152,
+      "row": [
+        26.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        27634.49,
+        791.13,
+        26843.36,
+        0.0,
+        20145.29,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        null,
+        14.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        103.0,
+        87.0,
+        null,
+        null,
+        null,
+        3.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "e3d5826d-2024",
+      "kind": "flagged_right",
+      "title": "Member B, 64-year-old man, eGFR: 49.7",
+      "index_year": 2024,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "64"
+        },
+        {
+          "label": "Sex",
+          "value": "Male"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$24,604"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$18,914"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "6"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "8"
+        },
+        {
+          "label": "Active medications",
+          "value": "5"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.36231884057971014,
+      "raw": -0.5965152816163681,
+      "percentile": 94.28356525009403,
+      "tier": "high",
+      "y": 1,
+      "cost_next": 53404.62,
+      "rank_prior_pct": 0.1466179551926073,
+      "in_model_top_10": true,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "64",
+          "contrib": 0.9917236815906367
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "49.7",
+          "contrib": 0.42004938985012363
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "69",
+          "contrib": 0.37121979435841235
+        },
+        {
+          "feature": "has_chronic_kidney_disease",
+          "label": "Chronic kidney disease",
+          "value_display": "yes",
+          "contrib": 0.34611878944525976
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$2,694",
+          "contrib": 0.2999737651270639
+        },
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "no",
+          "contrib": -0.2673598642560076
+        },
+        {
+          "feature": "diastolic_bp",
+          "label": "Diastolic blood pressure",
+          "value_display": "107",
+          "contrib": 0.16291356044013322
+        },
+        {
+          "feature": "hba1c",
+          "label": "HbA1c",
+          "value_display": "3",
+          "contrib": 0.1179512505282796
+        }
+      ],
+      "other_contrib": -0.0028410586674061378,
+      "row": [
+        64.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        24604.22,
+        18913.87,
+        5690.35,
+        2694.14,
+        5684.42,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        7.0,
+        null,
+        69.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        6.0,
+        0.0,
+        0.0,
+        5.0,
+        3.0,
+        30.0,
+        129.0,
+        107.0,
+        3.0,
+        49.7,
+        163.9,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "2027a6d3-2025",
+      "kind": "flagged_right",
+      "title": "Member C, 60-year-old woman, cost, last 12 months: $57,001",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "60"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$57,001"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$69,290"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "8"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "20"
+        },
+        {
+          "label": "Active medications",
+          "value": "8"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.9591836734693877,
+      "raw": 2.5593748997676853,
+      "percentile": 98.44732176435824,
+      "tier": "high",
+      "y": 1,
+      "cost_next": 72390.52,
+      "rank_prior_pct": 0.07236877451243755,
+      "in_model_top_10": true,
+      "in_prior_top_10": true,
+      "contribs": [
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$57,001",
+          "contrib": 1.2179512051628814
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "122",
+          "contrib": 1.2122455508884689
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$12,818",
+          "contrib": 0.6153012482710709
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "50.5",
+          "contrib": 0.42067785751865094
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "value_display": "$69,290",
+          "contrib": 0.3399910729116931
+        },
+        {
+          "feature": "urgent_care_visits_12m",
+          "label": "Urgent care visits, last 12 months",
+          "value_display": "16",
+          "contrib": 0.31716896401660666
+        },
+        {
+          "feature": "has_chronic_kidney_disease",
+          "label": "Chronic kidney disease",
+          "value_display": "yes",
+          "contrib": 0.2789684150943237
+        },
+        {
+          "feature": "chronic_group_count",
+          "label": "Chronic condition groups",
+          "value_display": "8",
+          "contrib": 0.26546310116956184
+        }
+      ],
+      "other_contrib": 0.9278720747672908,
+      "row": [
+        60.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        57001.46,
+        69289.77,
+        -12288.31,
+        12818.38,
+        5684.42,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        16.0,
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        16.0,
+        27.0,
+        122.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        8.0,
+        0.0,
+        0.0,
+        8.0,
+        4.0,
+        27.6,
+        129.0,
+        81.0,
+        2.4,
+        50.5,
+        189.3,
+        3.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "fc9b326c-2025",
+      "kind": "flagged_right",
+      "title": "Member D, 29-year-old woman, pregnant on index date: yes",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "29"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$134,898"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$91,980"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "0"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "8"
+        },
+        {
+          "label": "Active medications",
+          "value": "2"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "yes"
+        }
+      ],
+      "p": 0.9358974358974359,
+      "raw": 1.4299665750314354,
+      "percentile": 96.76570139150057,
+      "tier": "high",
+      "y": 1,
+      "cost_next": 51685.43,
+      "rank_prior_pct": 0.01627894482351045,
+      "in_model_top_10": true,
+      "in_prior_top_10": true,
+      "contribs": [
+        {
+          "feature": "pregnant_at_index",
+          "label": "Pregnant on index date",
+          "value_display": "yes",
+          "contrib": 1.8474557934052362
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$134,898",
+          "contrib": 1.092017449631056
+        },
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 0.48190193898306005
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "29",
+          "contrib": 0.4348499578073217
+        },
+        {
+          "feature": "cost_change_12m",
+          "label": "Cost change, year over year",
+          "value_display": "$42,919",
+          "contrib": 0.23148265279316999
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "value_display": "$91,980",
+          "contrib": 0.157586786942233
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "value_display": "$46,113",
+          "contrib": 0.14573750873079477
+        },
+        {
+          "feature": "emergency_visits_12m",
+          "label": "Emergency visits, last 12 months",
+          "value_display": "1",
+          "contrib": 0.11835649812055885
+        }
+      ],
+      "other_contrib": -0.043157421349127034,
+      "row": [
+        29.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        134898.47,
+        91979.7,
+        42918.77,
+        117.8,
+        46113.26,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        8.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        8.0,
+        null,
+        39.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        1.0,
+        28.7,
+        111.0,
+        79.0,
+        null,
+        null,
+        null,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "8bee5a5d-2025",
+      "kind": "flagged_wrong",
+      "title": "Member E, 32-year-old woman, cost, months 13 to 24: $150,355",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "32"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$3,922"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$150,355"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "1"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "2"
+        },
+        {
+          "label": "Active medications",
+          "value": "0"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.3333333333333333,
+      "raw": -0.6879835180290971,
+      "percentile": 94.07403427711814,
+      "tier": "rising",
+      "y": 0,
+      "cost_next": 1999.47,
+      "rank_prior_pct": 0.6355772846934938,
+      "in_model_top_10": true,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 1.044182876509591
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "32",
+          "contrib": 0.784303766739815
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "value_display": "$150,355",
+          "contrib": 0.4115841841474265
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$3,922",
+          "contrib": -0.1286218856713131
+        },
+        {
+          "feature": "active_medications",
+          "label": "Active medications",
+          "value_display": "0",
+          "contrib": 0.10837541481091825
+        },
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "value_display": "11",
+          "contrib": 0.0802511843011849
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "8",
+          "contrib": -0.07687463078286566
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$0",
+          "contrib": 0.060923458368718784
+        }
+      ],
+      "other_contrib": 0.06415670358029013,
+      "row": [
+        32.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3921.65,
+        150354.74,
+        -146433.09,
+        0.0,
+        2875.22,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        11.0,
+        null,
+        8.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        30.4,
+        127.0,
+        70.0,
+        null,
+        null,
+        174.5,
+        3.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "ffb29818-2024",
+      "kind": "flagged_wrong",
+      "title": "Member F, 64-year-old man, eGFR: 40.7",
+      "index_year": 2024,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "64"
+        },
+        {
+          "label": "Sex",
+          "value": "Male"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$18,375"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$9,411"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "5"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "5"
+        },
+        {
+          "label": "Active medications",
+          "value": "2"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.30128205128205127,
+      "raw": -1.066130262953667,
+      "percentile": 92.05394079406865,
+      "tier": "rising",
+      "y": 0,
+      "cost_next": 26274.95,
+      "rank_prior_pct": 0.19421909418148606,
+      "in_model_top_10": true,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "64",
+          "contrib": 1.0771572625995967
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "40.7",
+          "contrib": 0.4938308467945952
+        },
+        {
+          "feature": "has_chronic_kidney_disease",
+          "label": "Chronic kidney disease",
+          "value_display": "yes",
+          "contrib": 0.2851547828031783
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$3,530",
+          "contrib": 0.2589099041738622
+        },
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "no",
+          "contrib": -0.22741336392772013
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$18,375",
+          "contrib": -0.20513116422300237
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "49",
+          "contrib": 0.16777725715438974
+        },
+        {
+          "feature": "pregnant_at_index",
+          "label": "Pregnant on index date",
+          "value_display": "no",
+          "contrib": -0.07093790078002284
+        }
+      ],
+      "other_contrib": 0.19078670248432106,
+      "row": [
+        64.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        18375.43,
+        9410.88,
+        8964.55,
+        3530.04,
+        3811.62,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0,
+        null,
+        49.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        2.0,
+        3.0,
+        27.8,
+        138.0,
+        79.0,
+        3.0,
+        40.7,
+        null,
+        3.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "8e358a6e-2025",
+      "kind": "missed",
+      "title": "Member G, 64-year-old woman, outpatient visits, last 12 months: 36",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "64"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$55,593"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$10,092"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "4"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "3"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "36"
+        },
+        {
+          "label": "Active medications",
+          "value": "10"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.13114754098360656,
+      "raw": -1.762145270928869,
+      "percentile": 83.0387363670553,
+      "tier": "rising",
+      "y": 1,
+      "cost_next": 66701.18,
+      "rank_prior_pct": 0.07392682533712996,
+      "in_model_top_10": false,
+      "in_prior_top_10": true,
+      "contribs": [
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "value_display": "36",
+          "contrib": 0.737581537933619
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$55,593",
+          "contrib": 0.5553905334177757
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "64",
+          "contrib": 0.3396253587068853
+        },
+        {
+          "feature": "months_since_last_inpatient",
+          "label": "Months since last inpatient stay",
+          "value_display": "6",
+          "contrib": -0.33408960696111434
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$2,400",
+          "contrib": 0.22392559752425586
+        },
+        {
+          "feature": "cost_change_12m",
+          "label": "Cost change, year over year",
+          "value_display": "$45,501",
+          "contrib": 0.18400490226877056
+        },
+        {
+          "feature": "pregnant_at_index",
+          "label": "Pregnant on index date",
+          "value_display": "no",
+          "contrib": -0.17513783786996706
+        },
+        {
+          "feature": "inpatient_cost_share_12m",
+          "label": "Inpatient share of cost",
+          "value_display": "22%",
+          "contrib": -0.1526829886422095
+        }
+      ],
+      "other_contrib": -0.10449817727402033,
+      "row": [
+        64.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        55593.38,
+        10092.16,
+        45501.22,
+        2400.22,
+        11570.84,
+        0.22,
+        3.0,
+        7.0,
+        2.0,
+        0.0,
+        36.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        6.0,
+        57.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        4.0,
+        0.0,
+        0.0,
+        10.0,
+        13.0,
+        27.4,
+        102.0,
+        56.0,
+        5.6,
+        68.6,
+        177.5,
+        2.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "8e76b9c0-2025",
+      "kind": "missed",
+      "title": "Member H, 74-year-old woman, chronic kidney disease: yes",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "74"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$4,640"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$3,960"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "4"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "2"
+        },
+        {
+          "label": "Active medications",
+          "value": "5"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.09448818897637795,
+      "raw": -2.3131978167678695,
+      "percentile": 74.97448020200935,
+      "tier": "routine",
+      "y": 1,
+      "cost_next": 42828.11,
+      "rank_prior_pct": 0.5696018911513459,
+      "in_model_top_10": false,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "74",
+          "contrib": 0.4499565094819382
+        },
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 0.33107335308804176
+        },
+        {
+          "feature": "has_chronic_kidney_disease",
+          "label": "Chronic kidney disease",
+          "value_display": "yes",
+          "contrib": 0.19460098545827145
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$4,640",
+          "contrib": -0.17134708093342446
+        },
+        {
+          "feature": "has_diabetes",
+          "label": "Diabetes",
+          "value_display": "yes",
+          "contrib": 0.10330030238755619
+        },
+        {
+          "feature": "pain_score",
+          "label": "Pain score",
+          "value_display": "0",
+          "contrib": -0.09712547775139371
+        },
+        {
+          "feature": "total_cholesterol",
+          "label": "Total cholesterol",
+          "value_display": "203.4",
+          "contrib": -0.09015377939341393
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "68.2",
+          "contrib": 0.06729798678191262
+        }
+      ],
+      "other_contrib": -0.0645360258544947,
+      "row": [
+        74.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4640.06,
+        3959.92,
+        680.14,
+        268.36,
+        3343.42,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        null,
+        14.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        0.0,
+        0.0,
+        5.0,
+        5.0,
+        30.1,
+        116.0,
+        68.0,
+        null,
+        68.2,
+        203.4,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "6bd9ae82-2025",
+      "kind": "routine",
+      "title": "Member I, 47-year-old woman, cost, last 12 months: $8,606",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "47"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$8,606"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$11,899"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "1"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "4"
+        },
+        {
+          "label": "Active medications",
+          "value": "0"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.0718232044198895,
+      "raw": -2.5939591399956146,
+      "percentile": 70.12840487831086,
+      "tier": "routine",
+      "y": 0,
+      "cost_next": 9877.29,
+      "rank_prior_pct": 0.3465319937677967,
+      "in_model_top_10": false,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 0.7500203404436491
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$8,606",
+          "contrib": -0.1351005137836421
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "47",
+          "contrib": -0.08383552701209152
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "4",
+          "contrib": -0.07459498540730096
+        },
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "value_display": "4",
+          "contrib": 0.04940347483895349
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "value_display": "4",
+          "contrib": 0.04709578096981796
+        },
+        {
+          "feature": "diastolic_bp",
+          "label": "Diastolic blood pressure",
+          "value_display": "79",
+          "contrib": 0.04576666668636269
+        },
+        {
+          "feature": "pregnant_at_index",
+          "label": "Pregnant on index date",
+          "value_display": "no",
+          "contrib": -0.043836177022731834
+        }
+      ],
+      "other_contrib": -0.11261360967576811,
+      "row": [
+        47.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        8605.5,
+        11899.0,
+        -3293.5,
+        0.0,
+        4558.91,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        null,
+        4.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        29.4,
+        110.0,
+        79.0,
+        null,
+        null,
+        171.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "3c50fad0-2024",
+      "kind": "routine",
+      "title": "Member J, 73-year-old woman, cost, last 12 months: $888",
+      "index_year": 2024,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "73"
+        },
+        {
+          "label": "Sex",
+          "value": "Female"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$888"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$966"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "5"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Active medications",
+          "value": "11"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.0281214848143982,
+      "raw": -3.2007102049400133,
+      "percentile": 52.119486380486755,
+      "tier": "routine",
+      "y": 0,
+      "cost_next": 1876.29,
+      "rank_prior_pct": 0.8565518723472841,
+      "in_model_top_10": false,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "yes",
+          "contrib": 0.38585180977066136
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$888",
+          "contrib": -0.17344948364267285
+        },
+        {
+          "feature": "has_chronic_kidney_disease",
+          "label": "Chronic kidney disease",
+          "value_display": "yes",
+          "contrib": 0.17312064932740204
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "73",
+          "contrib": -0.15197143197190205
+        },
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "value_display": "0",
+          "contrib": -0.09441040260650611
+        },
+        {
+          "feature": "cost_prior_13_24m",
+          "label": "Cost, months 13 to 24",
+          "value_display": "$966",
+          "contrib": -0.07129230275569906
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "118",
+          "contrib": 0.06817146877512904
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "4",
+          "contrib": -0.06707486678784784
+        }
+      ],
+      "other_contrib": -0.2333910550157121,
+      "row": [
+        73.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        888.19,
+        965.79,
+        -77.6,
+        3.53,
+        884.66,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        4.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        11.0,
+        2.0,
+        29.8,
+        114.0,
+        74.0,
+        null,
+        118.0,
+        null,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "425f361c-2025",
+      "kind": "routine",
+      "title": "Member K, 58-year-old man, months since last inpatient stay: 14",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "58"
+        },
+        {
+          "label": "Sex",
+          "value": "Male"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$5,842"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$4,950"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "3"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "9"
+        },
+        {
+          "label": "Active medications",
+          "value": "1"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.016241299303944315,
+      "raw": -3.67788440738626,
+      "percentile": 34.4866491162091,
+      "tier": "routine",
+      "y": 0,
+      "cost_next": 2880.46,
+      "rank_prior_pct": 0.4596249932842637,
+      "in_model_top_10": false,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "no",
+          "contrib": -0.281793639428643
+        },
+        {
+          "feature": "months_since_last_inpatient",
+          "label": "Months since last inpatient stay",
+          "value_display": "14",
+          "contrib": -0.20872486920287237
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "71.7",
+          "contrib": 0.14938542434637528
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$5,842",
+          "contrib": -0.14729154912782347
+        },
+        {
+          "feature": "max_encounter_cost_12m",
+          "label": "Largest single encounter cost",
+          "value_display": "$1,347",
+          "contrib": 0.10938083097068252
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "13",
+          "contrib": -0.1043147107930554
+        },
+        {
+          "feature": "outpatient_visits_12m",
+          "label": "Outpatient visits, last 12 months",
+          "value_display": "9",
+          "contrib": 0.06103114606605994
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "58",
+          "contrib": 0.06086520955415688
+        }
+      ],
+      "other_contrib": -0.2801576597382785,
+      "row": [
+        58.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        5842.4,
+        4950.31,
+        892.09,
+        0.58,
+        1346.84,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        9.0,
+        1.0,
+        0.0,
+        1.0,
+        5.0,
+        0.0,
+        3.0,
+        14.0,
+        13.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        3.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        28.1,
+        134.0,
+        71.0,
+        null,
+        71.7,
+        206.7,
+        2.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "id": "e90c5ef6-2025",
+      "kind": "routine",
+      "title": "Member L, 45-year-old man, cost, last 12 months: $7,605",
+      "index_year": 2025,
+      "facts": [
+        {
+          "label": "Age",
+          "value": "45"
+        },
+        {
+          "label": "Sex",
+          "value": "Male"
+        },
+        {
+          "label": "Cost, last 12 months",
+          "value": "$7,605"
+        },
+        {
+          "label": "Cost, months 13 to 24",
+          "value": "$1,867"
+        },
+        {
+          "label": "Chronic condition groups",
+          "value": "2"
+        },
+        {
+          "label": "Inpatient admissions, last 12 months",
+          "value": "0"
+        },
+        {
+          "label": "Outpatient visits, last 12 months",
+          "value": "1"
+        },
+        {
+          "label": "Active medications",
+          "value": "4"
+        },
+        {
+          "label": "Pregnant on index date",
+          "value": "no"
+        }
+      ],
+      "p": 0.005937234944868533,
+      "raw": -4.540846796792572,
+      "percentile": 17.17616719497126,
+      "tier": "routine",
+      "y": 0,
+      "cost_next": 4880.06,
+      "rank_prior_pct": 0.37506044162681995,
+      "in_model_top_10": false,
+      "in_prior_top_10": false,
+      "contribs": [
+        {
+          "feature": "sex_female",
+          "label": "Female",
+          "value_display": "no",
+          "contrib": -0.6632736044463624
+        },
+        {
+          "feature": "cost_prior_12m",
+          "label": "Cost, last 12 months",
+          "value_display": "$7,605",
+          "contrib": -0.19148564268932733
+        },
+        {
+          "feature": "age",
+          "label": "Age",
+          "value_display": "45",
+          "contrib": -0.11141546032930659
+        },
+        {
+          "feature": "outpatient_visits_13_24m",
+          "label": "Outpatient visits, months 13 to 24",
+          "value_display": "0",
+          "contrib": -0.08890725875928795
+        },
+        {
+          "feature": "procedures_12m",
+          "label": "Procedures, last 12 months",
+          "value_display": "18",
+          "contrib": -0.07939437110451344
+        },
+        {
+          "feature": "egfr",
+          "label": "eGFR",
+          "value_display": "not recorded",
+          "contrib": -0.07591876776490686
+        },
+        {
+          "feature": "systolic_bp",
+          "label": "Systolic blood pressure",
+          "value_display": "103",
+          "contrib": -0.06118117328137956
+        },
+        {
+          "feature": "medication_cost_prior_12m",
+          "label": "Medication cost, last 12 months",
+          "value_display": "$517",
+          "contrib": -0.05694094370340161
+        }
+      ],
+      "other_contrib": -0.17606498468121656,
+      "row": [
+        45.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        7604.93,
+        1866.9,
+        5738.03,
+        516.64,
+        5216.22,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        null,
+        18.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        0.0,
+        4.0,
+        4.0,
+        24.1,
+        103.0,
+        87.0,
+        6.0,
+        null,
+        null,
+        3.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

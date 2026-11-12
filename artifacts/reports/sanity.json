@@ -1,0 +1,347 @@
+{
+  "shuffled_labels": {
+    "what": "Same pipeline with the training and tune labels shuffled. A value far from 0.5 would mean information reaches the test score some other way.",
+    "test_auroc": 0.4858016905084869,
+    "pass": true
+  },
+  "no_prior_cost_features": {
+    "what": "Model refit without the prior cost group, to show what the other features carry on their own.",
+    "dropped": [
+      "cost_prior_12m",
+      "cost_prior_13_24m",
+      "cost_change_12m",
+      "medication_cost_prior_12m",
+      "max_encounter_cost_12m",
+      "inpatient_cost_share_12m"
+    ],
+    "n_trees": 131,
+    "auroc": 0.8864023935227027,
+    "auprc": 0.629172294048895,
+    "recall_at_10": 0.5615260612573885,
+    "recall_at_10_ci": {
+      "v": 0.5615260612573885,
+      "lo": 0.5414889241094668,
+      "hi": 0.5795704955886408
+    }
+  },
+  "single_feature_auroc": {
+    "what": "AUROC of each feature alone. Above 0.98 would be a leak signal.",
+    "max": {
+      "feature": "cost_prior_12m",
+      "auroc": 0.7697357557248854
+    },
+    "pass": true,
+    "all": [
+      {
+        "feature": "cost_prior_12m",
+        "auroc_train": 0.7628690596814508,
+        "auroc_test": 0.7697357557248854
+      },
+      {
+        "feature": "outpatient_visits_12m",
+        "auroc_train": 0.73390109622239,
+        "auroc_test": 0.7551191366084208
+      },
+      {
+        "feature": "procedures_12m",
+        "auroc_train": 0.7313388880200881,
+        "auroc_test": 0.7341485639736264
+      },
+      {
+        "feature": "outpatient_visits_13_24m",
+        "auroc_train": 0.7011505538809643,
+        "auroc_test": 0.7234940500660263
+      },
+      {
+        "feature": "cost_prior_13_24m",
+        "auroc_train": 0.7054832243780054,
+        "auroc_test": 0.7111851907165992
+      },
+      {
+        "feature": "max_encounter_cost_12m",
+        "auroc_train": 0.69663387705391,
+        "auroc_test": 0.6932808908234012
+      },
+      {
+        "feature": "medication_cost_prior_12m",
+        "auroc_train": 0.633313705750355,
+        "auroc_test": 0.6384844149272223
+      },
+      {
+        "feature": "has_chronic_kidney_disease",
+        "auroc_train": 0.620853132104616,
+        "auroc_test": 0.6326407664333037
+      },
+      {
+        "feature": "has_diabetes",
+        "auroc_train": 0.6102650510927167,
+        "auroc_test": 0.621451825973958
+      },
+      {
+        "feature": "sex_female",
+        "auroc_train": 0.6241681032017614,
+        "auroc_test": 0.6199609423716184
+      },
+      {
+        "feature": "hba1c",
+        "auroc_train": 0.5945334532206017,
+        "auroc_test": 0.6096533358019407
+      },
+      {
+        "feature": "urgent_care_visits_12m",
+        "auroc_train": 0.5947734242622917,
+        "auroc_test": 0.602997718847689
+      },
+      {
+        "feature": "egfr",
+        "auroc_train": 0.5875959040280753,
+        "auroc_test": 0.5993925929974693
+      },
+      {
+        "feature": "egfr_measured",
+        "auroc_train": 0.5921001154532503,
+        "auroc_test": 0.5976980396640025
+      },
+      {
+        "feature": "new_medications_12m",
+        "auroc_train": 0.5976513452893173,
+        "auroc_test": 0.5975397742173719
+      },
+      {
+        "feature": "cost_change_12m",
+        "auroc_train": 0.5843664035140763,
+        "auroc_test": 0.5847343866999031
+      },
+      {
+        "feature": "pregnant_at_index",
+        "auroc_train": 0.5819881790376981,
+        "auroc_test": 0.5775274709553716
+      },
+      {
+        "feature": "chronic_group_count",
+        "auroc_train": 0.5675506758369588,
+        "auroc_test": 0.569509276395238
+      },
+      {
+        "feature": "emergency_visits_12m",
+        "auroc_train": 0.5610401555682154,
+        "auroc_test": 0.5649538201057549
+      },
+      {
+        "feature": "emergency_visits_13_24m",
+        "auroc_train": 0.5631345480276745,
+        "auroc_test": 0.5625370162799781
+      },
+      {
+        "feature": "active_medications",
+        "auroc_train": 0.5660475430668785,
+        "auroc_test": 0.5600407429276452
+      },
+      {
+        "feature": "has_hypertension",
+        "auroc_train": 0.5560773825144312,
+        "auroc_test": 0.5588025419470793
+      },
+      {
+        "feature": "payer_private",
+        "auroc_train": 0.5330211449382416,
+        "auroc_test": 0.5384961453029484
+      },
+      {
+        "feature": "bmi",
+        "auroc_train": 0.5245454658173605,
+        "auroc_test": 0.5343723103855493
+      },
+      {
+        "feature": "has_obesity",
+        "auroc_train": 0.525749505796243,
+        "auroc_test": 0.5335905740256315
+      },
+      {
+        "feature": "has_coronary_disease",
+        "auroc_train": 0.5296750766417272,
+        "auroc_test": 0.5271237112304186
+      },
+      {
+        "feature": "payer_medicare",
+        "auroc_train": 0.5259401275897776,
+        "auroc_test": 0.522829902944212
+      },
+      {
+        "feature": "has_cancer",
+        "auroc_train": 0.5225799784524559,
+        "auroc_test": 0.5198844784130293
+      },
+      {
+        "feature": "total_cholesterol",
+        "auroc_train": 0.5222852663337995,
+        "auroc_test": 0.5194599299090003
+      },
+      {
+        "feature": "pain_score",
+        "auroc_train": 0.5421881671220276,
+        "auroc_test": 0.5194453511401528
+      },
+      {
+        "feature": "has_chronic_pain",
+        "auroc_train": 0.5126963795072073,
+        "auroc_test": 0.5185081239507777
+      },
+      {
+        "feature": "has_dementia",
+        "auroc_train": 0.51374212907521,
+        "auroc_test": 0.5177634519855866
+      },
+      {
+        "feature": "has_substance_use",
+        "auroc_train": 0.5110375829214445,
+        "auroc_test": 0.5135671722949375
+      },
+      {
+        "feature": "inpatient_days_12m",
+        "auroc_train": 0.513132355129607,
+        "auroc_test": 0.5128876476994478
+      },
+      {
+        "feature": "inpatient_admits_12m",
+        "auroc_train": 0.513046165736415,
+        "auroc_test": 0.5127899587213949
+      },
+      {
+        "feature": "inpatient_cost_share_12m",
+        "auroc_train": 0.5127897961812761,
+        "auroc_test": 0.5125133309930319
+      },
+      {
+        "feature": "has_prediabetes",
+        "auroc_train": 0.5045822045755209,
+        "auroc_test": 0.5118695235793062
+      },
+      {
+        "feature": "wellness_visits_12m",
+        "auroc_train": 0.51216060230893,
+        "auroc_test": 0.510974316603771
+      },
+      {
+        "feature": "payer_dual_eligible",
+        "auroc_train": 0.5067874294065244,
+        "auroc_test": 0.5103034366247927
+      },
+      {
+        "feature": "months_since_last_inpatient",
+        "auroc_train": 0.5130263826373009,
+        "auroc_test": 0.5096293489959027
+      },
+      {
+        "feature": "other_visits_12m",
+        "auroc_train": 0.5071338657096709,
+        "auroc_test": 0.5080648498280956
+      },
+      {
+        "feature": "has_asthma",
+        "auroc_train": 0.5054697375726694,
+        "auroc_test": 0.5078852374713044
+      },
+      {
+        "feature": "systolic_bp",
+        "auroc_train": 0.5024135456266017,
+        "auroc_test": 0.5075112575681292
+      },
+      {
+        "feature": "payer_medicaid",
+        "auroc_train": 0.5043128783562915,
+        "auroc_test": 0.5070285704094551
+      },
+      {
+        "feature": "has_atrial_fibrillation",
+        "auroc_train": 0.5049221941923475,
+        "auroc_test": 0.5068069859535728
+      },
+      {
+        "feature": "cholesterol_measured",
+        "auroc_train": 0.5055923361262584,
+        "auroc_test": 0.5063969039506442
+      },
+      {
+        "feature": "inpatient_days_13_24m",
+        "auroc_train": 0.5076630184027908,
+        "auroc_test": 0.506156442475033
+      },
+      {
+        "feature": "inpatient_admits_13_24m",
+        "auroc_train": 0.5075305659731273,
+        "auroc_test": 0.5060992340388624
+      },
+      {
+        "feature": "has_heart_failure",
+        "auroc_train": 0.5052700078380132,
+        "auroc_test": 0.5051349182459852
+      },
+      {
+        "feature": "age",
+        "auroc_train": 0.5130635738991942,
+        "auroc_test": 0.5049307994438704
+      },
+      {
+        "feature": "hba1c_measured",
+        "auroc_train": 0.5101938656913466,
+        "auroc_test": 0.5040728172455576
+      },
+      {
+        "feature": "diastolic_bp",
+        "auroc_train": 0.504455752778145,
+        "auroc_test": 0.5039485528879883
+      },
+      {
+        "feature": "new_chronic_groups_12m",
+        "auroc_train": 0.5102884638058255,
+        "auroc_test": 0.5034677742810116
+      },
+      {
+        "feature": "has_copd",
+        "auroc_train": 0.5041439444331444,
+        "auroc_test": 0.5023006387842339
+      },
+      {
+        "feature": "payer_uninsured",
+        "auroc_train": 0.5040192904143519,
+        "auroc_test": 0.5016657646755115
+      },
+      {
+        "feature": "has_stroke",
+        "auroc_train": 0.5007136261743156,
+        "auroc_test": 0.5006270314046889
+      },
+      {
+        "feature": "has_depression",
+        "auroc_train": 0.500411502928188,
+        "auroc_test": 0.5006263577982075
+      },
+      {
+        "feature": "has_osteoarthritis",
+        "auroc_train": 0.5005455542204476,
+        "auroc_test": 0.5005468241186533
+      },
+      {
+        "feature": "has_anxiety",
+        "auroc_train": 0.5005023954789313,
+        "auroc_test": 0.5003603794675506
+      }
+    ]
+  },
+  "split": {
+    "holdout_member_rows_in_fit": 0,
+    "members_in_both_fit_and_holdout": 0,
+    "test_year_rows_in_fit": 0,
+    "years_in_more_than_one_split": 0,
+    "forbidden_columns_in_features": [],
+    "holdout_share_of_members": 0.1951758793969849,
+    "rows_by_role": {
+      "fit": 63671,
+      "test": 18613,
+      "holdout": 15286
+    },
+    "pass": true
+  },
+  "all_pass": true
+}
